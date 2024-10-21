@@ -7,8 +7,6 @@ package lk.novanex.vendingMachine.panel;
 import javax.swing.JLabel;
 import lk.novanex.vendingMachine.gui.Properties;
 
-
-
 /**
  *
  * @author Madusanka
@@ -18,15 +16,15 @@ public class MemberCard extends javax.swing.JPanel {
     /**
      * Creates new form MemberCard
      */
-    public MemberCard(String MainTxt, String subTxt) {
-        initComponents();         
+    public MemberCard() {
+        initComponents();
+
+    }
+
+    public void setUI(String MainTxt, String subTxt) {
         Properties.setMsgTitle(jLabel1, jLabel2, MainTxt, subTxt);
     }
-    
-    
-   
 
-    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always

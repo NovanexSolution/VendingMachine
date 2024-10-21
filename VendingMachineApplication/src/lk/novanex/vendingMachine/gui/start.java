@@ -21,12 +21,12 @@ public class start extends javax.swing.JFrame {
      */
     public start() {
         initComponents();
-        MemberCard mc = new MemberCard("Please wait for the card to be processed.", "Please wait until Card Scanning.");
+        MemberCard mc = new MemberCard();
+        mc.setUI("Please wait for the card to be Test.", "Please wait until Card Scanning.");
         this.add(mc, BorderLayout.CENTER);
         FlatLightLaf.updateUI();
-
-    }
-
+    }   
+       
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
