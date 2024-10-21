@@ -17,8 +17,7 @@ public class start extends javax.swing.JFrame {
      */
     public start() {
         initComponents();
-        Properties p = new Properties();
-        p.setMsgTitle(jLabel1,jLabel2 ,"Ishara Madusanka", "SRI LANKA ");
+      
         
     }
 
