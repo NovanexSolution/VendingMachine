@@ -19,9 +19,19 @@ public class start extends javax.swing.JFrame {
      */
     public start() {
         initComponents();
+<<<<<<< HEAD
+      
+=======
         Properties p = new Properties();
         
+<<<<<<< HEAD
   
+=======
+        
+        
+>>>>>>> 34a5351ab31a980e855e2715566a2acdac929d65
+        
+>>>>>>> ce7fdf8ea445e7841d01629821227f1e68d7aa41
     }
 
     /**
