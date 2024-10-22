@@ -4,7 +4,10 @@
  */
 package lk.novanex.vendingMachine.panel;
 
-
+import javax.swing.ImageIcon;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import lk.novanex.vendingMachine.gui.Properties;
 
 /**
  *
@@ -17,11 +20,31 @@ public class MemberCard extends javax.swing.JPanel {
      */
     public MemberCard() {
         initComponents();
-       
-    }
-   
+        
+         // Load the GIF image using ImageIcon
+         
+         System.out.println("****");
+        // Create a JPanel
+        JPanel panel = new JPanel();
 
-    
+        // Load the GIF image using ImageIcon
+        ImageIcon gifImage = new ImageIcon("src/img/card.gif");
+
+        // Create a JLabel and set the icon to the gifImage
+        JLabel gifLabel = new JLabel(gifImage);
+
+        // Add the JLabel to the JPanel
+        panel.add(gifLabel);
+
+        // Add the JPanel to the JFrame
+        add(panel);
+    }
+
+    public void setUI(String MainTxt, String subTxt) {
+        Properties.setMsgTitle(jLabel1, jLabel2, MainTxt, subTxt);
+
+    }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -35,7 +58,7 @@ public class MemberCard extends javax.swing.JPanel {
         jLabel2 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(245, 245, 245));
-        setPreferredSize(new java.awt.Dimension(1920, 1800));
+        setPreferredSize(new java.awt.Dimension(1920, 1080));
 
         jLabel1.setFont(new java.awt.Font("Poppins", 1, 48)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(41, 41, 41));
@@ -54,14 +77,14 @@ public class MemberCard extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 1167, Short.MAX_VALUE)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 1908, Short.MAX_VALUE)
                     .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(397, Short.MAX_VALUE)
+                .addContainerGap(874, Short.MAX_VALUE)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
