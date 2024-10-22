@@ -1,13 +1,13 @@
-
-
 import com.formdev.flatlaf.FlatLightLaf;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Panel;
 import lk.novanex.vendingMachine.gui.Properties;
 
+
 /**
  *
+ * 
  * @author Madusanka
  */
 public class start extends javax.swing.JFrame {
