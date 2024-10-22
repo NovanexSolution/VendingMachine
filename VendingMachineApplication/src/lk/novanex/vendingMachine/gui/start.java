@@ -1,14 +1,10 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
-package lk.novanex.vendingMachine.gui;
+
 
 import com.formdev.flatlaf.FlatLightLaf;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Panel;
-import lk.novanex.vendingMachine.panel.MemberCard;
+import lk.novanex.vendingMachine.gui.Properties;
 
 /**
  *
@@ -21,12 +17,10 @@ public class start extends javax.swing.JFrame {
      */
     public start() {
         initComponents();
-        MemberCard mc = new MemberCard();
-        mc.setUI("Please wait for the card to be Test.", "Please wait until Card Scanning.");
-        this.add(mc, BorderLayout.CENTER);
-        FlatLightLaf.updateUI();
+
     }   
        
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
