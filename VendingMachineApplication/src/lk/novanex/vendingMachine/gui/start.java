@@ -36,12 +36,10 @@ public class start extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        memberCard1 = new lk.novanex.vendingMachine.panel.MemberCard();
         jPanel1 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setBackground(new java.awt.Color(153, 255, 51));
-        setPreferredSize(new java.awt.Dimension(1920, 1080));
         setResizable(false);
 
         jPanel1.setOpaque(false);
@@ -80,6 +78,5 @@ public class start extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel jPanel1;
-    private lk.novanex.vendingMachine.panel.MemberCard memberCard1;
     // End of variables declaration//GEN-END:variables
 }
