@@ -2,10 +2,11 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
-package lk.novanex.vendingMachine.panel;
+
 
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
+
 import javax.swing.JPanel;
 import lk.novanex.vendingMachine.gui.Properties;
 
@@ -39,11 +40,17 @@ public class MemberCard extends javax.swing.JPanel {
         // Add the JPanel to the JFrame
         add(panel);
     }
+    
+    
+
+    
 
     public void setUI(String MainTxt, String subTxt) {
         Properties.setMsgTitle(jLabel1, jLabel2, MainTxt, subTxt);
 
     }
+
+
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -97,4 +104,5 @@ public class MemberCard extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     // End of variables declaration//GEN-END:variables
+
 }
