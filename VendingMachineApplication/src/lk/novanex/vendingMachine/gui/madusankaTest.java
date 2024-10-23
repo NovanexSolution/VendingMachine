@@ -6,6 +6,8 @@ package lk.novanex.vendingMachine.gui;
 
 import com.formdev.flatlaf.FlatLightLaf;
 import java.awt.Color;
+import javax.swing.JPanel;
+import lk.novanex.vendingMachine.panel.CartItem;
 
 /**
  *
@@ -17,8 +19,11 @@ public class madusankaTest extends javax.swing.JFrame {
      * Creates new form madusankaTest
      */
     public madusankaTest() {
-        initComponents();
-        jPanel1.setBackground(new Color(245, 245, 245));
+        initComponents();        
+//      jPanel1.setBackground(new Color(245, 245, 245));                  
+//      CartItem ci = new CartItem();
+//      jPanel1.add(ci);
+
     }
 
     /**
@@ -30,43 +35,21 @@ public class madusankaTest extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
-        cartItem2 = new lk.novanex.vendingMachine.panel.CartItem();
-        cartItem1 = new lk.novanex.vendingMachine.panel.CartItem();
+        product3 = new lk.novanex.vendingMachine.panel.Product();
+        product7 = new lk.novanex.vendingMachine.panel.Product();
+        product5 = new lk.novanex.vendingMachine.panel.Product();
+        product4 = new lk.novanex.vendingMachine.panel.Product();
+        product6 = new lk.novanex.vendingMachine.panel.Product();
+        product2 = new lk.novanex.vendingMachine.panel.Product();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(cartItem2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(cartItem1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(24, 24, 24)
-                .addComponent(cartItem2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(cartItem1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(115, Short.MAX_VALUE))
-        );
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
+        getContentPane().setLayout(new java.awt.GridLayout(2, 3, 50, 50));
+        getContentPane().add(product3);
+        getContentPane().add(product7);
+        getContentPane().add(product5);
+        getContentPane().add(product4);
+        getContentPane().add(product6);
+        getContentPane().add(product2);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -87,8 +70,11 @@ public class madusankaTest extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private lk.novanex.vendingMachine.panel.CartItem cartItem1;
-    private lk.novanex.vendingMachine.panel.CartItem cartItem2;
-    private javax.swing.JPanel jPanel1;
+    private lk.novanex.vendingMachine.panel.Product product2;
+    private lk.novanex.vendingMachine.panel.Product product3;
+    private lk.novanex.vendingMachine.panel.Product product4;
+    private lk.novanex.vendingMachine.panel.Product product5;
+    private lk.novanex.vendingMachine.panel.Product product6;
+    private lk.novanex.vendingMachine.panel.Product product7;
     // End of variables declaration//GEN-END:variables
 }
