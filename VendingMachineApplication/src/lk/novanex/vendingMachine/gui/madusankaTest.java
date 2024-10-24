@@ -35,21 +35,22 @@ public class madusankaTest extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        product3 = new lk.novanex.vendingMachine.panel.Product();
-        product7 = new lk.novanex.vendingMachine.panel.Product();
-        product5 = new lk.novanex.vendingMachine.panel.Product();
-        product4 = new lk.novanex.vendingMachine.panel.Product();
-        product6 = new lk.novanex.vendingMachine.panel.Product();
-        product2 = new lk.novanex.vendingMachine.panel.Product();
+        frontTopMenu2 = new lk.novanex.vendingMachine.panel.FrontTopMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        getContentPane().setLayout(new java.awt.GridLayout(2, 3, 50, 50));
-        getContentPane().add(product3);
-        getContentPane().add(product7);
-        getContentPane().add(product5);
-        getContentPane().add(product4);
-        getContentPane().add(product6);
-        getContentPane().add(product2);
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(frontTopMenu2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(frontTopMenu2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 650, Short.MAX_VALUE))
+        );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -70,11 +71,6 @@ public class madusankaTest extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private lk.novanex.vendingMachine.panel.Product product2;
-    private lk.novanex.vendingMachine.panel.Product product3;
-    private lk.novanex.vendingMachine.panel.Product product4;
-    private lk.novanex.vendingMachine.panel.Product product5;
-    private lk.novanex.vendingMachine.panel.Product product6;
-    private lk.novanex.vendingMachine.panel.Product product7;
+    private lk.novanex.vendingMachine.panel.FrontTopMenu frontTopMenu2;
     // End of variables declaration//GEN-END:variables
 }
