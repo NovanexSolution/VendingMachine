@@ -67,6 +67,7 @@ public class AccountInfoPanel extends javax.swing.JPanel {
         jPanel4.setBackground(new java.awt.Color(231, 231, 231));
 
         jLabel4.setFont(new java.awt.Font("Poppins", 0, 24)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(41, 41, 41));
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel4.setText("Current Balance");
 
@@ -92,6 +93,7 @@ public class AccountInfoPanel extends javax.swing.JPanel {
         jPanel3.setBackground(new java.awt.Color(231, 231, 231));
 
         jLabel3.setFont(new java.awt.Font("Poppins", 0, 24)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(41, 41, 41));
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel3.setText("Spend Balance");
 

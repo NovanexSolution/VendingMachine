@@ -20,23 +20,23 @@ public class SideCartPanel extends javax.swing.JPanel {
     public SideCartPanel() {
         initComponents();
         jPanel1.setBackground(new Color(255, 255, 255, 0));
-        roundPanel2.setBackground(new Color(217, 217, 217, 60));
-        jPanel2.setBackground(new Color(217, 217, 217, 60));
-        
+        roundPanel2.setBackground(new Color(231, 231, 231));
+        jPanel2.setBackground(new Color(231, 231, 231));
+
         ImageIcon deleteIcon = new ImageIcon("src/img/delete.png");
         jLabel7.setIcon(deleteIcon);
-        
+
         ImageIcon chipsIcon = new ImageIcon("src/img/chips.png");
         jLabel2.setIcon(chipsIcon);
-        
+
         init();
         this.setVisible(true);
     }
 
     private void init() {
         this.putClientProperty(FlatClientProperties.STYLE, "arc:22");
-        this.setBackground(new Color(217, 217, 217, 60));
-        this.setSize(450, 600);
+        this.setBackground(new Color(231, 231, 231));
+        this.setSize(450, 650);
     }
 
     /**
@@ -65,25 +65,27 @@ public class SideCartPanel extends javax.swing.JPanel {
         roundPanel1 = new Componnent.RoundPanel();
         jLabel10 = new javax.swing.JLabel();
 
-        setPreferredSize(new java.awt.Dimension(450, 730));
+        setPreferredSize(new java.awt.Dimension(450, 650));
 
-        jPanel1.setPreferredSize(new java.awt.Dimension(450, 730));
+        jPanel1.setPreferredSize(new java.awt.Dimension(450, 650));
 
-        roundPanel2.setPreferredSize(new java.awt.Dimension(450, 730));
+        roundPanel2.setBackground(new java.awt.Color(231, 231, 231));
+        roundPanel2.setPreferredSize(new java.awt.Dimension(450, 650));
 
         jLabel1.setBackground(new java.awt.Color(41, 41, 41));
         jLabel1.setFont(new java.awt.Font("Poppins", 1, 36)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(41, 41, 41));
         jLabel1.setText("Selected (1)");
 
-        jLabel2.setText("jLabel2");
-
         jLabel3.setFont(new java.awt.Font("Poppins", 0, 22)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(41, 41, 41));
         jLabel3.setText(" Potato Chips");
 
         roundPanel3.setBackground(new java.awt.Color(217, 215, 215));
         roundPanel3.setPreferredSize(new java.awt.Dimension(100, 42));
 
         jLabel5.setFont(new java.awt.Font("Poppins", 1, 24)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(41, 41, 41));
         jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel5.setText("-");
 
@@ -105,6 +107,7 @@ public class SideCartPanel extends javax.swing.JPanel {
         roundPanel4.setPreferredSize(new java.awt.Dimension(100, 42));
 
         jLabel6.setFont(new java.awt.Font("Poppins", 1, 24)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(41, 41, 41));
         jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel6.setText("+");
 
@@ -123,23 +126,25 @@ public class SideCartPanel extends javax.swing.JPanel {
         );
 
         jLabel4.setFont(new java.awt.Font("Poppins", 1, 24)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(41, 41, 41));
         jLabel4.setText("1");
 
-        jLabel7.setText("jLabel7");
         jLabel7.setPreferredSize(new java.awt.Dimension(46, 46));
 
         jLabel8.setFont(new java.awt.Font("Poppins", 1, 32)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(41, 41, 41));
         jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel8.setText("320 LKR");
-        jLabel8.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 0, 1, 0, new java.awt.Color(0, 0, 0)));
+        jLabel8.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 0, 1, 0, new java.awt.Color(41, 41, 41)));
 
         jLabel9.setFont(new java.awt.Font("Poppins", 0, 36)); // NOI18N
+        jLabel9.setForeground(new java.awt.Color(41, 41, 41));
         jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jLabel9.setText("Total");
-        jLabel9.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 0, 1, 0, new java.awt.Color(0, 0, 0)));
+        jLabel9.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 0, 1, 0, new java.awt.Color(41, 41, 41)));
 
-        jPanel2.setBackground(new java.awt.Color(217, 217, 217));
-        jPanel2.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 0, 0, 0, new java.awt.Color(0, 0, 0)));
+        jPanel2.setBackground(new java.awt.Color(231, 231, 231));
+        jPanel2.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 0, 0, 0, new java.awt.Color(41, 41, 41)));
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -193,12 +198,12 @@ public class SideCartPanel extends javax.swing.JPanel {
                                 .addGroup(roundPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(roundPanel2Layout.createSequentialGroup()
                                         .addComponent(roundPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addGap(21, 21, 21)
                                         .addComponent(jLabel4)
-                                        .addGap(12, 12, 12)
+                                        .addGap(21, 21, 21)
                                         .addComponent(roundPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addComponent(jLabel3))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
                                 .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(27, 27, 27))
                     .addGroup(roundPanel2Layout.createSequentialGroup()
@@ -232,7 +237,7 @@ public class SideCartPanel extends javax.swing.JPanel {
                             .addComponent(roundPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(roundPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel4))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 330, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(roundPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -240,14 +245,14 @@ public class SideCartPanel extends javax.swing.JPanel {
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(roundPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(20, 20, 20))
+                .addGap(47, 47, 47))
         );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(roundPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, 457, Short.MAX_VALUE)
+            .addComponent(roundPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -258,7 +263,7 @@ public class SideCartPanel extends javax.swing.JPanel {
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 457, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
