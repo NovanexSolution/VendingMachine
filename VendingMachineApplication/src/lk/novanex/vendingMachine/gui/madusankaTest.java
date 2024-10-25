@@ -29,20 +29,38 @@ public class madusankaTest extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        thankYouPanel1 = new lk.novanex.vendingMachine.panel.ThankYouPanel();
+        jPanel1 = new javax.swing.JPanel();
+        sideUsePanel1 = new lk.novanex.vendingMachine.panel.SideUsePanel();
+        jPanel2 = new javax.swing.JPanel();
+        accountInfoPanel1 = new lk.novanex.vendingMachine.panel.AccountInfoPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setPreferredSize(new java.awt.Dimension(1000, 750));
+
+        jPanel1.setPreferredSize(new java.awt.Dimension(348, 750));
+        jPanel1.setLayout(new java.awt.BorderLayout());
+        jPanel1.add(sideUsePanel1, java.awt.BorderLayout.CENTER);
+
+        jPanel2.setPreferredSize(new java.awt.Dimension(100, 750));
+        jPanel2.setLayout(new java.awt.BorderLayout());
+        jPanel2.add(accountInfoPanel1, java.awt.BorderLayout.CENTER);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(thankYouPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 1012, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 366, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, 1010, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(thankYouPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 762, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(0, 12, Short.MAX_VALUE))
         );
 
         pack();
@@ -64,6 +82,9 @@ public class madusankaTest extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private lk.novanex.vendingMachine.panel.ThankYouPanel thankYouPanel1;
+    private lk.novanex.vendingMachine.panel.AccountInfoPanel accountInfoPanel1;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private lk.novanex.vendingMachine.panel.SideUsePanel sideUsePanel1;
     // End of variables declaration//GEN-END:variables
 }
