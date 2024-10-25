@@ -26,21 +26,17 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Component id="userLogin1" alignment="0" pref="1012" max="32767" attributes="0"/>
+          <Component id="thankYouPanel1" alignment="0" pref="1012" max="32767" attributes="0"/>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" alignment="0" attributes="0">
-              <EmptySpace max="-2" attributes="0"/>
-              <Component id="userLogin1" min="-2" max="-2" attributes="0"/>
-              <EmptySpace max="32767" attributes="0"/>
-          </Group>
+          <Component id="thankYouPanel1" alignment="0" pref="762" max="32767" attributes="0"/>
       </Group>
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Component class="lk.novanex.vendingMachine.panel.UserLogin" name="userLogin1">
+    <Component class="lk.novanex.vendingMachine.panel.ThankYouPanel" name="thankYouPanel1">
     </Component>
   </SubComponents>
 </Form>
