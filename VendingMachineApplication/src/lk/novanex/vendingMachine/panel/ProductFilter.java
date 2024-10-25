@@ -7,11 +7,17 @@ package lk.novanex.vendingMachine.panel;
 import com.formdev.flatlaf.FlatClientProperties;
 import com.formdev.flatlaf.ui.FlatLabelUI;
 import java.awt.Color;
+import java.awt.Component;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.util.HashSet;
+import java.util.Set;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.border.AbstractBorder;
 import javax.swing.border.LineBorder;
+import lk.novanex.vendingMachine.component.RoundPanel;
 
 /**
  *
@@ -19,12 +25,25 @@ import javax.swing.border.LineBorder;
  */
 public class ProductFilter extends javax.swing.JPanel {
 
+    Set<String> categorySet = new HashSet<String>();
+
+    private int numOfCategory = 1;
+
+    private void getCategory() {
+
+        categorySet.add("Chips");
+        categorySet.add("Choco");
+    }
+
     /**
      * Creates new form ProductFilter
      */
     public ProductFilter() {
         initComponents();
+        categorySet.add("All");
+        getCategory();
         init();
+
     }
 
     private void setselectButton(JPanel btn, JLabel label) {
@@ -32,20 +51,116 @@ public class ProductFilter extends javax.swing.JPanel {
         label.setForeground(new Color(255, 255, 255));
     }
 
-    private void unSetselectButton(JPanel btn1, JLabel lable1, JPanel btn2, JLabel lable2) {
+    private void unSetselectButton(JPanel btn1, JLabel lable1) {
 
         btn1.setBackground(new Color(245, 245, 245));
         lable1.setForeground(new Color(29, 29, 29));
 
-        btn2.setBackground(new Color(245, 245, 245));
-        lable2.setForeground(new Color(29, 29, 29));
     }
 
     private void init() {
-        setselectButton(roundPanel2, jLabel1);
-        unSetselectButton(roundPanel3, jLabel2, roundPanel4, jLabel3);
+        for (String s : categorySet) {
+            createElement(s);
+        }
+    }
+
+    private void createElement(String text) {
+
+        RoundPanel roundPanel2 = new RoundPanel();
+        JLabel jLabel1 = new javax.swing.JLabel();
+        
+        
+        
+        
+        // Adding MouseListener to both label and panel
+        MouseAdapter colorChangeListener = new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                // Reset all panels to deselected color (Gray background, Black text)
+//                System.out.println(text);
+                for (Component comp : getComponents()) {
+                    if (comp instanceof RoundPanel) {
+                        comp.setBackground(new Color(245, 245, 245)); // Deselected background color
+                        Component[] innerComponents = ((JPanel) comp).getComponents();
+                        if (innerComponents.length > 0 && innerComponents[0] instanceof JLabel) {
+                            innerComponents[0].setForeground(new Color(29, 29, 29)); // Deselected text color
+                        }
+                    }
+                }
+
+                // Set clicked panel to selected color (Orange background, White text)
+                roundPanel2.setBackground(new Color(255, 165, 0)); // Selected background color
+                jLabel1.setForeground(Color.WHITE); // Selected text color
+            }
+        };
+        
+        // Attach the listener to both the label and the panel
+        roundPanel2.addMouseListener(colorChangeListener);
+        jLabel1.addMouseListener(colorChangeListener);
+        
+        
+            
+            
+
+        javax.swing.GroupLayout roundPanel1Layout = new javax.swing.GroupLayout(roundPanel1);
+        roundPanel1.setLayout(roundPanel1Layout);
+        roundPanel1Layout.setHorizontalGroup(
+                roundPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGap(0, 100, Short.MAX_VALUE)
+        );
+        roundPanel1Layout.setVerticalGroup(
+                roundPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGap(0, 100, Short.MAX_VALUE)
+        );
+
+        setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 20, 5));
+
+        if (text == "All") {
+            roundPanel2.setBackground(new java.awt.Color(255, 165, 0));
+        } else {
+            roundPanel2.setBackground(new java.awt.Color(245, 245, 245));
+        }
+
+        roundPanel2.setPreferredSize(new java.awt.Dimension(100, 46));
+        roundPanel2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+//                System.out.println(text);
+//                System.out.println(evt);
+                
+            }
+        });
+
+        jLabel1.setFont(new java.awt.Font("Poppins", 1, 20)); // NOI18N
+        if (text == "All") {
+            jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        } else {
+            jLabel1.setForeground(new java.awt.Color(29, 29, 29));
+        }
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setText(text);
+        jLabel1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                System.out.println(text);
+                
+            }
+        });
+
+        javax.swing.GroupLayout roundPanel2Layout = new javax.swing.GroupLayout(roundPanel2);
+        roundPanel2.setLayout(roundPanel2Layout);
+        roundPanel2Layout.setHorizontalGroup(
+                roundPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE)
+        );
+        roundPanel2Layout.setVerticalGroup(
+                roundPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 46, Short.MAX_VALUE)
+        );
+
+        add(roundPanel2);
 
     }
+    
+       
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -57,12 +172,6 @@ public class ProductFilter extends javax.swing.JPanel {
     private void initComponents() {
 
         roundPanel1 = new lk.novanex.vendingMachine.component.RoundPanel();
-        roundPanel2 = new lk.novanex.vendingMachine.component.RoundPanel();
-        jLabel1 = new javax.swing.JLabel();
-        roundPanel3 = new lk.novanex.vendingMachine.component.RoundPanel();
-        jLabel2 = new javax.swing.JLabel();
-        roundPanel4 = new lk.novanex.vendingMachine.component.RoundPanel();
-        jLabel3 = new javax.swing.JLabel();
 
         javax.swing.GroupLayout roundPanel1Layout = new javax.swing.GroupLayout(roundPanel1);
         roundPanel1.setLayout(roundPanel1Layout);
@@ -76,165 +185,10 @@ public class ProductFilter extends javax.swing.JPanel {
         );
 
         setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 20, 5));
-
-        roundPanel2.setBackground(new java.awt.Color(204, 255, 204));
-        roundPanel2.setPreferredSize(new java.awt.Dimension(100, 46));
-        roundPanel2.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                roundPanel2MouseClicked(evt);
-            }
-        });
-
-        jLabel1.setFont(new java.awt.Font("Poppins", 1, 20)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("All");
-        jLabel1.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel1MouseClicked(evt);
-            }
-        });
-
-        javax.swing.GroupLayout roundPanel2Layout = new javax.swing.GroupLayout(roundPanel2);
-        roundPanel2.setLayout(roundPanel2Layout);
-        roundPanel2Layout.setHorizontalGroup(
-            roundPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE)
-        );
-        roundPanel2Layout.setVerticalGroup(
-            roundPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 46, Short.MAX_VALUE)
-        );
-
-        add(roundPanel2);
-
-        roundPanel3.setBackground(new java.awt.Color(204, 255, 204));
-        roundPanel3.setPreferredSize(new java.awt.Dimension(100, 46));
-        roundPanel3.addAncestorListener(new javax.swing.event.AncestorListener() {
-            public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
-                roundPanel3AncestorAdded(evt);
-            }
-            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
-            }
-            public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
-            }
-        });
-        roundPanel3.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                roundPanel3MouseClicked(evt);
-            }
-        });
-
-        jLabel2.setFont(new java.awt.Font("Poppins", 1, 20)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel2.setText("Snack");
-        jLabel2.addAncestorListener(new javax.swing.event.AncestorListener() {
-            public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
-                jLabel2AncestorAdded(evt);
-            }
-            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
-            }
-            public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
-            }
-        });
-        jLabel2.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel2MouseClicked(evt);
-            }
-        });
-
-        javax.swing.GroupLayout roundPanel3Layout = new javax.swing.GroupLayout(roundPanel3);
-        roundPanel3.setLayout(roundPanel3Layout);
-        roundPanel3Layout.setHorizontalGroup(
-            roundPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE)
-        );
-        roundPanel3Layout.setVerticalGroup(
-            roundPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 46, Short.MAX_VALUE)
-        );
-
-        add(roundPanel3);
-
-        roundPanel4.setBackground(new java.awt.Color(204, 255, 204));
-        roundPanel4.setPreferredSize(new java.awt.Dimension(100, 46));
-        roundPanel4.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                roundPanel4MouseClicked(evt);
-            }
-        });
-
-        jLabel3.setFont(new java.awt.Font("Poppins", 1, 20)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel3.setText("Choco");
-        jLabel3.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel3MouseClicked(evt);
-            }
-        });
-
-        javax.swing.GroupLayout roundPanel4Layout = new javax.swing.GroupLayout(roundPanel4);
-        roundPanel4.setLayout(roundPanel4Layout);
-        roundPanel4Layout.setHorizontalGroup(
-            roundPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE)
-        );
-        roundPanel4Layout.setVerticalGroup(
-            roundPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, 46, Short.MAX_VALUE)
-        );
-
-        add(roundPanel4);
     }// </editor-fold>//GEN-END:initComponents
-
-    private void roundPanel3AncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_roundPanel3AncestorAdded
-
-    }//GEN-LAST:event_roundPanel3AncestorAdded
-
-    private void jLabel2AncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_jLabel2AncestorAdded
-
-    }//GEN-LAST:event_jLabel2AncestorAdded
-
-    private void roundPanel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_roundPanel3MouseClicked
-        setselectButton(roundPanel3, jLabel2);
-        unSetselectButton(roundPanel2, jLabel1, roundPanel4, jLabel3);
-    }//GEN-LAST:event_roundPanel3MouseClicked
-
-    private void roundPanel2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_roundPanel2MouseClicked
-        setselectButton(roundPanel2, jLabel1);
-        unSetselectButton(roundPanel3, jLabel2, roundPanel4, jLabel3);
-    }//GEN-LAST:event_roundPanel2MouseClicked
-
-    private void roundPanel4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_roundPanel4MouseClicked
-        setselectButton(roundPanel4, jLabel3);
-        unSetselectButton(roundPanel2, jLabel1, roundPanel3, jLabel2);
-    }//GEN-LAST:event_roundPanel4MouseClicked
-
-    private void jLabel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseClicked
-        setselectButton(roundPanel2, jLabel1);
-        unSetselectButton(roundPanel3, jLabel2, roundPanel4, jLabel3);
-    }//GEN-LAST:event_jLabel1MouseClicked
-
-    private void jLabel2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MouseClicked
-        setselectButton(roundPanel3, jLabel2);
-        unSetselectButton(roundPanel2, jLabel1, roundPanel4, jLabel3);
-    }//GEN-LAST:event_jLabel2MouseClicked
-
-    private void jLabel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseClicked
-        setselectButton(roundPanel4, jLabel3);
-        unSetselectButton(roundPanel2, jLabel1, roundPanel3, jLabel2);
-    }//GEN-LAST:event_jLabel3MouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private lk.novanex.vendingMachine.component.RoundPanel roundPanel1;
-    private lk.novanex.vendingMachine.component.RoundPanel roundPanel2;
-    private lk.novanex.vendingMachine.component.RoundPanel roundPanel3;
-    private lk.novanex.vendingMachine.component.RoundPanel roundPanel4;
     // End of variables declaration//GEN-END:variables
 }

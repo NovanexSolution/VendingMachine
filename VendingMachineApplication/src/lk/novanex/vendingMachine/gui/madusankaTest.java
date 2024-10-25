@@ -6,6 +6,7 @@ package lk.novanex.vendingMachine.gui;
 
 import com.formdev.flatlaf.FlatLightLaf;
 import java.awt.Color;
+import java.util.Set;
 import javax.swing.JPanel;
 import lk.novanex.vendingMachine.panel.CartItem;
 
@@ -15,6 +16,7 @@ import lk.novanex.vendingMachine.panel.CartItem;
  */
 public class madusankaTest extends javax.swing.JFrame {
 
+   
     /**
      * Creates new form madusankaTest
      */
@@ -35,8 +37,8 @@ public class madusankaTest extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        productFilter1 = new lk.novanex.vendingMachine.panel.ProductFilter();
-        productFilter3 = new lk.novanex.vendingMachine.panel.ProductFilter();
+        test1 = new lk.novanex.vendingMachine.panel.Test();
+        productFilter2 = new lk.novanex.vendingMachine.panel.ProductFilter();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -44,20 +46,17 @@ public class madusankaTest extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(productFilter1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
-                .addGap(129, 129, 129)
-                .addComponent(productFilter3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(491, Short.MAX_VALUE))
+                .addGap(200, 200, 200)
+                .addComponent(productFilter2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(240, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(73, 73, 73)
-                .addComponent(productFilter1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(72, 72, 72)
-                .addComponent(productFilter3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(493, Short.MAX_VALUE))
+                .addGap(40, 40, 40)
+                .addComponent(productFilter2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(654, Short.MAX_VALUE))
         );
 
         pack();
@@ -79,7 +78,7 @@ public class madusankaTest extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private lk.novanex.vendingMachine.panel.ProductFilter productFilter1;
-    private lk.novanex.vendingMachine.panel.ProductFilter productFilter3;
+    private lk.novanex.vendingMachine.panel.ProductFilter productFilter2;
+    private lk.novanex.vendingMachine.panel.Test test1;
     // End of variables declaration//GEN-END:variables
 }
