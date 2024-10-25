@@ -30,7 +30,7 @@
               <EmptySpace max="-2" attributes="0"/>
               <Component id="sideUsePanel1" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="personalinfoPanel1" min="-2" max="-2" attributes="0"/>
+              <Component id="cardDetailPanel1" min="-2" max="-2" attributes="0"/>
               <EmptySpace pref="12" max="32767" attributes="0"/>
           </Group>
       </Group>
@@ -40,7 +40,7 @@
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="47" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="1" attributes="0">
-                  <Component id="personalinfoPanel1" min="-2" max="-2" attributes="0"/>
+                  <Component id="cardDetailPanel1" min="-2" max="-2" attributes="0"/>
                   <Component id="sideUsePanel1" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace pref="395" max="32767" attributes="0"/>
@@ -51,7 +51,7 @@
   <SubComponents>
     <Component class="lk.novanex.vendingMachine.panel.SideUsePanel" name="sideUsePanel1">
     </Component>
-    <Component class="lk.novanex.vendingMachine.panel.PersonalinfoPanel" name="personalinfoPanel1">
+    <Component class="lk.novanex.vendingMachine.panel.CardDetailPanel" name="cardDetailPanel1">
     </Component>
   </SubComponents>
 </Form>

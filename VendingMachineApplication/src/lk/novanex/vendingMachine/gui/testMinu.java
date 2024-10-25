@@ -29,7 +29,7 @@ public class testMinu extends javax.swing.JFrame {
     private void initComponents() {
 
         sideUsePanel1 = new lk.novanex.vendingMachine.panel.SideUsePanel();
-        personalinfoPanel1 = new lk.novanex.vendingMachine.panel.PersonalinfoPanel();
+        cardDetailPanel1 = new lk.novanex.vendingMachine.panel.CardDetailPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setPreferredSize(new java.awt.Dimension(1000, 853));
@@ -42,7 +42,7 @@ public class testMinu extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(sideUsePanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(personalinfoPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(cardDetailPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(12, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -50,7 +50,7 @@ public class testMinu extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(47, 47, 47)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(personalinfoPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cardDetailPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(sideUsePanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(395, Short.MAX_VALUE))
         );
@@ -74,7 +74,7 @@ public class testMinu extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private lk.novanex.vendingMachine.panel.PersonalinfoPanel personalinfoPanel1;
+    private lk.novanex.vendingMachine.panel.CardDetailPanel cardDetailPanel1;
     private lk.novanex.vendingMachine.panel.SideUsePanel sideUsePanel1;
     // End of variables declaration//GEN-END:variables
 }
