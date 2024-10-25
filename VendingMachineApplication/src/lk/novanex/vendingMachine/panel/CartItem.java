@@ -66,7 +66,6 @@ public class CartItem extends javax.swing.JPanel {
         jLabel2 = new javax.swing.JLabel();
 
         setPreferredSize(new java.awt.Dimension(1000, 150));
-        setLayout(new java.awt.GridLayout(1, 2));
 
         jPanel1.setPreferredSize(new java.awt.Dimension(500, 150));
 
@@ -156,8 +155,6 @@ public class CartItem extends javax.swing.JPanel {
                         .addGap(48, 48, 48))))
         );
 
-        add(jPanel1);
-
         jPanel2.setPreferredSize(new java.awt.Dimension(500, 150));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -170,7 +167,20 @@ public class CartItem extends javax.swing.JPanel {
         jLabel2.setPreferredSize(new java.awt.Dimension(46, 46));
         jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 50, -1, -1));
 
-        add(jPanel2);
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
+        this.setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 506, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0)
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 506, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
+        );
     }// </editor-fold>//GEN-END:initComponents
 
 
