@@ -138,6 +138,7 @@ public class SideCartPanel extends javax.swing.JPanel {
         jLabel9.setText("Total");
         jLabel9.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 0, 1, 0, new java.awt.Color(0, 0, 0)));
 
+        jPanel2.setBackground(new java.awt.Color(217, 217, 217));
         jPanel2.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 0, 0, 0, new java.awt.Color(0, 0, 0)));
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
