@@ -30,7 +30,7 @@ public class testMinu extends javax.swing.JFrame {
 
         header1 = new lk.novanex.vendingMachine.panel.Header();
         sideUsePanel1 = new lk.novanex.vendingMachine.panel.SideUsePanel();
-        personalinfoPanel2 = new lk.novanex.vendingMachine.panel.PersonalinfoPanel();
+        accountInfoPanel2 = new lk.novanex.vendingMachine.panel.AccountInfoPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -45,7 +45,7 @@ public class testMinu extends javax.swing.JFrame {
                 .addGap(23, 23, 23)
                 .addComponent(sideUsePanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(personalinfoPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(accountInfoPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -53,9 +53,9 @@ public class testMinu extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addComponent(header1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(sideUsePanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(personalinfoPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(sideUsePanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(accountInfoPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(0, 294, Short.MAX_VALUE))
         );
 
@@ -78,8 +78,8 @@ public class testMinu extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private lk.novanex.vendingMachine.panel.AccountInfoPanel accountInfoPanel2;
     private lk.novanex.vendingMachine.panel.Header header1;
-    private lk.novanex.vendingMachine.panel.PersonalinfoPanel personalinfoPanel2;
     private lk.novanex.vendingMachine.panel.SideUsePanel sideUsePanel1;
     // End of variables declaration//GEN-END:variables
 }

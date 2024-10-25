@@ -26,7 +26,6 @@ public class PersonalinfoPanel extends javax.swing.JPanel {
         roundPanel1.setBackground(new Color(231, 231, 231));
         
         jTextField1.setBorder(BorderFactory.createEmptyBorder());
-        
         jTextField2.setBorder(BorderFactory.createEmptyBorder());
         
         init();
@@ -72,21 +71,27 @@ public class PersonalinfoPanel extends javax.swing.JPanel {
         roundPanel1.setPreferredSize(new java.awt.Dimension(1010, 650));
 
         jLabel1.setFont(new java.awt.Font("Poppins", 1, 36)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(41, 41, 41));
         jLabel1.setText("Your Personal Information");
 
         jLabel2.setFont(new java.awt.Font("Poppins", 0, 28)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(41, 41, 41));
         jLabel2.setText("Name :");
 
         jLabel3.setFont(new java.awt.Font("Poppins", 0, 28)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(41, 41, 41));
         jLabel3.setText("Email :");
 
         jLabel4.setFont(new java.awt.Font("Poppins", 0, 28)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(41, 41, 41));
         jLabel4.setText("Gender :");
 
         jLabel5.setFont(new java.awt.Font("Poppins", 0, 28)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(41, 41, 41));
         jLabel5.setText("Mobile :");
 
         jLabel6.setFont(new java.awt.Font("Poppins", 0, 28)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(41, 41, 41));
         jLabel6.setText("Username :");
 
         jLabel7.setFont(new java.awt.Font("Poppins", 0, 28)); // NOI18N
@@ -103,9 +108,11 @@ public class PersonalinfoPanel extends javax.swing.JPanel {
 
         jTextField1.setBackground(new java.awt.Color(231, 231, 231));
         jTextField1.setFont(new java.awt.Font("Poppins", 0, 28)); // NOI18N
+        jTextField1.setForeground(new java.awt.Color(41, 41, 41));
 
         jTextField2.setBackground(new java.awt.Color(231, 231, 231));
         jTextField2.setFont(new java.awt.Font("Poppins", 0, 28)); // NOI18N
+        jTextField2.setForeground(new java.awt.Color(41, 41, 41));
 
         javax.swing.GroupLayout roundPanel1Layout = new javax.swing.GroupLayout(roundPanel1);
         roundPanel1.setLayout(roundPanel1Layout);
