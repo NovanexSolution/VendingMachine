@@ -4,6 +4,7 @@
  */
 package lk.novanex.vendingMachine.panel;
 
+import com.formdev.flatlaf.extras.FlatSVGIcon;
 import java.awt.Color;
 import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
@@ -19,28 +20,23 @@ public class Header extends javax.swing.JPanel {
      */
     public Header() {
         initComponents();
-        
+
         jPanel1.setBackground(new Color(255, 165, 0));
-        ImageIcon backIcon = new ImageIcon("src/img/back.png");
-        jLabel1.setIcon(backIcon);
-        
-        ImageIcon languageIcon = new ImageIcon("src/img/language.png");
-        jLabel3.setIcon(languageIcon);
-        
         jComboBox1.setBorder(BorderFactory.createEmptyBorder());
-        
-        
+
         init();
         this.setVisible(true);
     }
-    
+
     private void init() {
         this.setBackground(new Color(255, 165, 0));
         this.setSize(1920, 100);
+
+        FlatSVGIcon back = new FlatSVGIcon("img/backIcon.svg", jLabel1.getWidth(), jLabel1.getHeight());
+        jLabel1.setIcon(back);
+        FlatSVGIcon language = new FlatSVGIcon("img/langIcon.svg", jLabel3.getWidth(), jLabel3.getHeight());
+        jLabel3.setIcon(language);
     }
-    
-//    FlatSVGIcon logo = new FlatSVGIcon("resources/logoWhite.svg", jLabel39.getWidth(), jLabel39.getHeight());
-//    jLabel39.setIcon(logo);
 
     /**
      * This method is called from within the constructor to initialize the form.
