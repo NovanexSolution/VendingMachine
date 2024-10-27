@@ -30,20 +30,15 @@ public class madusankaTest extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        sideUsePanel1 = new lk.novanex.vendingMachine.panel.SideUsePanel();
         jPanel2 = new javax.swing.JPanel();
-        accountInfoPanel1 = new lk.novanex.vendingMachine.panel.AccountInfoPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(1000, 750));
 
         jPanel1.setPreferredSize(new java.awt.Dimension(348, 750));
         jPanel1.setLayout(new java.awt.BorderLayout());
-        jPanel1.add(sideUsePanel1, java.awt.BorderLayout.CENTER);
 
         jPanel2.setPreferredSize(new java.awt.Dimension(100, 750));
         jPanel2.setLayout(new java.awt.BorderLayout());
-        jPanel2.add(accountInfoPanel1, java.awt.BorderLayout.CENTER);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -82,9 +77,7 @@ public class madusankaTest extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private lk.novanex.vendingMachine.panel.AccountInfoPanel accountInfoPanel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private lk.novanex.vendingMachine.panel.SideUsePanel sideUsePanel1;
     // End of variables declaration//GEN-END:variables
 }

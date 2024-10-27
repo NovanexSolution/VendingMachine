@@ -20,10 +20,6 @@ public class PersonalinfoPanel extends javax.swing.JPanel {
      */
     public PersonalinfoPanel() {
         initComponents();
-        jPanel1.putClientProperty(FlatClientProperties.STYLE, "arc:22");
-        roundPanel1.putClientProperty(FlatClientProperties.STYLE, "arc:22");
-        jPanel1.setBackground(new Color(231, 231, 231));
-        roundPanel1.setBackground(new Color(231, 231, 231));
         
         jTextField1.setBorder(BorderFactory.createEmptyBorder());
         jTextField2.setBorder(BorderFactory.createEmptyBorder());
@@ -34,8 +30,8 @@ public class PersonalinfoPanel extends javax.swing.JPanel {
 
     private void init() {
         this.putClientProperty(FlatClientProperties.STYLE, "arc:22");
-        this.setBackground(new Color(231, 231, 231));
-        this.setSize(1010, 650);
+        this.setBackground(new Color(255,255,255,0));
+        this.setSize(700, 650);
         
         FlatSVGIcon edit = new FlatSVGIcon("img/editIcon.svg", jLabel11.getWidth(), jLabel11.getHeight());
         jLabel11.setIcon(edit);
@@ -47,7 +43,6 @@ public class PersonalinfoPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
         roundPanel1 = new lk.novanex.vendingMachine.component.RoundPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -63,55 +58,53 @@ public class PersonalinfoPanel extends javax.swing.JPanel {
         jLabel10 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
 
-        setPreferredSize(new java.awt.Dimension(1010, 650));
-
-        jPanel1.setPreferredSize(new java.awt.Dimension(1010, 650));
+        setPreferredSize(new java.awt.Dimension(700, 650));
 
         roundPanel1.setBackground(new java.awt.Color(231, 231, 231));
-        roundPanel1.setPreferredSize(new java.awt.Dimension(1010, 650));
+        roundPanel1.setPreferredSize(new java.awt.Dimension(700, 650));
 
-        jLabel1.setFont(new java.awt.Font("Poppins", 1, 36)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Poppins", 1, 32)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(41, 41, 41));
         jLabel1.setText("Your Personal Information");
 
-        jLabel2.setFont(new java.awt.Font("Poppins", 0, 28)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Poppins", 0, 24)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(41, 41, 41));
         jLabel2.setText("Name :");
 
-        jLabel3.setFont(new java.awt.Font("Poppins", 0, 28)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Poppins", 0, 24)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(41, 41, 41));
         jLabel3.setText("Email :");
 
-        jLabel4.setFont(new java.awt.Font("Poppins", 0, 28)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("Poppins", 0, 24)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(41, 41, 41));
         jLabel4.setText("Gender :");
 
-        jLabel5.setFont(new java.awt.Font("Poppins", 0, 28)); // NOI18N
+        jLabel5.setFont(new java.awt.Font("Poppins", 0, 24)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(41, 41, 41));
         jLabel5.setText("Mobile :");
 
-        jLabel6.setFont(new java.awt.Font("Poppins", 0, 28)); // NOI18N
+        jLabel6.setFont(new java.awt.Font("Poppins", 0, 24)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(41, 41, 41));
         jLabel6.setText("Username :");
 
-        jLabel7.setFont(new java.awt.Font("Poppins", 0, 28)); // NOI18N
+        jLabel7.setFont(new java.awt.Font("Poppins", 0, 24)); // NOI18N
         jLabel7.setText("Jhone Jhone");
         jLabel7.setEnabled(false);
 
-        jLabel8.setFont(new java.awt.Font("Poppins", 0, 28)); // NOI18N
+        jLabel8.setFont(new java.awt.Font("Poppins", 0, 24)); // NOI18N
         jLabel8.setText("jhone@gmail.com");
         jLabel8.setEnabled(false);
 
-        jLabel9.setFont(new java.awt.Font("Poppins", 0, 28)); // NOI18N
+        jLabel9.setFont(new java.awt.Font("Poppins", 0, 24)); // NOI18N
         jLabel9.setText("Male");
         jLabel9.setEnabled(false);
 
         jTextField1.setBackground(new java.awt.Color(231, 231, 231));
-        jTextField1.setFont(new java.awt.Font("Poppins", 0, 28)); // NOI18N
+        jTextField1.setFont(new java.awt.Font("Poppins", 0, 24)); // NOI18N
         jTextField1.setForeground(new java.awt.Color(41, 41, 41));
 
         jTextField2.setBackground(new java.awt.Color(231, 231, 231));
-        jTextField2.setFont(new java.awt.Font("Poppins", 0, 28)); // NOI18N
+        jTextField2.setFont(new java.awt.Font("Poppins", 0, 24)); // NOI18N
         jTextField2.setForeground(new java.awt.Color(41, 41, 41));
 
         javax.swing.GroupLayout roundPanel1Layout = new javax.swing.GroupLayout(roundPanel1);
@@ -145,7 +138,7 @@ public class PersonalinfoPanel extends javax.swing.JPanel {
                                         .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                         .addGap(10, 10, 10)
                         .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(451, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         roundPanel1Layout.setVerticalGroup(
             roundPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -177,37 +170,18 @@ public class PersonalinfoPanel extends javax.swing.JPanel {
                     .addGroup(roundPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, 0)))
-                .addContainerGap(146, Short.MAX_VALUE))
-        );
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(roundPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 1009, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 1, Short.MAX_VALUE))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(roundPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(roundPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(roundPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -224,7 +198,6 @@ public class PersonalinfoPanel extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JPanel jPanel1;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
     private lk.novanex.vendingMachine.component.RoundPanel roundPanel1;
