@@ -37,9 +37,10 @@ public class madusankaTest extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        test1 = new lk.novanex.vendingMachine.panel.Test();
+        normalProductView1 = new lk.novanex.vendingMachine.panel.NormalProductView();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().add(normalProductView1, java.awt.BorderLayout.CENTER);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -60,6 +61,6 @@ public class madusankaTest extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private lk.novanex.vendingMachine.panel.Test test1;
+    private lk.novanex.vendingMachine.panel.NormalProductView normalProductView1;
     // End of variables declaration//GEN-END:variables
 }
