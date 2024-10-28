@@ -36,7 +36,7 @@ public class FrontView extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         frontTopMenu2 = new lk.novanex.vendingMachine.panel.FrontTopMenu();
         jPanel2 = new javax.swing.JPanel();
-        normalProductView1 = new lk.novanex.vendingMachine.panel.NormalProductView();
+        normalProductView2 = new lk.novanex.vendingMachine.panel.NormalProductView();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -49,7 +49,7 @@ public class FrontView extends javax.swing.JFrame {
         jPanel2.setBackground(new java.awt.Color(204, 204, 204));
         jPanel2.setPreferredSize(new java.awt.Dimension(1000, 600));
         jPanel2.setLayout(new java.awt.BorderLayout(1, 1));
-        jPanel2.add(normalProductView1, java.awt.BorderLayout.CENTER);
+        jPanel2.add(normalProductView2, java.awt.BorderLayout.CENTER);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -63,7 +63,7 @@ public class FrontView extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 659, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 697, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
 
@@ -90,6 +90,6 @@ public class FrontView extends javax.swing.JFrame {
     private lk.novanex.vendingMachine.panel.FrontTopMenu frontTopMenu2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private lk.novanex.vendingMachine.panel.NormalProductView normalProductView1;
+    private lk.novanex.vendingMachine.panel.NormalProductView normalProductView2;
     // End of variables declaration//GEN-END:variables
 }

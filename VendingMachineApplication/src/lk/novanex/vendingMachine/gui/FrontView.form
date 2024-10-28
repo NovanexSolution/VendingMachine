@@ -33,7 +33,7 @@
           <Group type="102" alignment="0" attributes="0">
               <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="jPanel2" min="-2" pref="659" max="-2" attributes="0"/>
+              <Component id="jPanel2" min="-2" pref="697" max="-2" attributes="0"/>
               <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
           </Group>
       </Group>
@@ -76,7 +76,7 @@
         <Property name="verticalGap" type="int" value="1"/>
       </Layout>
       <SubComponents>
-        <Component class="lk.novanex.vendingMachine.panel.NormalProductView" name="normalProductView1">
+        <Component class="lk.novanex.vendingMachine.panel.NormalProductView" name="normalProductView2">
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout" value="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout$BorderConstraintsDescription">
               <BorderConstraints direction="Center"/>
