@@ -32,6 +32,7 @@ public class NormalProductView extends javax.swing.JPanel {
     private int mapStart = 1;
     private int mapEnd = 6;
     private int restProduct = 0;
+    int emtyProduct;
 
     public NormalProductView() {
         initComponents();
@@ -48,6 +49,8 @@ public class NormalProductView extends javax.swing.JPanel {
 
             if (restProduct < 6) {
                 mapEnd = mapSize;
+                emtyProduct = 6 - restProduct;
+
             } else {
                 mapEnd = productHasCreated + 6;
             }
@@ -55,6 +58,14 @@ public class NormalProductView extends javax.swing.JPanel {
             for (int i = mapStart; i <= mapEnd; i++) {
                 createProducts(String.valueOf(i));
                 mapStart++;
+            }
+
+            if (emtyProduct < 6) {
+
+                for (int y = 0; y < emtyProduct; y++) {
+                    EmtyProduct ep = new EmtyProduct();
+                    jPanel1.add(ep);
+                }
             }
 
         }
