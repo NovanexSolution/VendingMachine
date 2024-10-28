@@ -34,6 +34,23 @@ public class Product extends javax.swing.JPanel {
         jPanel2.setBackground(new Color(248, 80, 80));
         this.setBackground(new Color(255, 255, 255, 0));
     }
+    
+    public void setProductTitle(String title) {
+        jLabel2.setText(title);
+    }
+    
+    public void setProductPrice(String price) {
+        jLabel3.setText(price);
+    }
+    
+     public void setProductFlavor(String flavor) {
+        jLabel4.setText(flavor);
+    }
+     
+      public void setProductImg(String url) {
+        ImageIcon img = new ImageIcon(url);
+        jLabel1.setIcon(img);
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
