@@ -34,9 +34,7 @@ public class FrontView extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        frontTopMenu2 = new lk.novanex.vendingMachine.panel.FrontTopMenu();
         jPanel2 = new javax.swing.JPanel();
-        normalProductView1 = new lk.novanex.vendingMachine.panel.NormalProductView();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -44,12 +42,10 @@ public class FrontView extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(204, 204, 255));
         jPanel1.setPreferredSize(new java.awt.Dimension(1000, 100));
         jPanel1.setLayout(new java.awt.BorderLayout());
-        jPanel1.add(frontTopMenu2, java.awt.BorderLayout.CENTER);
 
         jPanel2.setBackground(new java.awt.Color(204, 204, 204));
         jPanel2.setPreferredSize(new java.awt.Dimension(1000, 600));
         jPanel2.setLayout(new java.awt.BorderLayout(1, 1));
-        jPanel2.add(normalProductView1, java.awt.BorderLayout.CENTER);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -87,9 +83,7 @@ public class FrontView extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private lk.novanex.vendingMachine.panel.FrontTopMenu frontTopMenu2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private lk.novanex.vendingMachine.panel.NormalProductView normalProductView1;
     // End of variables declaration//GEN-END:variables
 }
