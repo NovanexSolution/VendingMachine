@@ -6,6 +6,7 @@ package lk.novanex.vendingMachine.panel;
 
 import com.formdev.flatlaf.FlatClientProperties;
 import java.awt.Color;
+import javax.swing.JLabel;
 
 /**
  *
@@ -34,6 +35,11 @@ public class CardDetail extends javax.swing.JPanel {
         roundPanel5.setSize(200, 50);
         roundPanel3.setSize(200, 50);
         roundPanel4.setSize(200, 50);
+        
+        JLabel[] labels = {jLabel1, jLabel2, jLabel3, jLabel4, jLabel5};
+        for (JLabel label : labels) {
+            label.setForeground(new Color(41, 41, 41));
+        }
 
         roundPanel5.setBackground(new Color(255, 165, 0));
         roundPanel3.setBackground(new Color(253, 63, 95));
@@ -173,10 +179,10 @@ public class CardDetail extends javax.swing.JPanel {
             .addGroup(roundPanel1Layout.createSequentialGroup()
                 .addGroup(roundPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(roundPanel1Layout.createSequentialGroup()
-                        .addGap(30, 30, 30)
+                        .addGap(50, 50, 50)
                         .addComponent(jLabel1))
                     .addGroup(roundPanel1Layout.createSequentialGroup()
-                        .addGap(41, 41, 41)
+                        .addGap(60, 60, 60)
                         .addGroup(roundPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(roundPanel1Layout.createSequentialGroup()
                                 .addComponent(jLabel3)
