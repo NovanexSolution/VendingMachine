@@ -37,10 +37,11 @@ public class PersonalInfo extends javax.swing.JPanel {
 
         jTextField2.setBorder(BorderFactory.createEmptyBorder());
         jTextField1.setBorder(BorderFactory.createEmptyBorder());
-        
-        JLabel[] labels = {jLabel2, jLabel3, jLabel4, jLabel5, jLabel6};
+
+        JLabel[] labels = {jLabel1, jLabel2, jLabel3, jLabel4, jLabel5, jLabel6};
         for (JLabel label : labels) {
-            label.setForeground(new Color(41, 41, 41));}
+            label.setForeground(new Color(41, 41, 41));
+        }
 
         jTextField2.setForeground(new Color(41, 41, 41));
         jTextField1.setForeground(new Color(41, 41, 41));
