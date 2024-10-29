@@ -27,19 +27,20 @@ public class PurchaseHistoryCard extends javax.swing.JPanel {
         this.putClientProperty(FlatClientProperties.STYLE, "arc:22");
         this.setSize(600, 100);
         this.setBackground(new Color(255, 255, 255, 0));
-        
+
         roundPanel1.setSize(600, 100);
-        roundPanel1.setBackground(new Color(217, 217, 217, 60));
-        
+        roundPanel1.setBackground(new Color(233, 233, 233));
+
         //jLabel1.setBackground(new Color(255, 255, 255, 0));
         ImageIcon chipsIcon = new ImageIcon("src/img/chips.png");
         jLabel1.setIcon(chipsIcon);
-        
+
         jLabel2.setForeground(new Color(41, 41, 41));
         jLabel3.setForeground(new Color(41, 41, 41));
         jLabel4.setForeground(new Color(41, 41, 41));
 
     }
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -53,6 +54,7 @@ public class PurchaseHistoryCard extends javax.swing.JPanel {
         setBackground(new java.awt.Color(51, 51, 255));
         setPreferredSize(new java.awt.Dimension(600, 100));
 
+        roundPanel1.setBackground(new java.awt.Color(233, 233, 233));
         roundPanel1.setPreferredSize(new java.awt.Dimension(600, 100));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/chips.png"))); // NOI18N
