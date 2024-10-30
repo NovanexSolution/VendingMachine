@@ -28,7 +28,7 @@ public class testGui extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        automaticPurchaseCard1 = new lk.novanex.vendingMachine.panel.AutomaticPurchaseCard();
+        automaticPurchasePanel1 = new lk.novanex.vendingMachine.panel.AutomaticPurchasePanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -37,16 +37,15 @@ public class testGui extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(87, 87, 87)
-                .addComponent(automaticPurchaseCard1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(593, Short.MAX_VALUE))
+                .addGap(100, 100, 100)
+                .addComponent(automaticPurchasePanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(250, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(115, 115, 115)
-                .addComponent(automaticPurchaseCard1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(405, Short.MAX_VALUE))
+                .addComponent(automaticPurchasePanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 100, Short.MAX_VALUE))
         );
 
         pack();
@@ -69,6 +68,6 @@ public class testGui extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private lk.novanex.vendingMachine.panel.AutomaticPurchaseCard automaticPurchaseCard1;
+    private lk.novanex.vendingMachine.panel.AutomaticPurchasePanel automaticPurchasePanel1;
     // End of variables declaration//GEN-END:variables
 }

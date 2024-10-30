@@ -6,17 +6,18 @@ package lk.novanex.vendingMachine.panel;
 
 import com.formdev.flatlaf.FlatClientProperties;
 import java.awt.Color;
+import javax.swing.ImageIcon;
 
 /**
  *
  * @author ASUS
  */
-public class AutomaticPurchaseCard extends javax.swing.JPanel {
+public class AutomaticPurchasePanel extends javax.swing.JPanel {
 
     /**
-     * Creates new form AutomaticPurchaseCard
+     * Creates new form AutomaticPurchasePanel
      */
-    public AutomaticPurchaseCard() {
+    public AutomaticPurchasePanel() {
         initComponents();
         init();
         this.setVisible(true);
@@ -31,9 +32,12 @@ public class AutomaticPurchaseCard extends javax.swing.JPanel {
         
         jLabel2.setForeground(new Color(41, 41, 41));
         jLabel3.setForeground(new Color(41, 41, 41));
+        jLabel4.setForeground(new Color(41, 41, 41));
+        
+        ImageIcon arrow = new ImageIcon("src/img/arrow.png");
+        jLabel2.setIcon(arrow);
         
     }
-
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -42,36 +46,49 @@ public class AutomaticPurchaseCard extends javax.swing.JPanel {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
 
-        jLabel2.setFont(new java.awt.Font("Poppins", 0, 18)); // NOI18N
-        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel2.setText("Fries Potato French");
+        setPreferredSize(new java.awt.Dimension(650, 650));
 
-        jLabel3.setFont(new java.awt.Font("Poppins", 1, 28)); // NOI18N
-        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel3.setText("420 LKR");
+        jLabel1.setFont(new java.awt.Font("Poppins", 1, 28)); // NOI18N
+        jLabel1.setText(" Customizing  Automatic Purchases");
+        jLabel1.setToolTipText("");
+
+        jLabel3.setFont(new java.awt.Font("Poppins", 0, 24)); // NOI18N
+        jLabel3.setText("Select Product You want");
+
+        jLabel4.setFont(new java.awt.Font("Poppins", 0, 24)); // NOI18N
+        jLabel4.setText("Selected");
 
         javax.swing.GroupLayout roundPanel1Layout = new javax.swing.GroupLayout(roundPanel1);
         roundPanel1.setLayout(roundPanel1Layout);
         roundPanel1Layout.setHorizontalGroup(
             roundPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(roundPanel1Layout.createSequentialGroup()
-                .addGap(96, 96, 96)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(104, Short.MAX_VALUE))
-            .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(40, 40, 40)
+                .addGroup(roundPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel4)
+                    .addComponent(jLabel3)
+                    .addGroup(roundPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(22, 22, 22)
+                        .addComponent(jLabel1)))
+                .addContainerGap(15, Short.MAX_VALUE))
         );
         roundPanel1Layout.setVerticalGroup(
             roundPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(roundPanel1Layout.createSequentialGroup()
-                .addGap(22, 22, 22)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(6, 6, 6)
-                .addComponent(jLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(15, Short.MAX_VALUE))
+                .addGap(30, 30, 30)
+                .addGroup(roundPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel1)
+                    .addGroup(roundPanel1Layout.createSequentialGroup()
+                        .addGap(8, 8, 8)
+                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(42, 42, 42)
+                .addComponent(jLabel3)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 296, Short.MAX_VALUE)
+                .addComponent(jLabel4)
+                .addGap(165, 165, 165))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -91,6 +108,7 @@ public class AutomaticPurchaseCard extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private Componnent.RoundPanel roundPanel1;
     // End of variables declaration//GEN-END:variables
 }
