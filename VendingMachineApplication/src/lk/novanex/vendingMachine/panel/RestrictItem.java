@@ -12,53 +12,51 @@ import javax.swing.ImageIcon;
  *
  * @author ASUS
  */
-public class AutomaticPurchasePanel extends javax.swing.JPanel {
+public class RestrictItem extends javax.swing.JPanel {
 
     /**
-     * Creates new form AutomaticPurchasePanel
+     * Creates new form RestrictItem
      */
-    public AutomaticPurchasePanel() {
+    public RestrictItem() {
         initComponents();
         init();
         this.setVisible(true);
     }
 
-    private void init() {
+     private void init() {
         this.putClientProperty(FlatClientProperties.STYLE, "arc:22");
         this.setSize(320, 230);
         this.setBackground(new Color(255, 255, 255, 0));
         roundPanel1.setSize(320, 230);
         roundPanel1.setBackground(new Color(217, 217, 217, 60));
+        ImageIcon arrow = new ImageIcon("src/img/arrow.png");
+        jLabel2.setIcon(arrow);
         
         jLabel1.setForeground(new Color(41, 41, 41));
         jLabel3.setForeground(new Color(41, 41, 41));
         jLabel4.setForeground(new Color(41, 41, 41));
-        
-        ImageIcon arrow = new ImageIcon("src/img/arrow.png");
-        jLabel2.setIcon(arrow);
-        
     }
+     
+     
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
         roundPanel1 = new Componnent.RoundPanel();
-        jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
 
-        setPreferredSize(new java.awt.Dimension(650, 650));
-
         jLabel1.setFont(new java.awt.Font("Poppins", 1, 28)); // NOI18N
-        jLabel1.setText(" Customizing  Automatic Purchases");
+        jLabel1.setText("Restrict Items");
         jLabel1.setToolTipText("");
 
         jLabel3.setFont(new java.awt.Font("Poppins", 0, 24)); // NOI18N
-        jLabel3.setText("Select Product You want");
+        jLabel3.setText("Select Product You want to Restrict");
 
         jLabel4.setFont(new java.awt.Font("Poppins", 0, 24)); // NOI18N
-        jLabel4.setText("Selected");
+        jLabel4.setText("Restricted");
 
         javax.swing.GroupLayout roundPanel1Layout = new javax.swing.GroupLayout(roundPanel1);
         roundPanel1.setLayout(roundPanel1Layout);
@@ -70,10 +68,11 @@ public class AutomaticPurchasePanel extends javax.swing.JPanel {
                     .addComponent(jLabel4)
                     .addComponent(jLabel3)
                     .addGroup(roundPanel1Layout.createSequentialGroup()
+                        .addGap(4, 4, 4)
                         .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(22, 22, 22)
+                        .addGap(18, 18, 18)
                         .addComponent(jLabel1)))
-                .addContainerGap(15, Short.MAX_VALUE))
+                .addContainerGap(195, Short.MAX_VALUE))
         );
         roundPanel1Layout.setVerticalGroup(
             roundPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -84,9 +83,9 @@ public class AutomaticPurchasePanel extends javax.swing.JPanel {
                     .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(42, 42, 42)
                 .addComponent(jLabel3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 296, Short.MAX_VALUE)
+                .addGap(296, 296, 296)
                 .addComponent(jLabel4)
-                .addGap(165, 165, 165))
+                .addGap(177, 177, 177))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
