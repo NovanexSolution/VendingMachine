@@ -38,10 +38,10 @@ public class madusankaTest extends javax.swing.JFrame {
     private void initComponents() {
 
         normalProductView1 = new lk.novanex.vendingMachine.panel.NormalProductView();
-        normalProductView2 = new lk.novanex.vendingMachine.panel.NormalProductView();
+        welcome2 = new lk.novanex.vendingMachine.panel.Welcome();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        getContentPane().add(normalProductView2, java.awt.BorderLayout.CENTER);
+        getContentPane().add(welcome2, java.awt.BorderLayout.CENTER);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -63,6 +63,6 @@ public class madusankaTest extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private lk.novanex.vendingMachine.panel.NormalProductView normalProductView1;
-    private lk.novanex.vendingMachine.panel.NormalProductView normalProductView2;
+    private lk.novanex.vendingMachine.panel.Welcome welcome2;
     // End of variables declaration//GEN-END:variables
 }
