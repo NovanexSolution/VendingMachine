@@ -4,15 +4,21 @@
  */
 package lk.novanex.vendingMachine.panel;
 
+import com.formdev.flatlaf.util.SwingUtils;
 import java.awt.Color;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
+import javax.swing.SwingUtilities;
+import lk.novanex.vendingMachine.component.ProductWindow;
+import lk.novanex.vendingMachine.gui.FrontView;
 
 /**
  *
  * @author Madusanka
  */
 public class Welcome extends javax.swing.JPanel {
+    
+    public static String USERTYPE;
 
     /**
      * Creates new form Welcome
@@ -21,21 +27,21 @@ public class Welcome extends javax.swing.JPanel {
         initComponents();
         init();
     }
-    
+
     private void init() {
         this.setBackground(new Color(245, 245, 245));
-        
-        ImageIcon video = new ImageIcon("src/Animations/ww.gif");
-        JLabel l = new JLabel(video);
-        l.setSize(1000, 750);
-        this.add(l);
-        
-        jLabel1.setSize(200, 200);
+        jPanel1.setBackground(new Color(245, 245, 245));
+
+        jLabel3.setSize(400, 400);
+        jLabel3.setText("");
         ImageIcon go = new ImageIcon("src/Animations/go.png");
-        jLabel1.setIcon(go);
-        
+        jLabel3.setIcon(go);
+
         this.setVisible(true);
-           }
+    }
+    
+    
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -48,12 +54,22 @@ public class Welcome extends javax.swing.JPanel {
 
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(245, 245, 245));
         setPreferredSize(new java.awt.Dimension(1000, 750));
 
+        jPanel1.setBackground(new java.awt.Color(51, 255, 51));
         jPanel1.add(jLabel1);
+
+        jLabel3.setText("jLabel3");
+        jLabel3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel3MouseClicked(evt);
+            }
+        });
+        jPanel1.add(jLabel3);
 
         jLabel2.setFont(new java.awt.Font("Poppins", 0, 18)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(29, 29, 29));
@@ -70,18 +86,28 @@ public class Welcome extends javax.swing.JPanel {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(554, Short.MAX_VALUE)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(365, Short.MAX_VALUE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel2)
                 .addGap(140, 140, 140))
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jLabel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseClicked
+        USERTYPE = "new";
+        ProductWindow pv = new ProductWindow();
+        FrontView.jPanel3.remove(this);
+        FrontView.jPanel3.add(pv);
+        SwingUtilities.updateComponentTreeUI(FrontView.jPanel3);
+        
+    }//GEN-LAST:event_jLabel3MouseClicked
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }

@@ -5,23 +5,29 @@
 package lk.novanex.vendingMachine.gui;
 
 import com.formdev.flatlaf.FlatLightLaf;
+import javax.swing.JPanel;
+import lk.novanex.vendingMachine.panel.Welcome;
 
 /**
  *
  * @author Madusanka
  */
 public class FrontView extends javax.swing.JFrame {
-
-    /**
+    
+            /**
      * Creates new form FrontView
      */
     public FrontView() {
         initComponents();
         init();
+        
+       
     }
     
     private void init() {
         this.setExtendedState(this.MAXIMIZED_BOTH); 
+        Welcome welcomeScreen = new Welcome();
+        jPanel3.add(welcomeScreen);
     }
 
     /**
@@ -33,38 +39,22 @@ public class FrontView extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
-        frontTopMenu2 = new lk.novanex.vendingMachine.panel.FrontTopMenu();
-        jPanel2 = new javax.swing.JPanel();
-        normalProductView2 = new lk.novanex.vendingMachine.panel.NormalProductView();
+        jPanel3 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
 
-        jPanel1.setBackground(new java.awt.Color(204, 204, 255));
-        jPanel1.setPreferredSize(new java.awt.Dimension(1000, 100));
-        jPanel1.setLayout(new java.awt.BorderLayout());
-        jPanel1.add(frontTopMenu2, java.awt.BorderLayout.CENTER);
-
-        jPanel2.setBackground(new java.awt.Color(204, 204, 204));
-        jPanel2.setPreferredSize(new java.awt.Dimension(1000, 600));
-        jPanel2.setLayout(new java.awt.BorderLayout(1, 1));
-        jPanel2.add(normalProductView2, java.awt.BorderLayout.CENTER);
+        jPanel3.setLayout(new java.awt.BorderLayout());
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 697, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(jPanel3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -87,9 +77,6 @@ public class FrontView extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private lk.novanex.vendingMachine.panel.FrontTopMenu frontTopMenu2;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
-    private lk.novanex.vendingMachine.panel.NormalProductView normalProductView2;
+    public static javax.swing.JPanel jPanel3;
     // End of variables declaration//GEN-END:variables
 }

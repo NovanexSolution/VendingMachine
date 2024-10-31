@@ -41,10 +41,20 @@ public class madusankaTest extends javax.swing.JFrame {
         welcome2 = new lk.novanex.vendingMachine.panel.Welcome();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        welcome2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                welcome2MouseClicked(evt);
+            }
+        });
         getContentPane().add(welcome2, java.awt.BorderLayout.CENTER);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void welcome2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_welcome2MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_welcome2MouseClicked
 
     /**
      * @param args the command line arguments
