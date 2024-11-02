@@ -232,6 +232,11 @@ public class SideCart extends javax.swing.JPanel {
 
     private void jLabel4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel4MouseClicked
         System.out.println("next click");
+        Cart cart = new Cart();
+        
+        ProductWindow.jPanel2.removeAll();
+        ProductWindow.jPanel2.add(cart);
+        SwingUtilities.updateComponentTreeUI(FrontView.jPanel3);
     }//GEN-LAST:event_jLabel4MouseClicked
 
 
