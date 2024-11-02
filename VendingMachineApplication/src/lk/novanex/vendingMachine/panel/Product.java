@@ -7,19 +7,26 @@ package lk.novanex.vendingMachine.panel;
 import com.formdev.flatlaf.FlatClientProperties;
 import java.awt.Color;
 import javax.swing.ImageIcon;
+import javax.swing.SwingUtilities;
+import lk.novanex.vendingMachine.component.ProductWindow;
+import lk.novanex.vendingMachine.gui.FrontView;
+import lk.novanex.vendingMachine.panel.NormalProductViewPlusCart;
 
 /**
  *
  * @author Madusanka
  */
 public class Product extends javax.swing.JPanel {
+    
+    private String productId;
 
     /**
      * Creates new form Product
      */
-    public Product() {
+    public Product(String pId) {
+        productId = pId;
         initComponents();
-        roundPanel1.setBackground(new Color(217,217,217,40));
+        roundPanel1.setBackground(new Color(217, 217, 217, 40));
         
         ImageIcon img = new ImageIcon("src/img/chips.png");
         jLabel1.setIcon(img);
@@ -27,12 +34,15 @@ public class Product extends javax.swing.JPanel {
         init();
         this.setVisible(true);
     }
-
+    
     private void init() {
         this.putClientProperty(FlatClientProperties.STYLE, "arc:22");
         jPanel2.putClientProperty(FlatClientProperties.STYLE, "arc:500");
         jPanel2.setBackground(new Color(248, 80, 80));
         this.setBackground(new Color(255, 255, 255, 0));
+
+//        hide offer 
+        jPanel2.setVisible(false);
     }
     
     public void setProductTitle(String title) {
@@ -43,11 +53,11 @@ public class Product extends javax.swing.JPanel {
         jLabel3.setText(price);
     }
     
-     public void setProductFlavor(String flavor) {
+    public void setProductFlavor(String flavor) {
         jLabel4.setText(flavor);
     }
-     
-      public void setProductImg(String url) {
+    
+    public void setProductImg(String url) {
         ImageIcon img = new ImageIcon(url);
         jLabel1.setIcon(img);
     }
@@ -73,10 +83,15 @@ public class Product extends javax.swing.JPanel {
 
         setBackground(new java.awt.Color(204, 255, 255));
         setOpaque(false);
-        setPreferredSize(new java.awt.Dimension(450, 330));
+        setPreferredSize(new java.awt.Dimension(300, 330));
+        addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                formMouseClicked(evt);
+            }
+        });
 
         roundPanel1.setBackground(new java.awt.Color(204, 204, 255));
-        roundPanel1.setPreferredSize(new java.awt.Dimension(450, 300));
+        roundPanel1.setPreferredSize(new java.awt.Dimension(330, 300));
         roundPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel2.setPreferredSize(new java.awt.Dimension(70, 70));
@@ -95,23 +110,23 @@ public class Product extends javax.swing.JPanel {
         jLabel6.setVerticalAlignment(javax.swing.SwingConstants.TOP);
         jPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 30, 70, -1));
 
-        roundPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 110, -1, -1));
+        roundPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 110, -1, -1));
 
-        jLabel1.setPreferredSize(new java.awt.Dimension(160, 160));
-        roundPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 20, -1, -1));
+        jLabel1.setPreferredSize(new java.awt.Dimension(120, 120));
+        roundPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 50, 140, 140));
 
-        jLabel2.setFont(new java.awt.Font("Poppins", 0, 18)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Poppins", 0, 16)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(29, 29, 29));
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel2.setText(" Potato Chips");
         jLabel2.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
-        roundPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 210, 438, -1));
+        roundPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 200, 350, -1));
 
-        jLabel3.setFont(new java.awt.Font("Poppins", 1, 36)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Poppins", 1, 30)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(29, 29, 29));
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel3.setText("320 LKR");
-        roundPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 230, 450, -1));
+        roundPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 220, 350, 50));
 
         roundPanel2.setBackground(new java.awt.Color(204, 204, 255));
         roundPanel2.setPreferredSize(new java.awt.Dimension(100, 42));
@@ -132,13 +147,13 @@ public class Product extends javax.swing.JPanel {
             .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, 28, Short.MAX_VALUE)
         );
 
-        roundPanel1.add(roundPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 20, -1, 28));
+        roundPanel1.add(roundPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 30, -1, 28));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(roundPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(roundPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 349, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -147,6 +162,17 @@ public class Product extends javax.swing.JPanel {
                 .addComponent(roundPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
     }// </editor-fold>//GEN-END:initComponents
+
+    private void formMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formMouseClicked
+        System.out.println("Product clicked");
+        System.out.println(productId);
+        
+        NormalProductViewPlusCart productViewPlusCart = new NormalProductViewPlusCart();
+        System.out.println("created product + cart");
+        ProductWindow.jPanel2.removeAll();
+        ProductWindow.jPanel2.add(productViewPlusCart);
+        SwingUtilities.updateComponentTreeUI(FrontView.jPanel3);
+    }//GEN-LAST:event_formMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
