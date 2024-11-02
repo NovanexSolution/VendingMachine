@@ -73,7 +73,7 @@ public class NormalProductView extends javax.swing.JPanel {
 
     private void createProducts(String currentProduct) {
 
-        Product productCard = new Product();
+        Product productCard = new Product(currentProduct);
         jPanel1.add(productCard);
 
         productCard.setProductTitle(String.valueOf(products.get(currentProduct).get(0)));

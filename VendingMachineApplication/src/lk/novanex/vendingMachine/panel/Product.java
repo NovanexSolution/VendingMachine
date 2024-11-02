@@ -13,11 +13,14 @@ import javax.swing.ImageIcon;
  * @author Madusanka
  */
 public class Product extends javax.swing.JPanel {
+    
+    private String productId;
 
     /**
      * Creates new form Product
      */
-    public Product() {
+    public Product(String pId) {
+        productId = pId;
         initComponents();
         roundPanel1.setBackground(new Color(217, 217, 217, 40));
         
@@ -77,6 +80,11 @@ public class Product extends javax.swing.JPanel {
         setBackground(new java.awt.Color(204, 255, 255));
         setOpaque(false);
         setPreferredSize(new java.awt.Dimension(300, 330));
+        addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                formMouseClicked(evt);
+            }
+        });
 
         roundPanel1.setBackground(new java.awt.Color(204, 204, 255));
         roundPanel1.setPreferredSize(new java.awt.Dimension(330, 300));
@@ -150,6 +158,11 @@ public class Product extends javax.swing.JPanel {
                 .addComponent(roundPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
     }// </editor-fold>//GEN-END:initComponents
+
+    private void formMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formMouseClicked
+        System.out.println("Product clicked");
+        System.out.println(productId);
+    }//GEN-LAST:event_formMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
