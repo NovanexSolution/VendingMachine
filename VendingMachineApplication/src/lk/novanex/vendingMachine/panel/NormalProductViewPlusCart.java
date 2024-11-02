@@ -4,19 +4,21 @@
  */
 package lk.novanex.vendingMachine.panel;
 
+import java.awt.BorderLayout;
 import java.awt.ComponentOrientation;
 import java.awt.GridLayout;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.sql.ResultSet;
+import javax.swing.text.html.HTML;
 import lk.novanex.vendingMachine.model.MySQL;
 
 /**
  *
  * @author Madusanka
  */
-public class ProductViewPlusCart extends javax.swing.JPanel {
+public class NormalProductViewPlusCart extends javax.swing.JPanel {
 
     /**
      * Creates new form NormalProductView
@@ -34,11 +36,18 @@ public class ProductViewPlusCart extends javax.swing.JPanel {
     private int restProduct = 0;
     int emtyProduct;
 
-    public ProductViewPlusCart() {
+    public NormalProductViewPlusCart() {
         initComponents();
+        init();
         laodProducts("All");
         jPanel1.setComponentOrientation(ComponentOrientation.LEFT_TO_RIGHT);
         createGridItem();
+    }
+    
+    private void init() {
+        SideCart sideCart = new SideCart();
+        jPanel2.setLayout(new BorderLayout());
+        jPanel2.add(sideCart);
     }
 
     private void createGridItem() {
@@ -49,7 +58,7 @@ public class ProductViewPlusCart extends javax.swing.JPanel {
 
             if (restProduct < 4) {
                 mapEnd = mapSize;
-                emtyProduct = 4 - restProduct;
+                emtyProduct = 6 - restProduct;
 
             } else {
                 mapEnd = productHasCreated + 4;
@@ -145,19 +154,11 @@ public class ProductViewPlusCart extends javax.swing.JPanel {
 
         jPanel1.setLayout(new java.awt.GridLayout(2, 2, 25, 8));
 
-        productNext2.setBackground(new java.awt.Color(255, 0, 102));
-        productNext2.setPreferredSize(new java.awt.Dimension(80, 650));
-
-        productBack1.setBackground(new java.awt.Color(255, 0, 102));
-        productBack1.setPreferredSize(new java.awt.Dimension(80, 650));
-
-        jPanel2.setPreferredSize(new java.awt.Dimension(322, 0));
-
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 361, Short.MAX_VALUE)
+            .addGap(0, 503, Short.MAX_VALUE)
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -169,17 +170,16 @@ public class ProductViewPlusCart extends javax.swing.JPanel {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(productBack1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 728, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(productBack1, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(productNext2, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 361, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(productFilter1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addComponent(productNext2, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(productFilter1, javax.swing.GroupLayout.DEFAULT_SIZE, 902, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -190,8 +190,8 @@ public class ProductViewPlusCart extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(productNext2, javax.swing.GroupLayout.DEFAULT_SIZE, 680, Short.MAX_VALUE)
-                    .addComponent(productBack1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, 680, Short.MAX_VALUE)))
+                    .addComponent(productBack1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
 

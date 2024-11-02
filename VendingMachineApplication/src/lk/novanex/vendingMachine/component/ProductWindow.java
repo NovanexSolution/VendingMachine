@@ -57,7 +57,7 @@ public class ProductWindow extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private lk.novanex.vendingMachine.panel.FrontTopMenu frontTopMenu1;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
+    public static javax.swing.JPanel jPanel2;
     private lk.novanex.vendingMachine.panel.NormalProductView normalProductView1;
     // End of variables declaration//GEN-END:variables
 }

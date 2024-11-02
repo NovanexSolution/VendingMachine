@@ -7,6 +7,10 @@ package lk.novanex.vendingMachine.panel;
 import com.formdev.flatlaf.FlatClientProperties;
 import java.awt.Color;
 import javax.swing.ImageIcon;
+import javax.swing.SwingUtilities;
+import lk.novanex.vendingMachine.component.ProductWindow;
+import lk.novanex.vendingMachine.gui.FrontView;
+import lk.novanex.vendingMachine.panel.NormalProductViewPlusCart;
 
 /**
  *
@@ -162,6 +166,12 @@ public class Product extends javax.swing.JPanel {
     private void formMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formMouseClicked
         System.out.println("Product clicked");
         System.out.println(productId);
+        
+        NormalProductViewPlusCart productViewPlusCart = new NormalProductViewPlusCart();
+        System.out.println("created product + cart");
+        ProductWindow.jPanel2.removeAll();
+        ProductWindow.jPanel2.add(productViewPlusCart);
+        SwingUtilities.updateComponentTreeUI(FrontView.jPanel3);
     }//GEN-LAST:event_formMouseClicked
 
 
