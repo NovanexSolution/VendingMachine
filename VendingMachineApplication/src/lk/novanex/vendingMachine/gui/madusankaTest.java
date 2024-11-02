@@ -38,23 +38,13 @@ public class madusankaTest extends javax.swing.JFrame {
     private void initComponents() {
 
         normalProductView1 = new lk.novanex.vendingMachine.panel.NormalProductView();
-        welcome2 = new lk.novanex.vendingMachine.panel.Welcome();
+        productViewPlusCart1 = new lk.novanex.vendingMachine.panel.ProductViewPlusCart();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
-        welcome2.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                welcome2MouseClicked(evt);
-            }
-        });
-        getContentPane().add(welcome2, java.awt.BorderLayout.CENTER);
+        getContentPane().add(productViewPlusCart1, java.awt.BorderLayout.CENTER);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void welcome2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_welcome2MouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_welcome2MouseClicked
 
     /**
      * @param args the command line arguments
@@ -73,6 +63,6 @@ public class madusankaTest extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private lk.novanex.vendingMachine.panel.NormalProductView normalProductView1;
-    private lk.novanex.vendingMachine.panel.Welcome welcome2;
+    private lk.novanex.vendingMachine.panel.ProductViewPlusCart productViewPlusCart1;
     // End of variables declaration//GEN-END:variables
 }
