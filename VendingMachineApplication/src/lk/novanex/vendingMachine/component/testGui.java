@@ -2,32 +2,21 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package lk.novanex.vendingMachine.gui;
+package lk.novanex.vendingMachine.component;
 
 import com.formdev.flatlaf.FlatLightLaf;
-import javax.swing.JPanel;
-import lk.novanex.vendingMachine.panel.Welcome;
 
 /**
  *
- * @author Madusanka
+ * @author ASUS
  */
-public class FrontView extends javax.swing.JFrame {
-    
-            /**
-     * Creates new form FrontView
+public class testGui extends javax.swing.JFrame {
+
+    /**
+     * Creates new form testGui
      */
-    public FrontView() {
+    public testGui() {
         initComponents();
-        init();
-        
-       
-    }
-    
-    private void init() {
-        this.setExtendedState(this.MAXIMIZED_BOTH); 
-        Welcome welcomeScreen = new Welcome();
-        jPanel3.add(welcomeScreen);
     }
 
     /**
@@ -39,22 +28,25 @@ public class FrontView extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel3 = new javax.swing.JPanel();
+        cart1 = new lk.novanex.vendingMachine.panel.Cart();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setUndecorated(true);
-
-        jPanel3.setLayout(new java.awt.BorderLayout());
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, 1000, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(cart1, javax.swing.GroupLayout.PREFERRED_SIZE, 1007, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, 750, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(26, 26, 26)
+                .addComponent(cart1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(38, Short.MAX_VALUE))
         );
 
         pack();
@@ -71,12 +63,12 @@ public class FrontView extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new FrontView().setVisible(true);
+                new testGui().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    public static javax.swing.JPanel jPanel3;
+    private lk.novanex.vendingMachine.panel.Cart cart1;
     // End of variables declaration//GEN-END:variables
 }
