@@ -42,6 +42,7 @@ public class NormalProductViewPlusCart extends javax.swing.JPanel {
         laodProducts("All");
         jPanel1.setComponentOrientation(ComponentOrientation.LEFT_TO_RIGHT);
         createGridItem();
+        
     }
     
     private void init() {
@@ -49,7 +50,8 @@ public class NormalProductViewPlusCart extends javax.swing.JPanel {
         jPanel2.setLayout(new BorderLayout());
         jPanel2.add(sideCart);
     }
-
+    
+    
     private void createGridItem() {
         int mapSize = productMap.size();
         restProduct = mapSize - productHasCreated;

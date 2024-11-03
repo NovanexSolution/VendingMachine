@@ -8,6 +8,9 @@ import com.formdev.flatlaf.FlatClientProperties;
 import java.awt.Color;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
+import javax.swing.SwingUtilities;
+import lk.novanex.vendingMachine.component.ProductWindow;
+import lk.novanex.vendingMachine.gui.FrontView;
 
 /**
  *
@@ -256,12 +259,16 @@ public class Cart extends javax.swing.JPanel {
     private void jLabel13MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel13MouseClicked
 //        navigate to payment
 
-        String user = "card";
-        
+        String user = "new";
+
         if (user.equals("card")) {
             System.out.println("pay with member card");
         } else {
             System.out.println("scan the qr to pay");
+            QRcode qrCode = new QRcode();
+            ProductWindow.jPanel2.removeAll();
+            ProductWindow.jPanel2.add(qrCode);
+            SwingUtilities.updateComponentTreeUI(FrontView.jPanel3);
         }
 
     }//GEN-LAST:event_jLabel13MouseClicked

@@ -97,7 +97,7 @@ public class NormalProductView extends javax.swing.JPanel {
 
             while (result.next()) {
                 productFound = 1;
-                System.out.println("Found"); // temp comment product available
+//                System.out.println("Found"); // temp comment product available
 
                 ArrayList<String> productDetails = new ArrayList<>(); // tittle, price, img, flavor
 

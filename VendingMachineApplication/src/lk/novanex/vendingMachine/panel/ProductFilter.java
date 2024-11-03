@@ -6,6 +6,7 @@ package lk.novanex.vendingMachine.panel;
 
 import com.formdev.flatlaf.FlatClientProperties;
 import com.formdev.flatlaf.ui.FlatLabelUI;
+import java.sql.ResultSet;
 import java.awt.Color;
 import java.awt.Component;
 import java.awt.event.MouseAdapter;
@@ -18,6 +19,7 @@ import javax.swing.JPanel;
 import javax.swing.border.AbstractBorder;
 import javax.swing.border.LineBorder;
 import lk.novanex.vendingMachine.component.RoundPanel;
+import lk.novanex.vendingMachine.model.MySQL;
 
 /**
  *
@@ -31,8 +33,17 @@ public class ProductFilter extends javax.swing.JPanel {
 
     private void getCategory() {
 
-        categorySet.add("Chips");
-        categorySet.add("Choco");
+        try {
+            ResultSet result = MySQL.execute("SELECT * FROM `category`");
+
+            while (result.next()) {
+                categorySet.add(result.getString("category"));
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
     }
 
     /**
@@ -68,10 +79,7 @@ public class ProductFilter extends javax.swing.JPanel {
 
         RoundPanel roundPanel2 = new RoundPanel();
         JLabel jLabel1 = new javax.swing.JLabel();
-        
-        
-        
-        
+
         // Adding MouseListener to both label and panel
         MouseAdapter colorChangeListener = new MouseAdapter() {
             @Override
@@ -93,14 +101,10 @@ public class ProductFilter extends javax.swing.JPanel {
                 jLabel1.setForeground(Color.WHITE); // Selected text color
             }
         };
-        
+
         // Attach the listener to both the label and the panel
         roundPanel2.addMouseListener(colorChangeListener);
         jLabel1.addMouseListener(colorChangeListener);
-        
-        
-            
-            
 
         javax.swing.GroupLayout roundPanel1Layout = new javax.swing.GroupLayout(roundPanel1);
         roundPanel1.setLayout(roundPanel1Layout);
@@ -126,7 +130,7 @@ public class ProductFilter extends javax.swing.JPanel {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
 //                System.out.println(text);
 //                System.out.println(evt);
-                
+
             }
         });
 
@@ -141,7 +145,7 @@ public class ProductFilter extends javax.swing.JPanel {
         jLabel1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 System.out.println(text);
-                
+
             }
         });
 
@@ -159,8 +163,6 @@ public class ProductFilter extends javax.swing.JPanel {
         add(roundPanel2);
 
     }
-    
-       
 
     /**
      * This method is called from within the constructor to initialize the form.

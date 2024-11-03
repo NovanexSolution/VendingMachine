@@ -8,16 +8,18 @@ import com.formdev.flatlaf.util.SwingUtils;
 import java.awt.Color;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
+import javax.swing.JPanel;
 import javax.swing.SwingUtilities;
 import lk.novanex.vendingMachine.component.ProductWindow;
 import lk.novanex.vendingMachine.gui.FrontView;
+import lk.novanex.vendingMachine.model.CheckCard;
 
 /**
  *
  * @author Madusanka
  */
 public class Welcome extends javax.swing.JPanel {
-    
+
     public static String USERTYPE;
 
     /**
@@ -26,6 +28,8 @@ public class Welcome extends javax.swing.JPanel {
     public Welcome() {
         initComponents();
         init();
+        CheckCard checkCard = new CheckCard();
+        checkCard.scanCard();
     }
 
     private void init() {
@@ -39,8 +43,7 @@ public class Welcome extends javax.swing.JPanel {
 
         this.setVisible(true);
     }
-    
-    
+
     
 
     /**
@@ -100,7 +103,8 @@ public class Welcome extends javax.swing.JPanel {
         FrontView.jPanel3.remove(this);
         FrontView.jPanel3.add(pv);
         SwingUtilities.updateComponentTreeUI(FrontView.jPanel3);
-        
+
+
     }//GEN-LAST:event_jLabel3MouseClicked
 
 
