@@ -45,6 +45,7 @@ public class CheckCard {
                 // Try to open the port
                 if (arduinoPort.openPort()) {
                     System.out.println("Port is open.");
+                    
                 } else {
                     System.out.println("Failed to open port.");
                     return;

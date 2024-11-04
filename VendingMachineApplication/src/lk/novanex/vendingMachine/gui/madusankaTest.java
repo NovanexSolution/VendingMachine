@@ -10,6 +10,7 @@ import java.util.Set;
 import javax.swing.JPanel;
 import lk.novanex.vendingMachine.panel.CartItem;
 import lk.novanex.vendingMachine.panel.Cart;
+import lk.novanex.vendingMachine.panel.CartItemSideCart;
 
 /**
  *
@@ -28,7 +29,8 @@ public class madusankaTest extends javax.swing.JFrame {
 //      jPanel1.add(ci);
 
 
-        
+        CartItemSideCart cd = new CartItemSideCart();
+        add(cd);
 
     }
 
@@ -44,10 +46,8 @@ public class madusankaTest extends javax.swing.JFrame {
         normalProductView1 = new lk.novanex.vendingMachine.panel.NormalProductView();
         normalProductView2 = new lk.novanex.vendingMachine.panel.NormalProductView();
         welcome1 = new lk.novanex.vendingMachine.panel.Welcome();
-        welcome2 = new lk.novanex.vendingMachine.panel.Welcome();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        getContentPane().add(welcome2, java.awt.BorderLayout.CENTER);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -71,6 +71,5 @@ public class madusankaTest extends javax.swing.JFrame {
     private lk.novanex.vendingMachine.panel.NormalProductView normalProductView1;
     private lk.novanex.vendingMachine.panel.NormalProductView normalProductView2;
     private lk.novanex.vendingMachine.panel.Welcome welcome1;
-    private lk.novanex.vendingMachine.panel.Welcome welcome2;
     // End of variables declaration//GEN-END:variables
 }

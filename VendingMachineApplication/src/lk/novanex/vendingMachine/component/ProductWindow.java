@@ -4,6 +4,9 @@
  */
 package lk.novanex.vendingMachine.component;
 
+import javax.swing.JPanel;
+import lk.novanex.vendingMachine.panel.NormalProductViewPlusCart;
+
 /**
  *
  * @author Madusanka
@@ -13,6 +16,8 @@ public class ProductWindow extends javax.swing.JPanel {
     /**
      * Creates new form ProductWindow
      */
+    
+    public static NormalProductViewPlusCart productViewPlusCart;
     public ProductWindow() {
         initComponents();
     }

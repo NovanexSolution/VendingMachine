@@ -11,6 +11,9 @@ import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.sql.ResultSet;
+import java.util.HashSet;
+import java.util.Set;
+import javax.swing.SwingUtilities;
 import javax.swing.text.html.HTML;
 import lk.novanex.vendingMachine.model.MySQL;
 
@@ -23,6 +26,9 @@ public class NormalProductViewPlusCart extends javax.swing.JPanel {
     /**
      * Creates new form NormalProductView
      */
+//    cart addedd products id
+    Set<String> cartProducts = new HashSet<String>();
+
 //    HashMap<productID, Product data array> products = new HashMap<>();
     HashMap<String, ArrayList> products = new HashMap<>();
 
@@ -32,26 +38,37 @@ public class NormalProductViewPlusCart extends javax.swing.JPanel {
     private int productCount = 1;
     private int productHasCreated = 0;
     private int mapStart = 1;
-    private int mapEnd = 6;
+    private int mapEnd = 4;
     private int restProduct = 0;
     int emtyProduct;
 
-    public NormalProductViewPlusCart() {
+    public NormalProductViewPlusCart(String selectedProduct) {
         initComponents();
-        init();
+        init(selectedProduct);
         laodProducts("All");
         jPanel1.setComponentOrientation(ComponentOrientation.LEFT_TO_RIGHT);
         createGridItem();
-        
+
     }
-    
-    private void init() {
-        SideCart sideCart = new SideCart();
+
+    private void init(String selectedProduct) {
+        jPanel2.setSize(320, 650);
+        cartProducts.add(selectedProduct);
+        SideCart sideCart = new SideCart(cartProducts);
         jPanel2.setLayout(new BorderLayout());
         jPanel2.add(sideCart);
     }
-    
-    
+
+    public void createCartItem(String selectedProduct) {
+        cartProducts.add(selectedProduct);
+        System.out.println(cartProducts);
+        SideCart sideCartNew = new SideCart(cartProducts);
+        jPanel2.setLayout(new BorderLayout());
+        jPanel2.removeAll();
+        jPanel2.add(sideCartNew);
+        SwingUtilities.updateComponentTreeUI(jPanel2);
+    }
+
     private void createGridItem() {
         int mapSize = productMap.size();
         restProduct = mapSize - productHasCreated;
@@ -60,7 +77,7 @@ public class NormalProductViewPlusCart extends javax.swing.JPanel {
 
             if (restProduct < 4) {
                 mapEnd = mapSize;
-                emtyProduct = 6 - restProduct;
+                emtyProduct = 4 - restProduct;
 
             } else {
                 mapEnd = productHasCreated + 4;
@@ -154,17 +171,17 @@ public class NormalProductViewPlusCart extends javax.swing.JPanel {
 
         setPreferredSize(new java.awt.Dimension(1000, 750));
 
-        jPanel1.setLayout(new java.awt.GridLayout(2, 2, 25, 8));
+        jPanel1.setLayout(new java.awt.GridLayout(2, 2));
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 503, Short.MAX_VALUE)
+            .addGap(0, 390, Short.MAX_VALUE)
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGap(0, 750, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -174,12 +191,12 @@ public class NormalProductViewPlusCart extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(productBack1, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(productBack1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(productNext2, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(productFilter1, javax.swing.GroupLayout.DEFAULT_SIZE, 902, Short.MAX_VALUE))
+                        .addComponent(productNext2, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(productFilter1, javax.swing.GroupLayout.DEFAULT_SIZE, 604, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
@@ -190,9 +207,9 @@ public class NormalProductViewPlusCart extends javax.swing.JPanel {
                 .addComponent(productFilter1, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(productNext2, javax.swing.GroupLayout.DEFAULT_SIZE, 680, Short.MAX_VALUE)
-                    .addComponent(productBack1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addComponent(productBack1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
             .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
