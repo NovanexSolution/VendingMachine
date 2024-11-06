@@ -34,7 +34,7 @@
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace min="-2" pref="50" max="-2" attributes="0"/>
                   <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace pref="369" max="32767" attributes="0"/>
+                  <EmptySpace pref="293" max="32767" attributes="0"/>
               </Group>
               <Group type="102" alignment="1" attributes="0">
                   <EmptySpace max="32767" attributes="0"/>
@@ -61,7 +61,7 @@
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Poppins" size="30" style="1"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Earning Report"/>
+            <Property name="text" type="java.lang.String" value="Stock Management"/>
           </Properties>
         </Component>
         <Container class="Componnent.RoundPanel" name="roundPanel2">
