@@ -12,12 +12,12 @@ import javax.swing.ImageIcon;
  *
  * @author ASUS
  */
-public class EarningProductSelector extends javax.swing.JPanel {
+public class ProductSelector extends javax.swing.JPanel {
 
     /**
      * Creates new form EarningProductSelector
      */
-    public EarningProductSelector() {
+    public ProductSelector() {
         initComponents();
         init();
         this.setVisible(true);
