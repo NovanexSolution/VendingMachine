@@ -48,6 +48,9 @@ public class SetOffer extends javax.swing.JPanel {
         jDateChooser1.getDateEditor().getUiComponent().setBackground(new Color(245, 245, 245));
         jDateChooser1.getDateEditor().getUiComponent().setBorder(BorderFactory.createEmptyBorder());
         
+        jTextField1.putClientProperty(FlatClientProperties.PLACEHOLDER_TEXT, "Quantity here");
+        jTextField3.putClientProperty(FlatClientProperties.PLACEHOLDER_TEXT, "Rate here");
+        
         JTextField[] textFields = {jTextField1,jTextField3};
         for (JTextField textField : textFields) {
             textField.setForeground(new Color(41, 41, 41));
@@ -73,7 +76,7 @@ public class SetOffer extends javax.swing.JPanel {
         jLabel1.setFont(new java.awt.Font("Poppins", 1, 20)); // NOI18N
         jLabel1.setText("QTY");
 
-        jTextField1.setFont(new java.awt.Font("Poppins", 1, 20)); // NOI18N
+        jTextField1.setFont(new java.awt.Font("Poppins", 0, 20)); // NOI18N
         jTextField1.setHorizontalAlignment(javax.swing.JTextField.LEFT);
 
         jLabel7.setPreferredSize(new java.awt.Dimension(50, 50));
@@ -99,7 +102,7 @@ public class SetOffer extends javax.swing.JPanel {
             .addComponent(jLabel9, javax.swing.GroupLayout.DEFAULT_SIZE, 50, Short.MAX_VALUE)
         );
 
-        jTextField3.setFont(new java.awt.Font("Poppins", 1, 20)); // NOI18N
+        jTextField3.setFont(new java.awt.Font("Poppins", 0, 20)); // NOI18N
         jTextField3.setHorizontalAlignment(javax.swing.JTextField.LEFT);
 
         jLabel5.setFont(new java.awt.Font("Poppins", 1, 20)); // NOI18N
@@ -107,7 +110,7 @@ public class SetOffer extends javax.swing.JPanel {
 
         jDateChooser1.setBackground(new java.awt.Color(245, 245, 245));
         jDateChooser1.setDateFormatString("yyyy-MM-dd");
-        jDateChooser1.setFont(new java.awt.Font("Poppins", 1, 20)); // NOI18N
+        jDateChooser1.setFont(new java.awt.Font("Poppins", 0, 20)); // NOI18N
 
         javax.swing.GroupLayout roundPanel1Layout = new javax.swing.GroupLayout(roundPanel1);
         roundPanel1.setLayout(roundPanel1Layout);
@@ -120,10 +123,10 @@ public class SetOffer extends javax.swing.JPanel {
                     .addComponent(jLabel3)
                     .addComponent(jLabel5))
                 .addGap(30, 30, 30)
-                .addGroup(roundPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jDateChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(roundPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jDateChooser1, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)
+                    .addComponent(jTextField1)
+                    .addComponent(jTextField3))
                 .addContainerGap(177, Short.MAX_VALUE))
             .addGroup(roundPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, roundPanel1Layout.createSequentialGroup()

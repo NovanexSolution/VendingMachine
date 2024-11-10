@@ -47,6 +47,8 @@ public class AddStock extends javax.swing.JPanel {
             textField.setBackground(new Color(245, 245, 245));
             textField.setBorder(BorderFactory.createEmptyBorder());
         }
+        
+        jTextField1.putClientProperty(FlatClientProperties.PLACEHOLDER_TEXT, "Quantity here");
 
         jDateChooser1.getDateEditor().getUiComponent().setBackground(new Color(245, 245, 245));
         jDateChooser2.getDateEditor().getUiComponent().setBackground(new Color(245, 245, 245));
@@ -96,21 +98,21 @@ public class AddStock extends javax.swing.JPanel {
         jLabel5.setFont(new java.awt.Font("Poppins", 1, 20)); // NOI18N
         jLabel5.setText("Selling Price");
 
-        jTextField1.setFont(new java.awt.Font("Poppins", 1, 20)); // NOI18N
+        jTextField1.setFont(new java.awt.Font("Poppins", 0, 20)); // NOI18N
         jTextField1.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
 
         jDateChooser1.setBackground(new java.awt.Color(245, 245, 245));
         jDateChooser1.setDateFormatString("yyyy-MM-dd");
-        jDateChooser1.setFont(new java.awt.Font("Poppins", 1, 20)); // NOI18N
+        jDateChooser1.setFont(new java.awt.Font("Poppins", 0, 20)); // NOI18N
 
         jDateChooser2.setBackground(new java.awt.Color(245, 245, 245));
         jDateChooser2.setDateFormatString("yyyy-MM-dd");
-        jDateChooser2.setFont(new java.awt.Font("Poppins", 1, 20)); // NOI18N
+        jDateChooser2.setFont(new java.awt.Font("Poppins", 0, 20)); // NOI18N
 
-        jTextField2.setFont(new java.awt.Font("Poppins", 1, 20)); // NOI18N
+        jTextField2.setFont(new java.awt.Font("Poppins", 0, 20)); // NOI18N
         jTextField2.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
 
-        jTextField3.setFont(new java.awt.Font("Poppins", 1, 20)); // NOI18N
+        jTextField3.setFont(new java.awt.Font("Poppins", 0, 20)); // NOI18N
         jTextField3.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
 
         jLabel6.setFont(new java.awt.Font("Poppins", 1, 20)); // NOI18N
@@ -167,7 +169,7 @@ public class AddStock extends javax.swing.JPanel {
                                     .addComponent(jLabel8, javax.swing.GroupLayout.Alignment.TRAILING))))
                         .addGap(191, 191, 191))
                     .addGroup(roundPanel1Layout.createSequentialGroup()
-                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, roundPanel1Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
