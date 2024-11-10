@@ -6,11 +6,15 @@ package lk.novanex.vendingMachine.gui;
 
 import com.formdev.flatlaf.FlatLightLaf;
 import java.awt.Color;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.HashMap;
 import java.util.Set;
 import javax.swing.JPanel;
 import lk.novanex.vendingMachine.panel.CartItem;
 import lk.novanex.vendingMachine.panel.Cart;
 import lk.novanex.vendingMachine.panel.CartItemSideCart;
+import lk.novanex.vendingMachine.panel.Product;
 
 /**
  *
@@ -18,7 +22,6 @@ import lk.novanex.vendingMachine.panel.CartItemSideCart;
  */
 public class madusankaTest extends javax.swing.JFrame {
 
-   
     /**
      * Creates new form madusankaTest
      */
@@ -28,9 +31,12 @@ public class madusankaTest extends javax.swing.JFrame {
 //      CartItem ci = new CartItem();
 //      jPanel1.add(ci);
 
-
-        CartItemSideCart cd = new CartItemSideCart();
-        add(cd);
+       Date d = new Date(2024,01,05);
+        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+        
+        String date = format.format(d);
+        
+        System.out.println(date);
 
     }
 

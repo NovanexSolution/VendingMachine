@@ -6,7 +6,11 @@ package lk.novanex.vendingMachine.panel;
 
 import com.formdev.flatlaf.FlatClientProperties;
 import java.awt.Color;
+import java.sql.ResultSet;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import javax.swing.ImageIcon;
+import lk.novanex.vendingMachine.model.MySQL;
 
 /**
  *
@@ -17,8 +21,13 @@ public class CartItem extends javax.swing.JPanel {
     /**
      * Creates new form CartItem
      */
-    public CartItem() {
+    
+    int qty = 0;
+    public CartItem(int q) {
         initComponents();
+        
+        qty = q;
+        
         jPanel1.setBackground(new Color(255, 255, 255, 0));
         jPanel2.setBackground(new Color(255, 255, 255, 0));
 
@@ -42,6 +51,49 @@ public class CartItem extends javax.swing.JPanel {
         this.setSize(1000, 150);
         this.setBackground(new Color(217, 217, 217, 60));
 
+    }
+    
+    public void createCartItem() {
+        ImageIcon img = new ImageIcon();
+        jLabel3.setText("");
+        jLabel3.setIcon(img);
+        
+        jLabel1.setText(qtyText);
+    }
+    
+     private int checkProductOffer(String pId) {
+        int offer = 0;
+        Date t = new Date();
+        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+
+        String date = format.format(t);
+
+        try {
+            ResultSet result = MySQL.execute("SELECT * FROM `product` INNER JOIN `offer` ON `product`.`id` = `offer`.`product_id` WHERE `product`.`id` = '" + pId + "' AND `offer`.`exp` <= '" + date + "'");
+
+            if (result.next()) {
+                int qty = result.getInt("offer.qty");
+
+                if (qty > 0) {
+                    offer = result.getInt("offer.discount");
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }        
+        return offer;
+    }
+     
+     private void searchItem(String pId) {
+        try {
+//            get product price
+            ResultSet productPrice = MySQL.execute("SELECT * FROM `product` INNER JOIN `stock` ON `product`.`stock_id` = `stock`.`id` WHERE `product`.`id` = '" + pId + "'");
+            
+            int productOffer = checkProductOffer(pId);
+            
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     /**

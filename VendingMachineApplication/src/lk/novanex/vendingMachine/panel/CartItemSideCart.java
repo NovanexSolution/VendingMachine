@@ -8,7 +8,12 @@ import com.formdev.flatlaf.FlatClientProperties;
 import java.awt.Color;
 import javax.swing.ImageIcon;
 import java.sql.ResultSet;
+import java.util.HashMap;
+import javax.swing.SwingUtilities;
+import lk.novanex.vendingMachine.component.ProductWindow;
+import lk.novanex.vendingMachine.gui.FrontView;
 import lk.novanex.vendingMachine.model.MySQL;
+import lk.novanex.vendingMachine.panel.NormalProductViewPlusCart;
 
 /**
  *
@@ -16,17 +21,15 @@ import lk.novanex.vendingMachine.model.MySQL;
  */
 public class CartItemSideCart extends javax.swing.JPanel {
 
-    /**
-     * Creates new form CartItem
-     */
-    public CartItemSideCart() {
+    String productId;
+
+    public CartItemSideCart(String pId) {
         initComponents();
-        
+        productId = pId;
         jLabel3.setText("");
         jPanel1.setBackground(new Color(255, 255, 255, 0));
         jPanel2.setBackground(new Color(255, 255, 255, 0));
 
-   
         jLabel2.setBackground(new Color(255, 255, 255, 0));
         ImageIcon deleteIcon = new ImageIcon("src/img/delete.png");
         jLabel2.setIcon(deleteIcon);
@@ -43,14 +46,16 @@ public class CartItemSideCart extends javax.swing.JPanel {
         this.putClientProperty(FlatClientProperties.STYLE, "arc:22");
         this.setSize(350, 120);
         this.setBackground(new Color(217, 217, 217, 60));
-                
+
     }
-    
-    public void setCartItem(String url,String title) {
+
+    public void setCartItem(String url, String title, String qty) {
         ImageIcon img = new ImageIcon(url);
         jLabel3.setIcon(img);
-        
+
         jLabel4.setText(title);
+
+        jLabel7.setText(qty);
     }
 
     /**
@@ -85,6 +90,11 @@ public class CartItemSideCart extends javax.swing.JPanel {
 
         roundPanel1.setBackground(new java.awt.Color(217, 215, 215));
         roundPanel1.setPreferredSize(new java.awt.Dimension(100, 42));
+        roundPanel1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                roundPanel1MouseClicked(evt);
+            }
+        });
 
         jLabel5.setFont(new java.awt.Font("Poppins", 1, 24)); // NOI18N
         jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -106,6 +116,11 @@ public class CartItemSideCart extends javax.swing.JPanel {
 
         roundPanel2.setBackground(new java.awt.Color(217, 215, 215));
         roundPanel2.setPreferredSize(new java.awt.Dimension(100, 42));
+        roundPanel2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                roundPanel2MouseClicked(evt);
+            }
+        });
 
         jLabel6.setFont(new java.awt.Font("Poppins", 1, 24)); // NOI18N
         jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -189,6 +204,26 @@ public class CartItemSideCart extends javax.swing.JPanel {
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
     }// </editor-fold>//GEN-END:initComponents
+
+    private void roundPanel2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_roundPanel2MouseClicked
+        if (ProductWindow.productViewPlusCart.checkQty(productId)) {
+            ProductWindow.productViewPlusCart.updateStock(productId);
+            ProductWindow.productViewPlusCart.createCartItem(productId);
+            ProductWindow.jPanel2.removeAll();
+            ProductWindow.jPanel2.add(ProductWindow.productViewPlusCart);
+            SwingUtilities.updateComponentTreeUI(FrontView.jPanel3);
+        } else {
+            System.out.println("Out of stock msg from product");
+        }
+    }//GEN-LAST:event_roundPanel2MouseClicked
+
+    private void roundPanel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_roundPanel1MouseClicked
+        ProductWindow.productViewPlusCart.updateStockAdd(productId);
+        ProductWindow.productViewPlusCart.createCartItemRemoveingCart(productId);
+        ProductWindow.jPanel2.removeAll();
+        ProductWindow.jPanel2.add(ProductWindow.productViewPlusCart);
+        SwingUtilities.updateComponentTreeUI(FrontView.jPanel3);// TODO add your handling code here:
+    }//GEN-LAST:event_roundPanel1MouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

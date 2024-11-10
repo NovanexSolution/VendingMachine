@@ -14,6 +14,8 @@ import lk.novanex.vendingMachine.component.ProductWindow;
 import lk.novanex.vendingMachine.gui.FrontView;
 import lk.novanex.vendingMachine.panel.Cart;
 import java.sql.ResultSet;
+import java.util.HashMap;
+import java.util.Map;
 import lk.novanex.vendingMachine.model.MySQL;
 
 /**
@@ -25,13 +27,12 @@ public class SideCart extends javax.swing.JPanel {
     /**
      * Creates new form SideCart
      */
-    
-    Set<String> selectedProducts;
-    
-    public SideCart(Set sp) {
+    HashMap<String, Integer> selectedProducts;
+
+    public SideCart(HashMap sp) {
         initComponents();
         selectedProducts = sp;
-        init();        
+        init();
         this.setVisible(true);
     }
 
@@ -45,45 +46,51 @@ public class SideCart extends javax.swing.JPanel {
         jPanel1.setBackground(new Color(217, 217, 217, 0));
         jPanel2.setBackground(new Color(217, 217, 217, 60));
         jPanel6.setBackground(new Color(255, 255, 255, 0));
-            
-    
+
 //        jPanel4.setBackground(new Color(255, 255, 255, 0));
 //        jPanel6.setBackground(new Color(255, 255, 255, 0));
 //        jPanel5.setBackground(new Color(255, 255, 255, 0));
-
 //        roundPanel2.setBackground(new Color(255, 165, 0));
-
         jLabel1.setForeground(new Color(41, 41, 41));
         jLabel2.setForeground(new Color(41, 41, 41));
         jLabel3.setForeground(new Color(41, 41, 41));
         jLabel4.setForeground(new Color(245, 245, 245));
-        
-        jSeparator1.setMaximumSize(new Dimension(334, 1)); 
+
+        jSeparator1.setMaximumSize(new Dimension(334, 1));
         addCartItem();
 
     }
-    
+
     public void addCartItem() {
-              
-        for (String s:selectedProducts) {
+
+        // Iterating HashMap through for loop
+        for (Map.Entry<String, Integer> set: selectedProducts.entrySet()) {
+            
             try {
-                ResultSet product = MySQL.execute("SELECT * FROM `product` INNER JOIN `stock` ON `product`.`stock_id` = `stock`.`id` WHERE `product`.`id` = '"+ s +"'");
-                
+                ResultSet product = MySQL.execute("SELECT * FROM `product` INNER JOIN `stock` ON `product`.`stock_id` = `stock`.`id` WHERE `product`.`id` = '" + set.getKey() + "'");
+
                 while (product.next()) {
-                    
-                    CartItemSideCart cartItem = new CartItemSideCart();
-                    
+
+                    CartItemSideCart cartItem = new CartItemSideCart(set.getKey());
+
                     String title = product.getString("product.title");
                     String img = product.getString("product.img");
-                    
-                    cartItem.setCartItem(img, title);
-                    
+                    String qty = String.valueOf(set.getValue());
+
+                    cartItem.setCartItem(img, title, qty);
+
                     jPanel1.add(cartItem);
                 }
             } catch (Exception e) {
                 e.printStackTrace();
             }
+
+            // Printing all elements of a Map
+            System.out.println(set.getKey() + " = "
+                    + set.getValue());
         }
+
+//      
     }
 
     @SuppressWarnings("unchecked")
@@ -260,7 +267,7 @@ public class SideCart extends javax.swing.JPanel {
     private void jLabel4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel4MouseClicked
         System.out.println("next click");
         Cart cart = new Cart();
-        
+
         ProductWindow.jPanel2.removeAll();
         ProductWindow.jPanel2.add(cart);
         SwingUtilities.updateComponentTreeUI(FrontView.jPanel3);
@@ -272,7 +279,7 @@ public class SideCart extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JPanel jPanel1;
+    public static javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel6;

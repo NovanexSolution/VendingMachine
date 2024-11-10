@@ -9,8 +9,11 @@ import java.awt.Color;
 import javax.swing.ImageIcon;
 import javax.swing.SwingUtilities;
 import lk.novanex.vendingMachine.component.ProductWindow;
+import static lk.novanex.vendingMachine.component.ProductWindow.productViewPlusCart;
 import lk.novanex.vendingMachine.gui.FrontView;
 import lk.novanex.vendingMachine.panel.NormalProductViewPlusCart;
+import static lk.novanex.vendingMachine.panel.NormalProductViewPlusCart.createCartItem;
+import static lk.novanex.vendingMachine.panel.NormalProductViewPlusCart.updateStock;
 
 /**
  *
@@ -19,7 +22,7 @@ import lk.novanex.vendingMachine.panel.NormalProductViewPlusCart;
 public class Product extends javax.swing.JPanel {
 
     private String productId;
-    
+
     /**
      * Creates new form Product
      */
@@ -172,23 +175,23 @@ public class Product extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void formMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formMouseClicked
-        System.out.println("Product clicked");
-        System.out.println(productId);
+        System.out.println("Click on Product");
 
         if ((ProductWindow.productViewPlusCart) == null) {
             System.out.println("Create new one");
-
-            ProductWindow.productViewPlusCart = new NormalProductViewPlusCart(productId);
-            ProductWindow.jPanel2.removeAll();
-            ProductWindow.jPanel2.add(ProductWindow.productViewPlusCart);
-            SwingUtilities.updateComponentTreeUI(FrontView.jPanel3);
-            System.out.println(ProductWindow.productViewPlusCart);
+            ProductWindow.productViewPlusCart = new NormalProductViewPlusCart();
         } else {
             System.out.println("Alreaady cart has");
+        }
+
+        if (ProductWindow.productViewPlusCart.checkQty(productId)) {  
+            ProductWindow.productViewPlusCart.updateStock(productId);
             ProductWindow.productViewPlusCart.createCartItem(productId);
             ProductWindow.jPanel2.removeAll();
             ProductWindow.jPanel2.add(ProductWindow.productViewPlusCart);
             SwingUtilities.updateComponentTreeUI(FrontView.jPanel3);
+        } else {
+            System.out.println("Out of stock msg from product");
         }
 
 

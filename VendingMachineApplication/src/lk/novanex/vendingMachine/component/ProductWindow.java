@@ -18,6 +18,7 @@ public class ProductWindow extends javax.swing.JPanel {
      */
     
     public static NormalProductViewPlusCart productViewPlusCart;
+    
     public ProductWindow() {
         initComponents();
     }

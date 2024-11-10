@@ -6,15 +6,12 @@ package lk.novanex.vendingMachine.panel;
 
 import java.awt.BorderLayout;
 import java.awt.ComponentOrientation;
-import java.awt.GridLayout;
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.sql.ResultSet;
 import java.util.HashSet;
 import java.util.Set;
 import javax.swing.SwingUtilities;
-import javax.swing.text.html.HTML;
 import lk.novanex.vendingMachine.model.MySQL;
 
 /**
@@ -27,7 +24,9 @@ public class NormalProductViewPlusCart extends javax.swing.JPanel {
      * Creates new form NormalProductView
      */
 //    cart addedd products id
-    Set<String> cartProducts = new HashSet<String>();
+    public static Set<String> cartProducts = new HashSet<String>();
+//productid,qty
+    public static HashMap<String, Integer> cartItemCount;
 
 //    HashMap<productID, Product data array> products = new HashMap<>();
     HashMap<String, ArrayList> products = new HashMap<>();
@@ -42,31 +41,169 @@ public class NormalProductViewPlusCart extends javax.swing.JPanel {
     private int restProduct = 0;
     int emtyProduct;
 
-    public NormalProductViewPlusCart(String selectedProduct) {
+    public NormalProductViewPlusCart() {
         initComponents();
-        init(selectedProduct);
+        init();
         laodProducts("All");
         jPanel1.setComponentOrientation(ComponentOrientation.LEFT_TO_RIGHT);
         createGridItem();
 
     }
 
-    private void init(String selectedProduct) {
-        jPanel2.setSize(320, 650);
-        cartProducts.add(selectedProduct);
-        SideCart sideCart = new SideCart(cartProducts);
-        jPanel2.setLayout(new BorderLayout());
-        jPanel2.add(sideCart);
+    public static boolean checkQty(String productId) {
+        System.out.println("checking qty");
+        boolean stockAvaileble = false;
+        try {
+            ResultSet result = MySQL.execute("SELECT * FROM `product` INNER JOIN `stock` ON `product`.`stock_id` = `stock`.`id` WHERE `product`.`id` = '" + productId + "' AND `stock`.`qty` > '0'");
+
+            if (result.next()) {
+                System.out.println("Product of " + result.getString("product.title") + " has " + result.getString("stock.qty"));
+
+                int qty = result.getInt("stock.qty");
+
+                if (qty > 0) {
+                    stockAvaileble = true;
+//                    updateStock(productId);
+//                    createCartItem(productId);
+                } else {
+                    System.out.println("Out of stock " + result.getString("product.title"));
+                    stockAvaileble = false;
+                }
+            } else {
+                System.out.println("Out of Stock");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return stockAvaileble;
+
     }
 
-    public void createCartItem(String selectedProduct) {
-        cartProducts.add(selectedProduct);
+    public static void updateStock(String product) {
+        int stock = 0;
+        try {
+            stock = (getStock(product) - 1);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        System.out.println("old stock is " + getStock(product));
+        System.out.println("new srock is " + stock);
+        try {
+
+            MySQL.executeIUD("UPDATE `stock` INNER JOIN `product` ON `stock`.`id` = `product`.`stock_id` SET `stock`.`qty` = '" + stock + "' WHERE `product`.`id` = '" + product + "'");
+            System.out.println("Product Stock Updated");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void updateStockAdd(String product) {
+        int stock = 0;
+        try {
+            stock = (getStock(product) + 1);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        System.out.println("old stock is " + getStock(product));
+        System.out.println("new srock is " + stock);
+        try {
+
+            MySQL.executeIUD("UPDATE `stock` INNER JOIN `product` ON `stock`.`id` = `product`.`stock_id` SET `stock`.`qty` = '" + stock + "' WHERE `product`.`id` = '" + product + "'");
+            System.out.println("Product Stock Updated");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    //    cart option end
+    public static void createCartItemRemoveingCart(String selectedProduct) {
+
+        HashMap<String, Integer> TempProductsCartCount = new HashMap<>();
+
+        for (String s : cartProducts) {
+            if (s == selectedProduct) {
+                int oldQty = cartItemCount.get(s);
+                int newQty = oldQty - 1;
+
+                if (newQty > 0) {
+
+                    TempProductsCartCount.put(s, newQty);
+                }
+            } else {
+                int oldQty = cartItemCount.get(s);
+                TempProductsCartCount.put(s, oldQty);
+            }
+        }
+
+        cartItemCount = null;
+        cartItemCount = TempProductsCartCount;
+
         System.out.println(cartProducts);
-        SideCart sideCartNew = new SideCart(cartProducts);
+        SideCart sideCartNew = new SideCart(cartItemCount);
         jPanel2.setLayout(new BorderLayout());
         jPanel2.removeAll();
         jPanel2.add(sideCartNew);
         SwingUtilities.updateComponentTreeUI(jPanel2);
+    }
+
+    public static int getStock(String pId) {
+        int stock = 0;
+        try {
+            ResultSet result = MySQL.execute("SELECT * FROM `product` INNER JOIN `stock` ON `product`.`stock_id` = `stock`.`id` WHERE `product`.`id` = '" + pId + "'");
+
+            if (result.next()) {
+                stock = result.getInt("stock.qty");
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return stock;
+    }
+
+    //    cart option end
+    public static void createCartItem(String selectedProduct) {
+
+        if (cartProducts.contains(selectedProduct)) {
+            HashMap<String, Integer> TempProductsCartCount = new HashMap<>();
+
+            for (String s : cartProducts) {
+                if (s == selectedProduct) {
+                    int oldQty = cartItemCount.get(s);
+                    int newQty = oldQty + 1;
+
+                    TempProductsCartCount.put(s, newQty);
+                } else {
+                    int oldQty = cartItemCount.get(s);
+                    TempProductsCartCount.put(s, oldQty);
+                }
+            }
+
+            cartItemCount = null;
+            cartItemCount = TempProductsCartCount;
+
+        } else {
+            cartProducts.add(selectedProduct);
+            if (cartItemCount == null) {
+                cartItemCount = new HashMap<>();
+            }
+            cartItemCount.put(selectedProduct, 1);
+        }
+
+        System.out.println(cartProducts);
+        SideCart sideCartNew = new SideCart(cartItemCount);
+        jPanel2.setLayout(new BorderLayout());
+        jPanel2.removeAll();
+        jPanel2.add(sideCartNew);
+        SwingUtilities.updateComponentTreeUI(jPanel2);
+    }
+
+    private void init() {
+        jPanel2.setSize(320, 650);
     }
 
     private void createGridItem() {
@@ -217,7 +354,7 @@ public class NormalProductViewPlusCart extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
+    private static javax.swing.JPanel jPanel2;
     private lk.novanex.vendingMachine.panel.ProductBack productBack1;
     private lk.novanex.vendingMachine.panel.ProductFilter productFilter1;
     private lk.novanex.vendingMachine.panel.ProductNext productNext2;

@@ -115,6 +115,9 @@
               <Dimension value="[100, 42]"/>
             </Property>
           </Properties>
+          <Events>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="roundPanel1MouseClicked"/>
+          </Events>
 
           <Layout>
             <DimensionLayout dim="0">
@@ -153,6 +156,9 @@
               <Dimension value="[100, 42]"/>
             </Property>
           </Properties>
+          <Events>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="roundPanel2MouseClicked"/>
+          </Events>
 
           <Layout>
             <DimensionLayout dim="0">
