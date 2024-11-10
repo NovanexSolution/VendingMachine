@@ -5,6 +5,7 @@
 package lk.novanex.vendingMachine.component;
 
 import com.formdev.flatlaf.FlatLightLaf;
+import java.awt.Color;
 
 /**
  *
@@ -17,6 +18,7 @@ public class testGui extends javax.swing.JFrame {
      */
     public testGui() {
         initComponents();
+        //getContentPane().setBackground(new Color(245,245,245));
     }
 
     /**
@@ -28,25 +30,17 @@ public class testGui extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        addProduct1 = new lk.novanex.vendingMachine.panel.AddProduct();
-
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(29, 29, 29)
-                .addComponent(addProduct1, javax.swing.GroupLayout.PREFERRED_SIZE, 598, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(373, Short.MAX_VALUE))
+            .addGap(0, 1000, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(15, 15, 15)
-                .addComponent(addProduct1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(335, Short.MAX_VALUE))
+            .addGap(0, 756, Short.MAX_VALUE)
         );
 
         pack();
@@ -69,6 +63,5 @@ public class testGui extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private lk.novanex.vendingMachine.panel.AddProduct addProduct1;
     // End of variables declaration//GEN-END:variables
 }
