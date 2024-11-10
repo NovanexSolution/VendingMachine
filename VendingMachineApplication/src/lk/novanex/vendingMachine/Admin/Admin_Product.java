@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
-package lk.novanex.vendingMachine.panel;
+package lk.novanex.vendingMachine.Admin;
 
 import com.formdev.flatlaf.FlatClientProperties;
 import java.awt.Color;
@@ -11,17 +11,17 @@ import java.awt.Color;
  *
  * @author ASUS
  */
-public class Admin_User extends javax.swing.JPanel {
+public class Admin_Product extends javax.swing.JPanel {
 
     /**
-     * Creates new form Admin_User
+     * Creates new form Admin_Product
      */
-    public Admin_User() {
+    public Admin_Product() {
         initComponents();
         init();
         this.setVisible(true);
     }
-
+    
     private void init() {
         this.putClientProperty(FlatClientProperties.STYLE, "arc:22");
         this.setSize(650, 650);
@@ -34,8 +34,8 @@ public class Admin_User extends javax.swing.JPanel {
         
         jLabel2.setForeground(new Color(253, 63, 95));
         jLabel1.setForeground(new Color(41, 41, 41));
+        jLabel5.setForeground(new Color(245, 245, 245));
         
-        jLabel5.setForeground(new Color(245, 245, 245));        
         roundPanel2.setBackground(new Color(41, 211, 143));
     }
     
@@ -51,7 +51,7 @@ public class Admin_User extends javax.swing.JPanel {
         jLabel5 = new javax.swing.JLabel();
 
         jLabel1.setFont(new java.awt.Font("Poppins", 1, 30)); // NOI18N
-        jLabel1.setText("User Management");
+        jLabel1.setText("Product Management");
 
         removeBtn1.setPreferredSize(new java.awt.Dimension(130, 45));
 
@@ -76,7 +76,7 @@ public class Admin_User extends javax.swing.JPanel {
         jLabel5.setFont(new java.awt.Font("Poppins", 1, 18)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(245, 245, 245));
         jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel5.setText("+ Add User");
+        jLabel5.setText("+ Add Product");
 
         javax.swing.GroupLayout roundPanel2Layout = new javax.swing.GroupLayout(roundPanel2);
         roundPanel2.setLayout(roundPanel2Layout);
@@ -96,14 +96,14 @@ public class Admin_User extends javax.swing.JPanel {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, roundPanel1Layout.createSequentialGroup()
                 .addGroup(roundPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(roundPanel1Layout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(roundPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(roundPanel1Layout.createSequentialGroup()
                         .addGap(50, 50, 50)
                         .addComponent(jLabel1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 138, Short.MAX_VALUE)
-                        .addComponent(removeBtn1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(42, 42, 42))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 85, Short.MAX_VALUE)
+                        .addComponent(removeBtn1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(roundPanel1Layout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(roundPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(41, 41, 41))
         );
         roundPanel1Layout.setVerticalGroup(
             roundPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -112,9 +112,9 @@ public class Admin_User extends javax.swing.JPanel {
                 .addGroup(roundPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(removeBtn1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel1))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 502, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 506, Short.MAX_VALUE)
                 .addComponent(roundPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(22, 22, 22))
+                .addGap(18, 18, 18))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);

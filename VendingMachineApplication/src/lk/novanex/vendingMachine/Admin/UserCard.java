@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
-package lk.novanex.vendingMachine.panel;
+package lk.novanex.vendingMachine.Admin;
 
 import com.formdev.flatlaf.FlatClientProperties;
 import java.awt.Color;
@@ -96,7 +96,7 @@ public class UserCard extends javax.swing.JPanel {
             roundPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, roundPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 88, Short.MAX_VALUE)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 88, Short.MAX_VALUE)
                 .addContainerGap())
             .addGroup(roundPanel1Layout.createSequentialGroup()
                 .addGap(22, 22, 22)
@@ -109,8 +109,8 @@ public class UserCard extends javax.swing.JPanel {
                             .addComponent(jLabel4)))
                     .addGroup(roundPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel5)
-                        .addComponent(jLabel6)))
-                .addGap(0, 0, 0))
+                        .addGap(0, 0, 0)
+                        .addComponent(jLabel6))))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
