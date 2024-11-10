@@ -6,17 +6,18 @@ package lk.novanex.vendingMachine.Admin;
 
 import com.formdev.flatlaf.FlatClientProperties;
 import java.awt.Color;
+import javax.swing.ImageIcon;
 
 /**
  *
  * @author ASUS
  */
-public class Admin_Offer extends javax.swing.JPanel {
+public class Admin_PurchaseHistory extends javax.swing.JPanel {
 
     /**
-     * Creates new form Admin_Offer
+     * Creates new form Admin_PurchaseHistory
      */
-    public Admin_Offer() {
+    public Admin_PurchaseHistory() {
         initComponents();
         init();
         this.setVisible(true);
@@ -27,10 +28,13 @@ public class Admin_Offer extends javax.swing.JPanel {
         this.setSize(600, 400);
         this.setBackground(new Color(255, 255, 255, 0));
         roundPanel1.setSize(600, 400);
-        roundPanel1.setBackground(new Color(245, 245, 245));        
-        roundPanel2.setBackground(new Color(41, 211, 143));
-        jLabel5.setForeground(new Color(245, 245, 245));
+        roundPanel1.setBackground(new Color(245, 245, 245));
+        
+        ImageIcon dropdown = new ImageIcon("src/img/dropdown.png");
+        jLabel7.setIcon(dropdown);
+        
         jLabel1.setForeground(new Color(41, 41, 41));
+        jLabel6.setForeground(new Color(41, 41, 41));
     }
     
     @SuppressWarnings("unchecked")
@@ -39,29 +43,14 @@ public class Admin_Offer extends javax.swing.JPanel {
 
         roundPanel1 = new Componnent.RoundPanel();
         jLabel1 = new javax.swing.JLabel();
-        roundPanel2 = new Componnent.RoundPanel();
-        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
 
         jLabel1.setFont(new java.awt.Font("Poppins", 1, 30)); // NOI18N
-        jLabel1.setText("Offers");
+        jLabel1.setText("Purchase History");
 
-        roundPanel2.setBackground(new java.awt.Color(41, 211, 143));
-
-        jLabel5.setFont(new java.awt.Font("Poppins", 1, 18)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(245, 245, 245));
-        jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel5.setText("+ New Offer");
-
-        javax.swing.GroupLayout roundPanel2Layout = new javax.swing.GroupLayout(roundPanel2);
-        roundPanel2.setLayout(roundPanel2Layout);
-        roundPanel2Layout.setHorizontalGroup(
-            roundPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, 207, Short.MAX_VALUE)
-        );
-        roundPanel2Layout.setVerticalGroup(
-            roundPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, 50, Short.MAX_VALUE)
-        );
+        jLabel6.setFont(new java.awt.Font("Poppins", 0, 24)); // NOI18N
+        jLabel6.setText("Today");
 
         javax.swing.GroupLayout roundPanel1Layout = new javax.swing.GroupLayout(roundPanel1);
         roundPanel1.setLayout(roundPanel1Layout);
@@ -70,20 +59,24 @@ public class Admin_Offer extends javax.swing.JPanel {
             .addGroup(roundPanel1Layout.createSequentialGroup()
                 .addGap(50, 50, 50)
                 .addComponent(jLabel1)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(336, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, roundPanel1Layout.createSequentialGroup()
-                .addContainerGap(412, Short.MAX_VALUE)
-                .addComponent(roundPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(31, 31, 31))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel6)
+                .addGap(12, 12, 12)
+                .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(50, 50, 50))
         );
         roundPanel1Layout.setVerticalGroup(
             roundPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(roundPanel1Layout.createSequentialGroup()
                 .addGap(30, 30, 30)
                 .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 488, Short.MAX_VALUE)
-                .addComponent(roundPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(36, 36, 36))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(roundPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel6))
+                .addContainerGap(531, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -101,8 +94,8 @@ public class Admin_Offer extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     private Componnent.RoundPanel roundPanel1;
-    private Componnent.RoundPanel roundPanel2;
     // End of variables declaration//GEN-END:variables
 }
