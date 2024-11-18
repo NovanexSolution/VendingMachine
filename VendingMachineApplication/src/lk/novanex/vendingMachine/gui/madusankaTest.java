@@ -6,10 +6,15 @@ package lk.novanex.vendingMachine.gui;
 
 import com.formdev.flatlaf.FlatLightLaf;
 import java.awt.Color;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.HashMap;
 import java.util.Set;
 import javax.swing.JPanel;
 import lk.novanex.vendingMachine.panel.CartItem;
 import lk.novanex.vendingMachine.panel.Cart;
+import lk.novanex.vendingMachine.panel.CartItemSideCart;
+import lk.novanex.vendingMachine.panel.Product;
 
 /**
  *
@@ -17,7 +22,6 @@ import lk.novanex.vendingMachine.panel.Cart;
  */
 public class madusankaTest extends javax.swing.JFrame {
 
-   
     /**
      * Creates new form madusankaTest
      */
@@ -27,8 +31,12 @@ public class madusankaTest extends javax.swing.JFrame {
 //      CartItem ci = new CartItem();
 //      jPanel1.add(ci);
 
-
+       Date d = new Date(2024,01,05);
+        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
         
+        String date = format.format(d);
+        
+        System.out.println(date);
 
     }
 
@@ -43,10 +51,9 @@ public class madusankaTest extends javax.swing.JFrame {
 
         normalProductView1 = new lk.novanex.vendingMachine.panel.NormalProductView();
         normalProductView2 = new lk.novanex.vendingMachine.panel.NormalProductView();
-        cart1 = new lk.novanex.vendingMachine.panel.Cart();
+        welcome1 = new lk.novanex.vendingMachine.panel.Welcome();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        getContentPane().add(cart1, java.awt.BorderLayout.CENTER);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -67,8 +74,8 @@ public class madusankaTest extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private lk.novanex.vendingMachine.panel.Cart cart1;
     private lk.novanex.vendingMachine.panel.NormalProductView normalProductView1;
     private lk.novanex.vendingMachine.panel.NormalProductView normalProductView2;
+    private lk.novanex.vendingMachine.panel.Welcome welcome1;
     // End of variables declaration//GEN-END:variables
 }

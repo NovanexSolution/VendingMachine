@@ -80,12 +80,12 @@ public class NormalProductView extends javax.swing.JPanel {
         productCard.setProductPrice(String.valueOf(products.get(currentProduct).get(1)));
         productCard.setProductImg(String.valueOf(products.get(currentProduct).get(2)));
         productCard.setProductFlavor(String.valueOf(products.get(currentProduct).get(3)));
-
+       
     }
 
     private void laodProducts(String type) {
         try {
-            String querry = "SELECT * FROM `product` INNER JOIN `stock` ON `product`.`stock_id` = `stock`.`id` INNER JOIN `category` ON `product`.`category_id` = `category`.`id` INNER JOIN `flavor` ON `product`.`flavor_id` = `flavor`.`id` ";
+            String querry = "SELECT * FROM `product` INNER JOIN `stock` ON `product`.`stock_id` = `stock`.`id` INNER JOIN `category` ON `product`.`category_id` = `category`.`id` INNER JOIN `flavor` ON `product`.`flavor_id` = `flavor`.`id`  ";
 
             if (type != "All") {
                 querry += "WHERE `category`.`category` = '" + type + "'";
@@ -97,15 +97,16 @@ public class NormalProductView extends javax.swing.JPanel {
 
             while (result.next()) {
                 productFound = 1;
-                System.out.println("Found"); // temp comment product available
+//                System.out.println("Found"); // temp comment product available
 
-                ArrayList<String> productDetails = new ArrayList<>(); // tittle, price, img, flavor
-
+                ArrayList<String> productDetails = new ArrayList<>(); // tittle, price, img, flavor, 
+                
 //                Adding product Details
                 productDetails.add(result.getString("product.title"));
                 productDetails.add(String.valueOf((int) result.getInt("stock.sellingPrice")) + " LKR");
                 productDetails.add(result.getString("product.img"));
                 productDetails.add(result.getString("flavor.flavorName"));
+               
 
 //                add product by following id
                 String product_Id = result.getString("product.id");

@@ -9,15 +9,18 @@ import java.awt.Color;
 import javax.swing.ImageIcon;
 import javax.swing.SwingUtilities;
 import lk.novanex.vendingMachine.component.ProductWindow;
+import static lk.novanex.vendingMachine.component.ProductWindow.productViewPlusCart;
 import lk.novanex.vendingMachine.gui.FrontView;
 import lk.novanex.vendingMachine.panel.NormalProductViewPlusCart;
+import static lk.novanex.vendingMachine.panel.NormalProductViewPlusCart.createCartItem;
+import static lk.novanex.vendingMachine.panel.NormalProductViewPlusCart.updateStock;
 
 /**
  *
  * @author Madusanka
  */
 public class Product extends javax.swing.JPanel {
-    
+
     private String productId;
 
     /**
@@ -27,14 +30,14 @@ public class Product extends javax.swing.JPanel {
         productId = pId;
         initComponents();
         roundPanel1.setBackground(new Color(217, 217, 217, 40));
-        
+
         ImageIcon img = new ImageIcon("src/img/chips.png");
         jLabel1.setIcon(img);
-        
+
         init();
         this.setVisible(true);
     }
-    
+
     private void init() {
         this.putClientProperty(FlatClientProperties.STYLE, "arc:22");
         jPanel2.putClientProperty(FlatClientProperties.STYLE, "arc:500");
@@ -44,22 +47,30 @@ public class Product extends javax.swing.JPanel {
 //        hide offer 
         jPanel2.setVisible(false);
     }
-    
+
     public void setProductTitle(String title) {
         jLabel2.setText(title);
     }
-    
+
     public void setProductPrice(String price) {
         jLabel3.setText(price);
     }
-    
+
     public void setProductFlavor(String flavor) {
         jLabel4.setText(flavor);
     }
-    
+
     public void setProductImg(String url) {
         ImageIcon img = new ImageIcon(url);
         jLabel1.setIcon(img);
+    }
+
+    public void setProductOffer(String offer) {
+        if (offer != "") {
+            jPanel2.setVisible(true);
+        } else {
+            jPanel2.setVisible(false);
+        }
     }
 
     /**
@@ -164,14 +175,26 @@ public class Product extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void formMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formMouseClicked
-        System.out.println("Product clicked");
-        System.out.println(productId);
-        
-        NormalProductViewPlusCart productViewPlusCart = new NormalProductViewPlusCart();
-        System.out.println("created product + cart");
-        ProductWindow.jPanel2.removeAll();
-        ProductWindow.jPanel2.add(productViewPlusCart);
-        SwingUtilities.updateComponentTreeUI(FrontView.jPanel3);
+        System.out.println("Click on Product");
+
+        if ((ProductWindow.productViewPlusCart) == null) {
+            System.out.println("Create new one");
+            ProductWindow.productViewPlusCart = new NormalProductViewPlusCart();
+        } else {
+            System.out.println("Alreaady cart has");
+        }
+
+        if (ProductWindow.productViewPlusCart.checkQty(productId)) {  
+            ProductWindow.productViewPlusCart.updateStock(productId);
+            ProductWindow.productViewPlusCart.createCartItem(productId);
+            ProductWindow.jPanel2.removeAll();
+            ProductWindow.jPanel2.add(ProductWindow.productViewPlusCart);
+            SwingUtilities.updateComponentTreeUI(FrontView.jPanel3);
+        } else {
+            System.out.println("Out of stock msg from product");
+        }
+
+
     }//GEN-LAST:event_formMouseClicked
 
 

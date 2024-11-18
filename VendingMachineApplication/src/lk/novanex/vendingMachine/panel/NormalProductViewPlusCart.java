@@ -6,12 +6,12 @@ package lk.novanex.vendingMachine.panel;
 
 import java.awt.BorderLayout;
 import java.awt.ComponentOrientation;
-import java.awt.GridLayout;
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.sql.ResultSet;
-import javax.swing.text.html.HTML;
+import java.util.HashSet;
+import java.util.Set;
+import javax.swing.SwingUtilities;
 import lk.novanex.vendingMachine.model.MySQL;
 
 /**
@@ -23,6 +23,11 @@ public class NormalProductViewPlusCart extends javax.swing.JPanel {
     /**
      * Creates new form NormalProductView
      */
+//    cart addedd products id
+    public static Set<String> cartProducts = new HashSet<String>();
+//productid,qty
+    public static HashMap<String, Integer> cartItemCount;
+
 //    HashMap<productID, Product data array> products = new HashMap<>();
     HashMap<String, ArrayList> products = new HashMap<>();
 
@@ -32,7 +37,7 @@ public class NormalProductViewPlusCart extends javax.swing.JPanel {
     private int productCount = 1;
     private int productHasCreated = 0;
     private int mapStart = 1;
-    private int mapEnd = 6;
+    private int mapEnd = 4;
     private int restProduct = 0;
     int emtyProduct;
 
@@ -42,12 +47,163 @@ public class NormalProductViewPlusCart extends javax.swing.JPanel {
         laodProducts("All");
         jPanel1.setComponentOrientation(ComponentOrientation.LEFT_TO_RIGHT);
         createGridItem();
+
     }
-    
-    private void init() {
-        SideCart sideCart = new SideCart();
+
+    public static boolean checkQty(String productId) {
+        System.out.println("checking qty");
+        boolean stockAvaileble = false;
+        try {
+            ResultSet result = MySQL.execute("SELECT * FROM `product` INNER JOIN `stock` ON `product`.`stock_id` = `stock`.`id` WHERE `product`.`id` = '" + productId + "' AND `stock`.`qty` > '0'");
+
+            if (result.next()) {
+                System.out.println("Product of " + result.getString("product.title") + " has " + result.getString("stock.qty"));
+
+                int qty = result.getInt("stock.qty");
+
+                if (qty > 0) {
+                    stockAvaileble = true;
+//                    updateStock(productId);
+//                    createCartItem(productId);
+                } else {
+                    System.out.println("Out of stock " + result.getString("product.title"));
+                    stockAvaileble = false;
+                }
+            } else {
+                System.out.println("Out of Stock");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return stockAvaileble;
+
+    }
+
+    public static void updateStock(String product) {
+        int stock = 0;
+        try {
+            stock = (getStock(product) - 1);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        System.out.println("old stock is " + getStock(product));
+        System.out.println("new srock is " + stock);
+        try {
+
+            MySQL.executeIUD("UPDATE `stock` INNER JOIN `product` ON `stock`.`id` = `product`.`stock_id` SET `stock`.`qty` = '" + stock + "' WHERE `product`.`id` = '" + product + "'");
+            System.out.println("Product Stock Updated");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void updateStockAdd(String product) {
+        int stock = 0;
+        try {
+            stock = (getStock(product) + 1);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        System.out.println("old stock is " + getStock(product));
+        System.out.println("new srock is " + stock);
+        try {
+
+            MySQL.executeIUD("UPDATE `stock` INNER JOIN `product` ON `stock`.`id` = `product`.`stock_id` SET `stock`.`qty` = '" + stock + "' WHERE `product`.`id` = '" + product + "'");
+            System.out.println("Product Stock Updated");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    //    cart option end
+    public static void createCartItemRemoveingCart(String selectedProduct) {
+
+        HashMap<String, Integer> TempProductsCartCount = new HashMap<>();
+
+        for (String s : cartProducts) {
+            if (s == selectedProduct) {
+                int oldQty = cartItemCount.get(s);
+                int newQty = oldQty - 1;
+
+                if (newQty > 0) {
+
+                    TempProductsCartCount.put(s, newQty);
+                }
+            } else {
+                int oldQty = cartItemCount.get(s);
+                TempProductsCartCount.put(s, oldQty);
+            }
+        }
+
+        cartItemCount = null;
+        cartItemCount = TempProductsCartCount;
+
+        System.out.println(cartProducts);
+        SideCart sideCartNew = new SideCart(cartItemCount);
         jPanel2.setLayout(new BorderLayout());
-        jPanel2.add(sideCart);
+        jPanel2.removeAll();
+        jPanel2.add(sideCartNew);
+        SwingUtilities.updateComponentTreeUI(jPanel2);
+    }
+
+    public static int getStock(String pId) {
+        int stock = 0;
+        try {
+            ResultSet result = MySQL.execute("SELECT * FROM `product` INNER JOIN `stock` ON `product`.`stock_id` = `stock`.`id` WHERE `product`.`id` = '" + pId + "'");
+
+            if (result.next()) {
+                stock = result.getInt("stock.qty");
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return stock;
+    }
+
+    //    cart option end
+    public static void createCartItem(String selectedProduct) {
+
+        if (cartProducts.contains(selectedProduct)) {
+            HashMap<String, Integer> TempProductsCartCount = new HashMap<>();
+
+            for (String s : cartProducts) {
+                if (s == selectedProduct) {
+                    int oldQty = cartItemCount.get(s);
+                    int newQty = oldQty + 1;
+
+                    TempProductsCartCount.put(s, newQty);
+                } else {
+                    int oldQty = cartItemCount.get(s);
+                    TempProductsCartCount.put(s, oldQty);
+                }
+            }
+
+            cartItemCount = null;
+            cartItemCount = TempProductsCartCount;
+
+        } else {
+            cartProducts.add(selectedProduct);
+            if (cartItemCount == null) {
+                cartItemCount = new HashMap<>();
+            }
+            cartItemCount.put(selectedProduct, 1);
+        }
+
+        System.out.println(cartProducts);
+        SideCart sideCartNew = new SideCart(cartItemCount);
+        jPanel2.setLayout(new BorderLayout());
+        jPanel2.removeAll();
+        jPanel2.add(sideCartNew);
+        SwingUtilities.updateComponentTreeUI(jPanel2);
+    }
+
+    private void init() {
+        jPanel2.setSize(320, 650);
     }
 
     private void createGridItem() {
@@ -58,7 +214,7 @@ public class NormalProductViewPlusCart extends javax.swing.JPanel {
 
             if (restProduct < 4) {
                 mapEnd = mapSize;
-                emtyProduct = 6 - restProduct;
+                emtyProduct = 4 - restProduct;
 
             } else {
                 mapEnd = productHasCreated + 4;
@@ -152,17 +308,17 @@ public class NormalProductViewPlusCart extends javax.swing.JPanel {
 
         setPreferredSize(new java.awt.Dimension(1000, 750));
 
-        jPanel1.setLayout(new java.awt.GridLayout(2, 2, 25, 8));
+        jPanel1.setLayout(new java.awt.GridLayout(2, 2));
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 503, Short.MAX_VALUE)
+            .addGap(0, 390, Short.MAX_VALUE)
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGap(0, 750, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -172,12 +328,12 @@ public class NormalProductViewPlusCart extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(productBack1, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(productBack1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(productNext2, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(productFilter1, javax.swing.GroupLayout.DEFAULT_SIZE, 902, Short.MAX_VALUE))
+                        .addComponent(productNext2, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(productFilter1, javax.swing.GroupLayout.DEFAULT_SIZE, 604, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
@@ -188,9 +344,9 @@ public class NormalProductViewPlusCart extends javax.swing.JPanel {
                 .addComponent(productFilter1, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(productNext2, javax.swing.GroupLayout.DEFAULT_SIZE, 680, Short.MAX_VALUE)
-                    .addComponent(productBack1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addComponent(productBack1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
             .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
@@ -198,7 +354,7 @@ public class NormalProductViewPlusCart extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
+    private static javax.swing.JPanel jPanel2;
     private lk.novanex.vendingMachine.panel.ProductBack productBack1;
     private lk.novanex.vendingMachine.panel.ProductFilter productFilter1;
     private lk.novanex.vendingMachine.panel.ProductNext productNext2;
