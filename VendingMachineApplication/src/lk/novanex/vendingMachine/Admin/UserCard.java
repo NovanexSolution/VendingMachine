@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
-package lk.novanex.vendingMachine.panel;
+package lk.novanex.vendingMachine.Admin;
 
 import com.formdev.flatlaf.FlatClientProperties;
 import java.awt.Color;
@@ -13,12 +13,12 @@ import javax.swing.JLabel;
  *
  * @author ASUS
  */
-public class PurchaseHistoryCard extends javax.swing.JPanel {
+public class UserCard extends javax.swing.JPanel {
 
     /**
-     * Creates new form PurchaseHistoryCard
+     * Creates new form UserCard
      */
-    public PurchaseHistoryCard() {
+    public UserCard() {
         initComponents();
         init();
         this.setVisible(true);
@@ -28,19 +28,16 @@ public class PurchaseHistoryCard extends javax.swing.JPanel {
         this.putClientProperty(FlatClientProperties.STYLE, "arc:22");
         this.setSize(600, 100);
         this.setBackground(new Color(255, 255, 255, 0));
-
         roundPanel1.setSize(600, 100);
         roundPanel1.setBackground(new Color(233, 233, 233));
-
-        //jLabel1.setBackground(new Color(255, 255, 255, 0));
-        ImageIcon chipsIcon = new ImageIcon("src/img/chips.png");
-        jLabel1.setIcon(chipsIcon);
         
-        JLabel[] labels = {jLabel2, jLabel3, jLabel4, jLabel5};
+        ImageIcon user = new ImageIcon("src/img/user.png");
+        jLabel1.setIcon(user);
+
+        JLabel[] labels = {jLabel2, jLabel3, jLabel4, jLabel5, jLabel6};
         for (JLabel label : labels) {
             label.setForeground(new Color(41, 41, 41));
         }
-
     }
 
     @SuppressWarnings("unchecked")
@@ -48,68 +45,72 @@ public class PurchaseHistoryCard extends javax.swing.JPanel {
     private void initComponents() {
 
         roundPanel1 = new Componnent.RoundPanel();
-        jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
 
-        setBackground(new java.awt.Color(51, 51, 255));
-        setPreferredSize(new java.awt.Dimension(600, 100));
+        jLabel2.setFont(new java.awt.Font("Poppins", 1, 22)); // NOI18N
+        jLabel2.setText("Jhone Deo");
 
-        roundPanel1.setBackground(new java.awt.Color(233, 233, 233));
-        roundPanel1.setPreferredSize(new java.awt.Dimension(600, 100));
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/user.png"))); // NOI18N
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/chips.png"))); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Poppins", 0, 20)); // NOI18N
+        jLabel3.setText("Registered On");
 
-        jLabel2.setFont(new java.awt.Font("Poppins", 0, 20)); // NOI18N
-        jLabel2.setText("Potato Chips");
+        jLabel4.setFont(new java.awt.Font("Poppins", 0, 20)); // NOI18N
+        jLabel4.setText("2024-01-22");
 
-        jLabel3.setFont(new java.awt.Font("Poppins", 0, 16)); // NOI18N
-        jLabel3.setText("purchase Date : ");
+        jLabel5.setFont(new java.awt.Font("Poppins", 0, 18)); // NOI18N
+        jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel5.setText("Total Spend");
 
-        jLabel4.setFont(new java.awt.Font("Poppins", 1, 24)); // NOI18N
-        jLabel4.setText("320 LKR");
-
-        jLabel5.setFont(new java.awt.Font("Poppins", 0, 16)); // NOI18N
-        jLabel5.setText("2024-04-12");
+        jLabel6.setFont(new java.awt.Font("Poppins", 0, 24)); // NOI18N
+        jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel6.setText("8,100 LKR");
 
         javax.swing.GroupLayout roundPanel1Layout = new javax.swing.GroupLayout(roundPanel1);
         roundPanel1.setLayout(roundPanel1Layout);
         roundPanel1Layout.setHorizontalGroup(
             roundPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(roundPanel1Layout.createSequentialGroup()
-                .addGap(22, 22, 22)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(41, 41, 41)
+                .addGap(30, 30, 30)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addGroup(roundPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel2)
-                    .addComponent(jLabel3))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel5)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 104, Short.MAX_VALUE)
-                .addComponent(jLabel4)
-                .addGap(32, 32, 32))
+                    .addGroup(roundPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel3)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel4)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 67, Short.MAX_VALUE)
+                .addGroup(roundPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel5)
+                    .addComponent(jLabel6))
+                .addGap(34, 34, 34))
         );
         roundPanel1Layout.setVerticalGroup(
             roundPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, roundPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel4)
-                .addGap(27, 27, 27))
+                .addContainerGap()
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 88, Short.MAX_VALUE)
+                .addContainerGap())
             .addGroup(roundPanel1Layout.createSequentialGroup()
-                .addGroup(roundPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGap(22, 22, 22)
+                .addGroup(roundPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(roundPanel1Layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
                         .addComponent(jLabel2)
                         .addGap(0, 0, 0)
                         .addGroup(roundPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel3)
-                            .addComponent(jLabel5)))
+                            .addComponent(jLabel4)))
                     .addGroup(roundPanel1Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(14, Short.MAX_VALUE))
+                        .addComponent(jLabel5)
+                        .addGap(0, 0, 0)
+                        .addComponent(jLabel6))))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -131,6 +132,7 @@ public class PurchaseHistoryCard extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private Componnent.RoundPanel roundPanel1;
     // End of variables declaration//GEN-END:variables
 }
