@@ -19,17 +19,17 @@ public class testGui extends javax.swing.JFrame {
      */
     public testGui() {
         initComponents();
-        user();
+        //user();
     }
 
-    private void user() {
-        try {
-            MySQL.executeIUD("INSERT INTO `user` (`name`,`email`,`mobile`,`username`,`registerdDate`,`userType_id`,`gender_id`,`userStatus_id`)"
-                + "VALUES ('ann','ann@gmail.com','0728596','ann','2024-04-05','1','1','1')");
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
+//    private void user() {
+//        try {
+//            MySQL.executeIUD("INSERT INTO `user` (`name`,`email`,`mobile`,`username`,`registerdDate`,`userType_id`,`gender_id`,`userStatus_id`)"
+//                + "VALUES ('ann','ann@gmail.com','0728596','ann','2024-04-05','1','1','1')");
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        }
+//    }
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
