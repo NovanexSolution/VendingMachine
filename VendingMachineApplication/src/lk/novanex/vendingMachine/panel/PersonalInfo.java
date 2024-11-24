@@ -5,10 +5,17 @@
 package lk.novanex.vendingMachine.panel;
 
 import com.formdev.flatlaf.FlatClientProperties;
+import com.mysql.cj.jdbc.result.ResultSetFactory;
 import java.awt.Color;
 import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
+import java.sql.ResultSet;
+import java.util.HashMap;
+import java.util.Vector;
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import lk.novanex.vendingMachine.model.MySQL;
 
 /**
  *
@@ -22,6 +29,7 @@ public class PersonalInfo extends javax.swing.JPanel {
     public PersonalInfo() {
         initComponents();
         init();
+        loadUser();
         this.setVisible(true);
     }
 
@@ -50,6 +58,40 @@ public class PersonalInfo extends javax.swing.JPanel {
         jLabel10.setIcon(editIcon);
         ImageIcon editIcon2 = new ImageIcon("src/img/edit.png");
         jLabel11.setIcon(editIcon2);
+    }
+
+    public void loadUser() {
+        try {
+            ResultSet rs = MySQL.execute("SELECT * FROM `user` INNER JOIN `account` ON "
+                    + "`user`.`id` = `account`.`user_id` INNER JOIN `card` ON "
+                    + "`account`.`id` = `card`.`cardType_id` INNER JOIN `gender` ON "
+                    + "`gender`.`id` = `user`.`gender_id` WHERE `cardNo` = '125879658212'");
+
+            if (rs.next()) {
+                String ststus = rs.getString("userStatus_id");
+                if (ststus == "1") {
+                    String name = rs.getString("user.name");
+                    String email = rs.getString("user.email");
+                    String gender = rs.getString("gender");
+                    String mobile = rs.getString("user.mobile");
+                    String username = rs.getString("user.username");
+
+                    jLabel7.setText(name);
+                    jLabel8.setText(email);
+                    jLabel9.setText(gender);
+                    jTextField2.setText(mobile);
+                    jTextField1.setText(username);
+
+                }else{
+                    JOptionPane.showMessageDialog(this, "You are not an active user.","Sorry",JOptionPane.ERROR_MESSAGE);
+                    this.disable();
+                }
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
     }
 
     @SuppressWarnings("unchecked")
@@ -94,15 +136,12 @@ public class PersonalInfo extends javax.swing.JPanel {
         jLabel6.setText("Username :");
 
         jLabel7.setFont(new java.awt.Font("Poppins", 0, 24)); // NOI18N
-        jLabel7.setText("Jhone Jhone");
         jLabel7.setEnabled(false);
 
         jLabel8.setFont(new java.awt.Font("Poppins", 0, 24)); // NOI18N
-        jLabel8.setText("jhone@gmail.com");
         jLabel8.setEnabled(false);
 
         jLabel9.setFont(new java.awt.Font("Poppins", 0, 24)); // NOI18N
-        jLabel9.setText("Male");
         jLabel9.setEnabled(false);
 
         jTextField1.setBackground(new java.awt.Color(236, 236, 236));
@@ -124,18 +163,13 @@ public class PersonalInfo extends javax.swing.JPanel {
                         .addComponent(jLabel1))
                     .addGroup(roundPanel1Layout.createSequentialGroup()
                         .addGap(60, 60, 60)
-                        .addGroup(roundPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(roundPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(roundPanel1Layout.createSequentialGroup()
-                                .addGroup(roundPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel4)
-                                    .addComponent(jLabel5))
+                                .addComponent(jLabel5)
                                 .addGap(22, 22, 22)
-                                .addGroup(roundPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(roundPanel1Layout.createSequentialGroup()
-                                        .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addComponent(jLabel9)))
+                                .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(roundPanel1Layout.createSequentialGroup()
                                 .addComponent(jLabel6)
                                 .addGap(22, 22, 22)
@@ -148,8 +182,12 @@ public class PersonalInfo extends javax.swing.JPanel {
                                     .addComponent(jLabel3))
                                 .addGap(22, 22, 22)
                                 .addGroup(roundPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel8)
-                                    .addComponent(jLabel7))))))
+                                    .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                            .addGroup(roundPanel1Layout.createSequentialGroup()
+                                .addComponent(jLabel4)
+                                .addGap(18, 18, 18)
+                                .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addContainerGap(192, Short.MAX_VALUE))
         );
         roundPanel1Layout.setVerticalGroup(
@@ -158,17 +196,17 @@ public class PersonalInfo extends javax.swing.JPanel {
                 .addGap(25, 25, 25)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(62, 62, 62)
-                .addGroup(roundPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(jLabel7))
+                .addGroup(roundPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(15, 15, 15)
-                .addGroup(roundPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
-                    .addComponent(jLabel8))
-                .addGap(15, 15, 15)
+                .addGroup(roundPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
                 .addGroup(roundPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
-                    .addComponent(jLabel9))
+                    .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(12, 12, 12)
                 .addGroup(roundPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(roundPanel1Layout.createSequentialGroup()
@@ -186,7 +224,7 @@ public class PersonalInfo extends javax.swing.JPanel {
                         .addGroup(roundPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jTextField1))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(254, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
