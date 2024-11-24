@@ -17,7 +17,7 @@ public class FrontView extends javax.swing.JFrame {
             /**
      * Creates new form FrontView
      */
-    public FrontView() {
+    public FrontView(String name, String cardNo) {
         initComponents();
         init();
         
@@ -71,7 +71,7 @@ public class FrontView extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new FrontView().setVisible(true);
+                //new FrontView().setVisible(true);
             }
         });
     }

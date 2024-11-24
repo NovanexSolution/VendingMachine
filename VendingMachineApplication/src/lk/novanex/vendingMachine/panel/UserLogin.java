@@ -11,6 +11,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import java.sql.ResultSet;
 import javax.swing.JTextField;
+import lk.novanex.vendingMachine.gui.FrontView;
 import lk.novanex.vendingMachine.model.MySQL;
 
 /**
@@ -264,7 +265,9 @@ public class UserLogin extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private int attempts = 0;
     private void jLabel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseClicked
+
         String pin1 = jTextField1.getText();
         String pin2 = jTextField2.getText();
         String pin3 = jTextField3.getText();
@@ -282,13 +285,28 @@ public class UserLogin extends javax.swing.JPanel {
             try {
                 ResultSet rs = MySQL.execute("SELECT * FROM `card` INNER JOIN `cardstatus` ON `card`.`cardStatus_id` = `cardstatus`.`id` "
                         + "INNER JOIN `cardtype` ON `card`.`cardType_id` = `cardtype`.`id` INNER JOIN `account` ON "
-                        + "`card`.`account_id` = `account`.`id` WHERE `pin` = '" + pin1 + pin2 + pin3 + pin4 + "'");
+                        + "`card`.`account_id` = `account`.`id` INNER JOIN `user` ON `account`.`user_id` = `user`.`id` WHERE "
+                        + "`pin` = '" + pin1 + pin2 + pin3 + pin4 + "' AND `user`.`id` = '1'");
 
                 if (rs.next()) {
+                    String name = rs.getString("user.name");
                     String cardNo = rs.getString("cardNo");
-
+                    FrontView front = new FrontView(name,cardNo);
+                    front.setVisible(true);
+          
+                    attempts = 0;
                 } else {
-                    JOptionPane.showMessageDialog(this, "Invalid PIN Number.", "Error", JOptionPane.ERROR_MESSAGE);
+                    attempts++;    
+                    if (attempts == 1) {
+                        JOptionPane.showMessageDialog(this, "2 attemps only.", "Error", JOptionPane.ERROR_MESSAGE);
+                        reset();
+                    }else if (attempts == 2) {
+                        JOptionPane.showMessageDialog(this, "1 attemp only.", "Error", JOptionPane.ERROR_MESSAGE);
+                        reset();
+                    }else if (attempts >= 3) {
+                        JOptionPane.showMessageDialog(this, "Sorry start again from the beginning.", "Error", JOptionPane.ERROR_MESSAGE);
+                        reset();
+                    }
                 }
             } catch (Exception e) {
                 e.printStackTrace();
@@ -352,4 +370,12 @@ public class UserLogin extends javax.swing.JPanel {
     private Componnent.RoundPanel roundPanel3;
     private Componnent.RoundPanel roundPanel4;
     // End of variables declaration//GEN-END:variables
+
+    private void reset() {
+        jTextField1.setText("");
+        jTextField2.setText("");
+        jTextField3.setText("");
+        jTextField4.setText("");
+        jTextField1.grabFocus();
+    }
 }
