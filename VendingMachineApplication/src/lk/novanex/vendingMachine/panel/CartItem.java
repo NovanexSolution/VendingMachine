@@ -58,7 +58,7 @@ public class CartItem extends javax.swing.JPanel {
         jLabel3.setText("");
         jLabel3.setIcon(img);
         
-        jLabel1.setText(qtyText);
+        //jLabel1.setText(qtyText);
     }
     
      private int checkProductOffer(String pId) {
