@@ -36,7 +36,7 @@ public class UserAccountSideButton extends javax.swing.JPanel {
 
     private void makeSelectedBtn(int btn) {
         for (int i = 0; i < buttonMap.size(); i++) {
-             buttonMap.get(i).setBorder(BorderFactory.createLineBorder(new Color(255, 165, 0)));
+            buttonMap.get(i).setBorder(BorderFactory.createLineBorder(new Color(255, 165, 0)));
             if (btn == i) {
                 buttonMap.get(i).setBackground(new Color(245, 245, 245));
                 buttonMap.get(i).setForeground(new Color(255, 165, 0));
@@ -149,7 +149,6 @@ public class UserAccountSideButton extends javax.swing.JPanel {
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        System.out.println(this);
         makeSelectedBtn(0);
     }//GEN-LAST:event_jButton2ActionPerformed
 

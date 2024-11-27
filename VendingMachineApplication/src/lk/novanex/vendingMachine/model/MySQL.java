@@ -9,10 +9,10 @@ import java.sql.ResultSet;
 public class MySQL {
     private static Connection con;
     
-    private static String dbName = "madusankadev_vendingMachine";
-    private static String port = "5522";
-    private static String user = "madusankadev_root";
-    private static String pswd = "SuV@gmv0SuV@gmv1";
+    private static String dbName = "mydb";
+    private static String port = "3307";
+    private static String user = "root";
+    private static String pswd = "SuV@gmv0";
 
     public static void createConnection() throws Exception {
         if (con == null) {

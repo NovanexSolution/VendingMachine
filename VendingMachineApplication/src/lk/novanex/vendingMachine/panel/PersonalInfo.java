@@ -16,6 +16,7 @@ import javax.swing.JLabel;
  */
 public class PersonalInfo extends javax.swing.JPanel {
 
+    
     /**
      * Creates new form PersonalInfo
      */
