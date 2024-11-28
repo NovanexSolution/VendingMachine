@@ -8,6 +8,7 @@ import com.formdev.flatlaf.FlatClientProperties;
 import com.mysql.cj.jdbc.result.ResultSetFactory;
 import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.Font;
 import java.awt.Frame;
@@ -271,22 +272,24 @@ public class PersonalInfo extends javax.swing.JPanel {
 
         // Create a panel for the JTextField
         JPanel textFieldPanel = new JPanel(new FlowLayout(FlowLayout.CENTER, 10, 10));
-        JTextField textField = new JTextField("0778525825");  
-        textField.setBackground(new Color(255, 255, 255,0));
+        JTextField textField = new JTextField();
+        textField.setText(jLabel12.getText());
+
+        textField.setBackground(new Color(255, 255, 255, 0));
         textField.setBorder(BorderFactory.createEmptyBorder());
+        textField.setBorder(BorderFactory.createLineBorder(new Color(200, 200, 200), 1)); // Add a subtle border
         textField.setSelectionColor(new Color(255, 165, 0));
-        Font txtFont = new Font("Poppins", Font.BOLD, 24);
-        textField.setFont(txtFont);
-        textField.setForeground(new Color(255, 165, 0));
-        textField.setHorizontalAlignment(JTextField.CENTER); // Center align text
-        textFieldPanel.add(textField); // Add the text field to the panel
+        textField.setForeground(new Color(41, 41, 41));
+        textField.setFont(new Font("Poppins", Font.BOLD, 24));
+        textField.setHorizontalAlignment(JTextField.CENTER);
+        textField.setPreferredSize(new Dimension(200, 40));
+        textFieldPanel.add(textField);
         dialog.add(textFieldPanel, BorderLayout.CENTER);
 
-        // Create a panel for buttons
         JPanel buttonPanel = new JPanel();
         buttonPanel.setLayout(new FlowLayout(FlowLayout.CENTER, 20, 20));
 
-        // Create Save button
+        // Save button
         JButton saveButton = new JButton("Save");
         saveButton.setBackground(new Color(41, 211, 143));
         saveButton.setForeground(new Color(245, 245, 245));
@@ -294,14 +297,31 @@ public class PersonalInfo extends javax.swing.JPanel {
         saveButton.setFont(boldFont1);
         saveButton.addMouseListener(new java.awt.event.MouseAdapter() {
             @Override
-            public void mouseClicked(java.awt.event.MouseEvent e) {
-                System.out.println("Save button clicked!");
-                JOptionPane.showMessageDialog(dialog, "Data Saved Successfully!", "Save", JOptionPane.INFORMATION_MESSAGE);
-                dialog.dispose(); // Close the dialog
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                try {
+                    String email = jLabel8.getText();
+                    String resetMobile = textField.getText();
+
+                    if (resetMobile.isEmpty()) {
+                        JOptionPane.showMessageDialog(dialog, "Please enter your mobile", "Warning", JOptionPane.WARNING_MESSAGE);
+                    } else if (!resetMobile.matches("^07[1245678]{1}[0-9]{7}$")) {
+                        JOptionPane.showMessageDialog(dialog, "Invalid mobile number", "Warning", JOptionPane.WARNING_MESSAGE);
+                    } else {
+                        MySQL.executeIUD("UPDATE `user` SET `mobile` = '" + resetMobile + "' "
+                                + "WHERE `email` = '" + email + "'");
+                       
+                        JOptionPane.showMessageDialog(dialog, "Saved Successfully!", "Save", JOptionPane.INFORMATION_MESSAGE);
+                        dialog.dispose();
+                        loadUser();
+                    }
+
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
             }
         });
 
-        // Create Cancel button
+        //Cancel button
         JButton cancelButton = new JButton("Cancel");
         cancelButton.setBackground(new Color(253, 63, 95));
         cancelButton.setForeground(new Color(245, 245, 245));
@@ -311,7 +331,7 @@ public class PersonalInfo extends javax.swing.JPanel {
             @Override
             public void mouseClicked(java.awt.event.MouseEvent e) {
                 System.out.println("Cancel button clicked!");
-                JOptionPane.showMessageDialog(dialog, "Operation Cancelled.", "Cancel", JOptionPane.WARNING_MESSAGE);
+                //JOptionPane.showMessageDialog(dialog, "Operation Cancelled.", "Cancel", JOptionPane.WARNING_MESSAGE);
                 dialog.dispose(); // Close the dialog
             }
         });
