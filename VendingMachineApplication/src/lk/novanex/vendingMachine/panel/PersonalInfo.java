@@ -305,6 +305,7 @@ public class PersonalInfo extends javax.swing.JPanel {
                         JOptionPane.showMessageDialog(dialog, "Please enter your mobile", "Warning", JOptionPane.WARNING_MESSAGE);
                     } else if (!resetMobile.matches("^07[1245678]{1}[0-9]{7}$")) {
                         JOptionPane.showMessageDialog(dialog, "Invalid mobile number", "Warning", JOptionPane.WARNING_MESSAGE);
+                        textField.setText("");
                     } else {
                         MySQL.executeIUD("UPDATE `user` SET `mobile` = '" + resetMobile + "' "
                                 + "WHERE `email` = '" + email + "'");
@@ -381,7 +382,7 @@ public class PersonalInfo extends javax.swing.JPanel {
                     String resetUsername = textField.getText();
 
                     if (resetUsername.isEmpty()) {
-                        JOptionPane.showMessageDialog(dialog, "Please enter your mobile", "Warning", JOptionPane.WARNING_MESSAGE);
+                        JOptionPane.showMessageDialog(dialog, "Please enter your username", "Warning", JOptionPane.WARNING_MESSAGE);
                     } else {
                         MySQL.executeIUD("UPDATE `user` SET `username` = '@" + resetUsername + "' "
                                 + "WHERE `email` = '" + email + "'");
