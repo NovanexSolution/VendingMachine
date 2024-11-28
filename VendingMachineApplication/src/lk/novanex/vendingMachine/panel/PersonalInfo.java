@@ -61,27 +61,6 @@ public class PersonalInfo extends javax.swing.JPanel {
         jLabel11.setIcon(editIcon2);
     }
 
-//    private void ckeckUserStatus() {
-//        try {
-//            ResultSet rs2 = MySQL.execute("SELECT * FROM `user` INNER JOIN `account` ON `user`.`id` = `account`.`user_id` INNER JOIN `card` ON `account`.`id` = `card`.`account_id`WHERE `user`.`userStatus_id` != '1'");
-//            if (rs2.next()) {
-//                System.out.println("inactive user");
-//            }
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//        }
-//    }
-//
-//    private void ckeckCardStatus() {
-//        try {
-//            ResultSet rs1 = MySQL.execute("SELECT * FROM `user` INNER JOIN `account` ON `user`.`id` = `account`.`user_id` INNER JOIN `card` ON `account`.`id` = `card`.`account_id`WHERE `card`.`cardStatus_id` = '1'");
-//            if (rs1.next()) {
-//                System.out.println("inactive card");
-//            }
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//        }
-//    }
     public void loadUser() {
         String cardNo = "147852369852";
         try {
@@ -105,8 +84,22 @@ public class PersonalInfo extends javax.swing.JPanel {
                 jLabel13.setText(username);
 
             } else {
-                System.out.println("inactive");
+                ResultSet rs1 = MySQL.execute("SELECT * FROM `user` INNER JOIN `gender` ON "
+                        + "`user`.`gender_id` = `gender`.`id` INNER JOIN `account` ON "
+                        + "`user`.`id` = `account`.`user_id` INNER JOIN `card` ON "
+                        + "`account`.`id` = `card`.`account_id` WHERE `card`.`cardNo` = '" + cardNo + "'");
 
+                if (rs1.next()) {
+                    String userStatusId = rs1.getString("userStatus_id");
+                    String cardStatusId = rs1.getString("cardStatus_id");
+
+                    if ("2".equals(userStatusId)) {
+                        System.out.println("inactive user");
+                    } else if ("2".equals(cardStatusId)) {
+                        System.out.println("inactive card");
+                    }
+                }
+                // System.out.println("inactive");
             }
 
         } catch (Exception e) {
@@ -168,6 +161,12 @@ public class PersonalInfo extends javax.swing.JPanel {
         jLabel10.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel10MouseClicked(evt);
+            }
+        });
+
+        jLabel11.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel11MouseClicked(evt);
             }
         });
 
@@ -277,7 +276,7 @@ public class PersonalInfo extends javax.swing.JPanel {
 
         textField.setBackground(new Color(255, 255, 255, 0));
         textField.setBorder(BorderFactory.createEmptyBorder());
-        textField.setBorder(BorderFactory.createLineBorder(new Color(200, 200, 200), 1)); // Add a subtle border
+        textField.setBorder(BorderFactory.createLineBorder(new Color(200, 200, 200), 1));
         textField.setSelectionColor(new Color(255, 165, 0));
         textField.setForeground(new Color(41, 41, 41));
         textField.setFont(new Font("Poppins", Font.BOLD, 24));
@@ -309,7 +308,7 @@ public class PersonalInfo extends javax.swing.JPanel {
                     } else {
                         MySQL.executeIUD("UPDATE `user` SET `mobile` = '" + resetMobile + "' "
                                 + "WHERE `email` = '" + email + "'");
-                       
+
                         JOptionPane.showMessageDialog(dialog, "Saved Successfully!", "Save", JOptionPane.INFORMATION_MESSAGE);
                         dialog.dispose();
                         loadUser();
@@ -332,24 +331,92 @@ public class PersonalInfo extends javax.swing.JPanel {
             public void mouseClicked(java.awt.event.MouseEvent e) {
                 System.out.println("Cancel button clicked!");
                 //JOptionPane.showMessageDialog(dialog, "Operation Cancelled.", "Cancel", JOptionPane.WARNING_MESSAGE);
-                dialog.dispose(); // Close the dialog
+                dialog.dispose();
             }
         });
 
-        // Add buttons to the button panel
         buttonPanel.add(saveButton);
         buttonPanel.add(cancelButton);
-
-        // Add button panel to the dialog
         dialog.add(buttonPanel, BorderLayout.SOUTH);
-
-        // Center the dialog on the screen
         dialog.setLocationRelativeTo(null);
-
-        // Make the dialog visible
         dialog.setVisible(true);
-
     }//GEN-LAST:event_jLabel10MouseClicked
+
+    private void jLabel11MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel11MouseClicked
+        JDialog dialog = new JDialog((Frame) null, "Edit Username", true);
+        dialog.setSize(300, 160);
+        dialog.setLayout(new BorderLayout());
+        dialog.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
+
+        // Create a panel for the JTextField
+        JPanel textFieldPanel = new JPanel(new FlowLayout(FlowLayout.CENTER, 10, 10));
+        JTextField textField = new JTextField();
+        textField.setText(jLabel13.getText());
+
+        textField.setBackground(new Color(255, 255, 255, 0));
+        textField.setBorder(BorderFactory.createEmptyBorder());
+        textField.setBorder(BorderFactory.createLineBorder(new Color(200, 200, 200), 1));
+        textField.setSelectionColor(new Color(255, 165, 0));
+        textField.setForeground(new Color(41, 41, 41));
+        textField.setFont(new Font("Poppins", Font.BOLD, 24));
+        textField.setHorizontalAlignment(JTextField.CENTER);
+        textField.setPreferredSize(new Dimension(200, 40));
+        textFieldPanel.add(textField);
+        dialog.add(textFieldPanel, BorderLayout.CENTER);
+
+        JPanel buttonPanel = new JPanel();
+        buttonPanel.setLayout(new FlowLayout(FlowLayout.CENTER, 20, 20));
+
+        // Save button
+        JButton saveButton = new JButton("Save");
+        saveButton.setBackground(new Color(41, 211, 143));
+        saveButton.setForeground(new Color(245, 245, 245));
+        Font boldFont1 = new Font("Poppins", Font.BOLD, 14);
+        saveButton.setFont(boldFont1);
+        saveButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            @Override
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                try {
+                    String email = jLabel8.getText();
+                    String resetUsername = textField.getText();
+
+                    if (resetUsername.isEmpty()) {
+                        JOptionPane.showMessageDialog(dialog, "Please enter your mobile", "Warning", JOptionPane.WARNING_MESSAGE);
+                    } else {
+                        MySQL.executeIUD("UPDATE `user` SET `username` = '@" + resetUsername + "' "
+                                + "WHERE `email` = '" + email + "'");
+
+                        JOptionPane.showMessageDialog(dialog, "Saved Successfully!", "Save", JOptionPane.INFORMATION_MESSAGE);
+                        dialog.dispose();
+                        loadUser();
+                    }
+
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        });
+
+        //Cancel button
+        JButton cancelButton = new JButton("Cancel");
+        cancelButton.setBackground(new Color(253, 63, 95));
+        cancelButton.setForeground(new Color(245, 245, 245));
+        Font boldFont = new Font("Poppins", Font.BOLD, 14);
+        cancelButton.setFont(boldFont);
+        cancelButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            @Override
+            public void mouseClicked(java.awt.event.MouseEvent e) {
+                System.out.println("Cancel button clicked!");
+                dialog.dispose();
+            }
+        });
+
+        buttonPanel.add(saveButton);
+        buttonPanel.add(cancelButton);
+        dialog.add(buttonPanel, BorderLayout.SOUTH);
+        dialog.setLocationRelativeTo(null);
+        dialog.setVisible(true);
+    }//GEN-LAST:event_jLabel11MouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
