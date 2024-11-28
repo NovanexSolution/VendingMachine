@@ -7,6 +7,8 @@ package lk.novanex.vendingMachine.Admin;
 import com.formdev.flatlaf.FlatClientProperties;
 import java.awt.Color;
 import javax.swing.ImageIcon;
+import java.sql.ResultSet;
+import lk.novanex.vendingMachine.model.MySQL;
 
 /**
  *
@@ -17,12 +19,22 @@ public class ProductCard extends javax.swing.JPanel {
     /**
      * Creates new form ProductCard
      */
-    public ProductCard() {
+    public ProductCard(String title, String category, String img) {
         initComponents();
         init();
+        setupCard(title, category, img);
         this.setVisible(true);
     }
-
+    
+    private void setupCard(String title, String category, String img) {
+        jLabel2.setText(title);
+        jLabel3.setText(category);
+        
+        ImageIcon icon = new ImageIcon(img);
+        jLabel1.setIcon(icon);
+    }
+    
+   
     private void init() {
         this.putClientProperty(FlatClientProperties.STYLE, "arc:22");
         this.setSize(600, 100);

@@ -6,6 +6,9 @@ package lk.novanex.vendingMachine.Admin;
 
 import com.formdev.flatlaf.FlatClientProperties;
 import java.awt.Color;
+import java.sql.ResultSet;
+import javax.swing.SwingUtilities;
+import lk.novanex.vendingMachine.model.MySQL;
 
 /**
  *
@@ -19,26 +22,44 @@ public class Admin_Product extends javax.swing.JPanel {
     public Admin_Product() {
         initComponents();
         init();
+        loadProducts();
         this.setVisible(true);
     }
-    
+
+    private void loadProducts() {
+        try {
+            ResultSet result = MySQL.execute("SELECT * FROM `product` INNER JOIN `category` ON `product`.`category_id` = `category`.`id`");
+            while (result.next()) {
+                String title = result.getString("product.title");
+                String category = result.getString("category.category");
+                String img = result.getString("product.img");
+
+                ProductCard productCard = new ProductCard(title, category, img);
+                jPanel1.add(productCard);
+                 SwingUtilities.updateComponentTreeUI(jPanel1);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
     private void init() {
         this.putClientProperty(FlatClientProperties.STYLE, "arc:22");
         this.setSize(650, 650);
         this.setBackground(new Color(255, 255, 255, 0));
         roundPanel1.setSize(650, 650);
         roundPanel1.setBackground(new Color(217, 217, 217, 60));
-        
+
         removeBtn1.setBackground(new Color(236, 236, 236));
         removeBtn1.putClientProperty(FlatClientProperties.STYLE, "arc:22");
-        
+
         jLabel2.setForeground(new Color(253, 63, 95));
         jLabel1.setForeground(new Color(41, 41, 41));
         jLabel5.setForeground(new Color(245, 245, 245));
-        
+
         roundPanel2.setBackground(new Color(41, 211, 143));
     }
-    
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -49,6 +70,7 @@ public class Admin_Product extends javax.swing.JPanel {
         jLabel2 = new javax.swing.JLabel();
         roundPanel2 = new Componnent.RoundPanel();
         jLabel5 = new javax.swing.JLabel();
+        jPanel1 = new javax.swing.JPanel();
 
         jLabel1.setFont(new java.awt.Font("Poppins", 1, 30)); // NOI18N
         jLabel1.setText("Product Management");
@@ -89,6 +111,8 @@ public class Admin_Product extends javax.swing.JPanel {
             .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, 50, Short.MAX_VALUE)
         );
 
+        jPanel1.setLayout(new java.awt.GridLayout(4, 1, 6, 6));
+
         javax.swing.GroupLayout roundPanel1Layout = new javax.swing.GroupLayout(roundPanel1);
         roundPanel1.setLayout(roundPanel1Layout);
         roundPanel1Layout.setHorizontalGroup(
@@ -96,13 +120,16 @@ public class Admin_Product extends javax.swing.JPanel {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, roundPanel1Layout.createSequentialGroup()
                 .addGroup(roundPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(roundPanel1Layout.createSequentialGroup()
-                        .addGap(50, 50, 50)
-                        .addComponent(jLabel1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 85, Short.MAX_VALUE)
-                        .addComponent(removeBtn1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(roundPanel1Layout.createSequentialGroup()
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(roundPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(roundPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, roundPanel1Layout.createSequentialGroup()
+                        .addGap(50, 50, 50)
+                        .addGroup(roundPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGroup(roundPanel1Layout.createSequentialGroup()
+                                .addComponent(jLabel1)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 85, Short.MAX_VALUE)
+                                .addComponent(removeBtn1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addGap(41, 41, 41))
         );
         roundPanel1Layout.setVerticalGroup(
@@ -112,7 +139,9 @@ public class Admin_Product extends javax.swing.JPanel {
                 .addGroup(roundPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(removeBtn1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel1))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 506, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
                 .addComponent(roundPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18))
         );
@@ -134,6 +163,7 @@ public class Admin_Product extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JPanel jPanel1;
     private lk.novanex.vendingMachine.component.RemoveBtn removeBtn1;
     private Componnent.RoundPanel roundPanel1;
     private Componnent.RoundPanel roundPanel2;

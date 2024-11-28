@@ -18,29 +18,40 @@ public class PurchaseHistoryCard extends javax.swing.JPanel {
     /**
      * Creates new form PurchaseHistoryCard
      */
-    public PurchaseHistoryCard() {
+    public PurchaseHistoryCard(String title, String date, String total, String user, String img) {
         initComponents();
         init();
+        setupCard(title, date, total, user, img);
         this.setVisible(true);
     }
-
+    
+    private void setupCard(String title, String date, String total, String user, String img) {
+        jLabel2.setText(title);
+        jLabel4.setText(user);
+        jLabel6.setText(date);
+        jLabel7.setText(total + " LKR");
+        
+        ImageIcon icon = new ImageIcon(img);
+        jLabel1.setIcon(icon);
+    }
+    
     private void init() {
         this.putClientProperty(FlatClientProperties.STYLE, "arc:22");
         this.setSize(600, 100);
         this.setBackground(new Color(255, 255, 255, 0));
-
+        
         roundPanel1.setSize(600, 100);
         roundPanel1.setBackground(new Color(233, 233, 233));
-
+        
         ImageIcon chipsIcon = new ImageIcon("src/img/chips.png");
         jLabel1.setIcon(chipsIcon);
-
+        
         JLabel[] labels = {jLabel2, jLabel3, jLabel4, jLabel5, jLabel6, jLabel7};
         for (JLabel label : labels) {
             label.setForeground(new Color(41, 41, 41));
         }
     }
-
+    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
