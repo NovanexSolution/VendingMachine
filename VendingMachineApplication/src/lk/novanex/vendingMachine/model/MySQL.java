@@ -10,16 +10,11 @@ public class MySQL {
     private static Connection con;
     
     private static String dbName = "mydb";
-<<<<<<< HEAD
     private static String port = "3307";
     private static String user = "root";
     private static String pswd = "SuV@gmv0";
-=======
-    private static String port = "3306";
-    private static String user = "root";
-    private static String pswd = "Minu@123";
->>>>>>> 0c8d89ecee4f630a39b286db68a9f3b539c07f81
 
+ 
     public static void createConnection() throws Exception {
         if (con == null) {
             System.out.println("start");
