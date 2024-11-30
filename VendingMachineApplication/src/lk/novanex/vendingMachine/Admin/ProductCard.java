@@ -6,6 +6,7 @@ package lk.novanex.vendingMachine.Admin;
 
 import com.formdev.flatlaf.FlatClientProperties;
 import java.awt.Color;
+import java.awt.Image;
 import javax.swing.ImageIcon;
 import java.sql.ResultSet;
 import lk.novanex.vendingMachine.model.MySQL;
@@ -31,7 +32,19 @@ public class ProductCard extends javax.swing.JPanel {
         jLabel3.setText(category);
         
         ImageIcon icon = new ImageIcon(img);
-        jLabel1.setIcon(icon);
+        ImageIcon resizedIcon = resizeImageIcon(icon, 80, 80);
+        jLabel1.setIcon(resizedIcon);
+    }
+    
+    public static ImageIcon resizeImageIcon(ImageIcon icon, int width, int height) {
+        // Get the original image from the icon
+        Image originalImage = icon.getImage();
+
+        // Resize the image
+        Image resizedImage = originalImage.getScaledInstance(width, height, Image.SCALE_SMOOTH);
+
+        // Return a new ImageIcon with the resized image
+        return new ImageIcon(resizedImage);
     }
     
    
