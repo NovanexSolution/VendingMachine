@@ -8,10 +8,11 @@ public class GifInJPanel extends JFrame {
         JPanel panel = new JPanel();
 
         // Load the GIF image using ImageIcon
-        ImageIcon gifImage = new ImageIcon("src/img/loading.gif");
-
+        ImageIcon gifImage = new ImageIcon("src/img/card.gif");
+       
         // Create a JLabel and set the icon to the gifImage
         JLabel gifLabel = new JLabel(gifImage);
+        gifLabel.setSize(100, 100);
 
         // Add the JLabel to the JPanel
         panel.add(gifLabel);

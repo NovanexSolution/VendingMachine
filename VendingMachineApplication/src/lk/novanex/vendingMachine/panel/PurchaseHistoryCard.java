@@ -7,6 +7,7 @@ package lk.novanex.vendingMachine.panel;
 import com.formdev.flatlaf.FlatClientProperties;
 import java.awt.Color;
 import javax.swing.ImageIcon;
+import javax.swing.JLabel;
 
 /**
  *
@@ -34,10 +35,11 @@ public class PurchaseHistoryCard extends javax.swing.JPanel {
         //jLabel1.setBackground(new Color(255, 255, 255, 0));
         ImageIcon chipsIcon = new ImageIcon("src/img/chips.png");
         jLabel1.setIcon(chipsIcon);
-
-        jLabel2.setForeground(new Color(41, 41, 41));
-        jLabel3.setForeground(new Color(41, 41, 41));
-        jLabel4.setForeground(new Color(41, 41, 41));
+        
+        JLabel[] labels = {jLabel2, jLabel3, jLabel4, jLabel5};
+        for (JLabel label : labels) {
+            label.setForeground(new Color(41, 41, 41));
+        }
 
     }
 
@@ -50,6 +52,7 @@ public class PurchaseHistoryCard extends javax.swing.JPanel {
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(51, 51, 255));
         setPreferredSize(new java.awt.Dimension(600, 100));
@@ -63,10 +66,13 @@ public class PurchaseHistoryCard extends javax.swing.JPanel {
         jLabel2.setText("Potato Chips");
 
         jLabel3.setFont(new java.awt.Font("Poppins", 0, 16)); // NOI18N
-        jLabel3.setText("purchase Date : 2024-04-12");
+        jLabel3.setText("purchase Date : ");
 
         jLabel4.setFont(new java.awt.Font("Poppins", 1, 24)); // NOI18N
         jLabel4.setText("320 LKR");
+
+        jLabel5.setFont(new java.awt.Font("Poppins", 0, 16)); // NOI18N
+        jLabel5.setText("2024-04-12");
 
         javax.swing.GroupLayout roundPanel1Layout = new javax.swing.GroupLayout(roundPanel1);
         roundPanel1.setLayout(roundPanel1Layout);
@@ -75,11 +81,13 @@ public class PurchaseHistoryCard extends javax.swing.JPanel {
             .addGroup(roundPanel1Layout.createSequentialGroup()
                 .addGap(22, 22, 22)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addGap(41, 41, 41)
                 .addGroup(roundPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel2)
                     .addComponent(jLabel3))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 133, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel5)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 104, Short.MAX_VALUE)
                 .addComponent(jLabel4)
                 .addGap(32, 32, 32))
         );
@@ -95,11 +103,13 @@ public class PurchaseHistoryCard extends javax.swing.JPanel {
                         .addGap(18, 18, 18)
                         .addComponent(jLabel2)
                         .addGap(0, 0, 0)
-                        .addComponent(jLabel3))
+                        .addGroup(roundPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel3)
+                            .addComponent(jLabel5)))
                     .addGroup(roundPanel1Layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(14, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -120,6 +130,7 @@ public class PurchaseHistoryCard extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private Componnent.RoundPanel roundPanel1;
     // End of variables declaration//GEN-END:variables
 }
