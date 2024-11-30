@@ -54,7 +54,7 @@ public class NormalProductViewPlusCart extends javax.swing.JPanel {
         System.out.println("checking qty");
         boolean stockAvaileble = false;
         try {
-            ResultSet result = MySQL.execute("SELECT * FROM `product` INNER JOIN `stock` ON `product`.`id` = `stock`.`product_id` WHERE `product`.`id` = '1' AND `stock`.`qty` > '0'");
+            ResultSet result = MySQL.execute("SELECT * FROM `product` INNER JOIN `stock` ON `product`.`stock_id` = `stock`.`id` WHERE `product`.`id` = '" + productId + "' AND `stock`.`qty` > '0'");
 
             if (result.next()) {
                 System.out.println("Product of " + result.getString("product.title") + " has " + result.getString("stock.qty"));
@@ -92,7 +92,7 @@ public class NormalProductViewPlusCart extends javax.swing.JPanel {
         System.out.println("new srock is " + stock);
         try {
 
-            MySQL.executeIUD("UPDATE `stock` INNER JOIN `product` ON `stock`.`product_id` = `product`.`id` SET `stock`.`qty` = '" + stock + "' WHERE `product`.`id` = '" + product + "'");
+            MySQL.executeIUD("UPDATE `stock` INNER JOIN `product` ON `stock`.`id` = `product`.`stock_id` SET `stock`.`qty` = '" + stock + "' WHERE `product`.`id` = '" + product + "'");
             System.out.println("Product Stock Updated");
         } catch (Exception e) {
             e.printStackTrace();
@@ -111,7 +111,7 @@ public class NormalProductViewPlusCart extends javax.swing.JPanel {
         System.out.println("new srock is " + stock);
         try {
 
-            MySQL.executeIUD("UPDATE `stock` INNER JOIN `product` ON `stock`.`product_id` = `product`.`id` SET `stock`.`qty` = '" + stock + "' WHERE `product`.`id` = '" + product + "'");
+            MySQL.executeIUD("UPDATE `stock` INNER JOIN `product` ON `stock`.`id` = `product`.`stock_id` SET `stock`.`qty` = '" + stock + "' WHERE `product`.`id` = '" + product + "'");
             System.out.println("Product Stock Updated");
         } catch (Exception e) {
             e.printStackTrace();
@@ -152,7 +152,7 @@ public class NormalProductViewPlusCart extends javax.swing.JPanel {
     public static int getStock(String pId) {
         int stock = 0;
         try {
-            ResultSet result = MySQL.execute("SELECT * FROM `product` INNER JOIN `stock` ON `product`.`id` = `stock`.`product_id` WHERE `product`.`id` = '" + pId + "'");
+            ResultSet result = MySQL.execute("SELECT * FROM `product` INNER JOIN `stock` ON `product`.`stock_id` = `stock`.`id` WHERE `product`.`id` = '" + pId + "'");
 
             if (result.next()) {
                 stock = result.getInt("stock.qty");
@@ -250,7 +250,7 @@ public class NormalProductViewPlusCart extends javax.swing.JPanel {
 
     private void laodProducts(String type) {
         try {
-            String querry = "SELECT * FROM `product` INNER JOIN `stock` ON `product`.`id` = `stock`.`product_id` INNER JOIN `category` ON `product`.`category_id` = `category`.`id` INNER JOIN `flavor` ON `product`.`flavor_id` = `flavor`.`id` ";
+            String querry = "SELECT * FROM `product` INNER JOIN `stock` ON `product`.`stock_id` = `stock`.`id` INNER JOIN `category` ON `product`.`category_id` = `category`.`id` INNER JOIN `flavor` ON `product`.`flavor_id` = `flavor`.`id` ";
 
             if (type != "All") {
                 querry += "WHERE `category`.`category` = '" + type + "'";

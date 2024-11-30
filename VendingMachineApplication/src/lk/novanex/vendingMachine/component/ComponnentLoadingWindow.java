@@ -4,22 +4,17 @@
  */
 package lk.novanex.vendingMachine.component;
 
-import javax.swing.JPanel;
-
 /**
  *
  * @author Madusanka
  */
 public class ComponnentLoadingWindow extends javax.swing.JPanel {
-    
-    public static JPanel adminWindow;
 
     /**
      * Creates new form ComponnentLoadingWindow
      */
     public ComponnentLoadingWindow() {
         initComponents();
-        adminWindow = this;
     }
 
     /**

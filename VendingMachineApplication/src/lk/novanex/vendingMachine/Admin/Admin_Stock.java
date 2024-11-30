@@ -83,11 +83,6 @@ public class Admin_Stock extends javax.swing.JPanel {
         jLabel5.setForeground(new java.awt.Color(245, 245, 245));
         jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel5.setText("+ Add Stock");
-        jLabel5.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel5MouseClicked(evt);
-            }
-        });
 
         javax.swing.GroupLayout roundPanel2Layout = new javax.swing.GroupLayout(roundPanel2);
         roundPanel2.setLayout(roundPanel2Layout);
@@ -143,13 +138,6 @@ public class Admin_Stock extends javax.swing.JPanel {
             .addComponent(roundPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
-
-    private void jLabel5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel5MouseClicked
-        AddStockNew ap = new AddStockNew();
-        AdminComponnentWindow.adminComponnent.removeAll();
-        AdminComponnentWindow.adminComponnent.add(ap);
-        SwingUtilities.updateComponentTreeUI(AdminComponnentWindow.adminComponnent);
-    }//GEN-LAST:event_jLabel5MouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
