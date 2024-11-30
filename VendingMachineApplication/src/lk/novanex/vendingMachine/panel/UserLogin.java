@@ -298,13 +298,13 @@ public class UserLogin extends javax.swing.JPanel {
                 } else {
                     attempts++;    
                     if (attempts == 1) {
-                        JOptionPane.showMessageDialog(this, "2 attemps only.", "Error", JOptionPane.ERROR_MESSAGE);
+                        jLabel2.setText("You Have 2 Attempts");
                         reset();
                     }else if (attempts == 2) {
-                        JOptionPane.showMessageDialog(this, "1 attemp only.", "Error", JOptionPane.ERROR_MESSAGE);
+                        jLabel2.setText("You Have 1 Attempt");
                         reset();
                     }else if (attempts >= 3) {
-                        JOptionPane.showMessageDialog(this, "Sorry start again from the beginning.", "Error", JOptionPane.ERROR_MESSAGE);
+                        jLabel2.setText("Sorry, start again!");
                         reset();
                     }
                 }
