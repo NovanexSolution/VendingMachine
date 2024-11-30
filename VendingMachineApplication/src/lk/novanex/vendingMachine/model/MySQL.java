@@ -14,6 +14,7 @@ public class MySQL {
     private static String user = "root";
     private static String pswd = "SuV@gmv0";
 
+
     public static void createConnection() throws Exception {
         if (con == null) {
             System.out.println("start");
