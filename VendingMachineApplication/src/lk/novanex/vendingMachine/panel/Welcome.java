@@ -6,15 +6,12 @@ package lk.novanex.vendingMachine.panel;
 
 import com.formdev.flatlaf.util.SwingUtils;
 import java.awt.Color;
-import java.awt.Font;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.SwingUtilities;
-import lk.novanex.vendingMachine.component.ComponnentLoadingWindow;
 import lk.novanex.vendingMachine.component.ProductWindow;
 import lk.novanex.vendingMachine.gui.FrontView;
-import lk.novanex.vendingMachine.gui.Main;
 import lk.novanex.vendingMachine.model.CheckCard;
 
 /**
@@ -23,7 +20,6 @@ import lk.novanex.vendingMachine.model.CheckCard;
  */
 public class Welcome extends javax.swing.JPanel {
 
-    String lang = "eng";
     public static String USERTYPE;
 
     /**
@@ -32,12 +28,8 @@ public class Welcome extends javax.swing.JPanel {
     public Welcome() {
         initComponents();
         init();
-//        CheckCard checkCard = new CheckCard();
-//        try {
-//            checkCard.scanCard();
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//        }
+        CheckCard checkCard = new CheckCard();
+        checkCard.scanCard();
     }
 
     private void init() {
@@ -52,19 +44,7 @@ public class Welcome extends javax.swing.JPanel {
         this.setVisible(true);
     }
 
-    private void changeLang() {
-        if (this.lang == "eng") {
-            Font font = new Font("poppins", Font.BOLD, 24);
-            jLabel2.setFont(font);
-            jLabel2.setText("Insert Your Smart Card. If you don't have a Card Click on Go Button");
-        }
-
-        if (this.lang == "sinhale") {
-            Font font = new Font("FMBasuru", Font.PLAIN, 32);
-            jLabel2.setFont(font);
-            jLabel2.setText("Tnf.a iaud¾Ü ldâm; we;=,a lrkak' Tng lâm;la fkdue;skï fnd;a;u la,sla lrkak");
-        }
-    }
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -79,25 +59,11 @@ public class Welcome extends javax.swing.JPanel {
         jLabel1 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jPanel2 = new javax.swing.JPanel();
-        jPanel4 = new javax.swing.JPanel();
-        jLabel5 = new javax.swing.JLabel();
-        jPanel3 = new javax.swing.JPanel();
-        jLabel4 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(245, 245, 245));
         setPreferredSize(new java.awt.Dimension(1000, 750));
 
         jPanel1.setBackground(new java.awt.Color(51, 255, 51));
-        jPanel1.addAncestorListener(new javax.swing.event.AncestorListener() {
-            public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
-                jPanel1AncestorAdded(evt);
-            }
-            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
-            }
-            public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
-            }
-        });
         jPanel1.add(jLabel1);
 
         jLabel3.setText("jLabel3");
@@ -108,73 +74,10 @@ public class Welcome extends javax.swing.JPanel {
         });
         jPanel1.add(jLabel3);
 
-        jLabel2.setFont(new java.awt.Font("Poppins", 1, 24)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Poppins", 0, 18)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(29, 29, 29));
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel2.setText("Insert Your Smart Card. If you don't have a Card Click on Go Button");
-
-        jPanel4.setBackground(new java.awt.Color(255, 102, 51));
-        jPanel4.setPreferredSize(new java.awt.Dimension(180, 140));
-
-        jLabel5.setBackground(new java.awt.Color(204, 204, 204));
-        jLabel5.setFont(new java.awt.Font("Poppins", 1, 24)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel5.setText("English");
-        jLabel5.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel5MouseClicked(evt);
-            }
-        });
-
-        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
-        jPanel4.setLayout(jPanel4Layout);
-        jPanel4Layout.setHorizontalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 180, Short.MAX_VALUE)
-        );
-        jPanel4Layout.setVerticalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel4Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(86, Short.MAX_VALUE))
-        );
-
-        jPanel2.add(jPanel4);
-
-        jPanel3.setBackground(new java.awt.Color(255, 102, 51));
-        jPanel3.setPreferredSize(new java.awt.Dimension(180, 140));
-
-        jLabel4.setBackground(new java.awt.Color(204, 204, 204));
-        jLabel4.setFont(new java.awt.Font("Abhaya Libre ExtraBold", 1, 24)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel4.setText("සිංහල");
-        jLabel4.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel4MouseClicked(evt);
-            }
-        });
-
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 180, Short.MAX_VALUE)
-            .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 180, Short.MAX_VALUE))
-        );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 140, Short.MAX_VALUE)
-            .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel3Layout.createSequentialGroup()
-                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 83, Short.MAX_VALUE)))
-        );
-
-        jPanel2.add(jPanel3);
+        jLabel2.setText("Click GO Button If You are New User");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -182,61 +85,33 @@ public class Welcome extends javax.swing.JPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 1000, Short.MAX_VALUE)
-            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(343, Short.MAX_VALUE)
+                .addContainerGap(365, Short.MAX_VALUE)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel2)
-                .addGap(29, 29, 29)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(61, 61, 61))
+                .addGap(140, 140, 140))
         );
     }// </editor-fold>//GEN-END:initComponents
 
     private void jLabel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseClicked
         USERTYPE = "new";
         ProductWindow pv = new ProductWindow();
-        ComponnentLoadingWindow clw = new ComponnentLoadingWindow();
-        clw.add(pv);
-        Main.rootPanel.removeAll();
-        Main.rootPanel.add(clw);
-            SwingUtilities.updateComponentTreeUI(Main.rootPanel);
+        FrontView.jPanel3.remove(this);
+        FrontView.jPanel3.add(pv);
+        SwingUtilities.updateComponentTreeUI(FrontView.jPanel3);
 
 
     }//GEN-LAST:event_jLabel3MouseClicked
-
-    private void jLabel4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel4MouseClicked
-        System.out.println("change to sinhale");
-        Main.lang = "sinhale";
-        this.lang = Main.lang;
-        changeLang();
-        System.out.println(Main.lang);
-    }//GEN-LAST:event_jLabel4MouseClicked
-
-    private void jLabel5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel5MouseClicked
-        this.lang = "eng";
-        Main.lang = "eng";
-        changeLang();
-    }//GEN-LAST:event_jLabel5MouseClicked
-
-    private void jPanel1AncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_jPanel1AncestorAdded
-        System.out.println("event tigerd");
-    }//GEN-LAST:event_jPanel1AncestorAdded
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
-    private javax.swing.JPanel jPanel4;
     // End of variables declaration//GEN-END:variables
 }
