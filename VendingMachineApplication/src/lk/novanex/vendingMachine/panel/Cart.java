@@ -27,43 +27,45 @@ public class Cart extends javax.swing.JPanel {
     /**
      * Creates new form Cart
      */
-    HashMap<String, Integer> cartMap;
-
-    public Cart(HashMap map, String user) {
-        initComponents();
-        cartMap = map;
-        init();
-        createCart(user);
-        this.setVisible(true);
-    }
-
-    private void init() {
-//        this.putClientProperty(FlatClientProperties.STYLE, "arc:22");
-        this.setSize(1000, 650);
-        this.setBackground(new Color(255, 255, 255, 0));
-        roundPanel1.setSize(1000, 650);
-        roundPanel1.setBackground(new Color(217, 217, 217, 60));
-        roundPanel2.setBackground(new Color(255, 165, 0));
-//        jLabel13.setBackground(new Color(255, 255, 255, 0));
-        jLabel13.setForeground(new Color(245, 245, 245));
-
-        jPanel1.setBackground(new Color(255, 255, 255, 0));
-
-        JLabel[] labels = {jLabel1, jLabel2, jLabel3, jLabel4, jLabel5, jLabel6, jLabel7, jLabel8, jLabel9, jLabel10, jLabel11, jLabel12};
-        for (JLabel label : labels) {
-            label.setForeground(new Color(41, 41, 41));
-        }
-
-        jPanel2.setLayout(new GridLayout(4, 1, 22, 22));
-    }
-
     
-
-   
-
-    private void createCart(String user) {
-        CartItem cartItem = new CartItem();
-    }
+    
+//    HashMap<String, Integer> cartMap;
+//
+//    public Cart(HashMap map, String user) {
+//        initComponents();
+//        cartMap = map;
+//        init();
+//        createCart(user);
+//        this.setVisible(true);
+//    }
+//
+//    private void init() {
+////        this.putClientProperty(FlatClientProperties.STYLE, "arc:22");
+//        this.setSize(1000, 650);
+//        this.setBackground(new Color(255, 255, 255, 0));
+//        roundPanel1.setSize(1000, 650);
+//        roundPanel1.setBackground(new Color(217, 217, 217, 60));
+//        roundPanel2.setBackground(new Color(255, 165, 0));
+////        jLabel13.setBackground(new Color(255, 255, 255, 0));
+//        jLabel13.setForeground(new Color(245, 245, 245));
+//
+//        jPanel1.setBackground(new Color(255, 255, 255, 0));
+//
+//        JLabel[] labels = {jLabel1, jLabel2, jLabel3, jLabel4, jLabel5, jLabel6, jLabel7, jLabel8, jLabel9, jLabel10, jLabel11, jLabel12};
+//        for (JLabel label : labels) {
+//            label.setForeground(new Color(41, 41, 41));
+//        }
+//
+//        jPanel2.setLayout(new GridLayout(4, 1, 22, 22));
+//    }
+//
+//    
+//
+//   
+//
+//    private void createCart(String user) {
+//        CartItem cartItem = new CartItem();
+//    }
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents

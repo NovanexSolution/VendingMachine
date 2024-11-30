@@ -13,19 +13,19 @@ import lk.novanex.vendingMachine.panel.Welcome;
  * @author Madusanka
  */
 public class FrontView extends javax.swing.JFrame {
-    
-            /**
+
+    /**
      * Creates new form FrontView
      */
-    public FrontView() {
+    public FrontView(String name, String cardNo) {
         initComponents();
         init();
         
-       
+        
     }
-    
+
     private void init() {
-        this.setExtendedState(this.MAXIMIZED_BOTH); 
+        this.setExtendedState(this.MAXIMIZED_BOTH);
         Welcome welcomeScreen = new Welcome();
         jPanel3.add(welcomeScreen);
     }
@@ -50,11 +50,11 @@ public class FrontView extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, 1000, Short.MAX_VALUE)
+            .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, 750, Short.MAX_VALUE)
+            .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -71,7 +71,7 @@ public class FrontView extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new FrontView().setVisible(true);
+                //new FrontView().setVisible(true);
             }
         });
     }
