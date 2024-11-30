@@ -5,12 +5,7 @@
 package lk.novanex.vendingMachine.panel;
 
 import java.awt.Color;
-import java.awt.Font;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import javax.swing.ImageIcon;
-import javax.swing.JLabel;
-import lk.novanex.vendingMachine.gui.Main;
 
 /**
  *
@@ -24,71 +19,20 @@ public class FrontTopMenu extends javax.swing.JPanel {
     public FrontTopMenu() {
         initComponents();
         init();
-        setUser();
     }
 
     private void init() {
         this.setBackground(new Color(255, 165, 0));
         this.setSize(1000, 100);
-
+        
         ImageIcon arrow = new ImageIcon("src/img/arrw.png");
         jLabel3.setText("");
         jLabel3.setIcon(arrow);
-
+        
         ImageIcon lang = new ImageIcon("src/img/lang.png");
         jLabel4.setText("");
         jLabel4.setIcon(lang);
-    }
 
-    private void setLang(JLabel l, String lan, int fSize) {
-        if (lan.equals("eng")) {
-            Font font = new Font("poppins", Font.BOLD, fSize);
-            l.setFont(font);
-            jLabel2.setFont(font);
-            jLabel2.setText("English");
-        }
-
-        if (lan.equals("sinhale")) {
-            Font font = new Font("FMBasuru", Font.PLAIN, fSize);
-            l.setFont(font);
-             jLabel2.setFont(font);
-            jLabel2.setText("isxy,");
-        }
-
-    }
-
-    private void setUser() {
-        System.out.println(Welcome.USERTYPE);
-        if (Welcome.USERTYPE == "new") {
-            Date d = new Date();
-            SimpleDateFormat format = new SimpleDateFormat("aa");
-            String timePeriod = format.format(d);
-            System.out.println(timePeriod);
-            if (timePeriod.equals("AM")) {
-                if (Main.lang == "eng") {
-                    setLang(jLabel1, "eng", 24);
-                    jLabel1.setText("Hi, Good Morning!");
-                }
-
-                if (Main.lang == "sinhale") {
-                    setLang(jLabel1, "sinhale", 32);
-                    jLabel1.setText("iqn WoEikla");
-                }
-            }
-
-            if (timePeriod.equals("PM")) {
-                if (Main.lang == "eng") {
-                   setLang(jLabel1, "eng", 24);
-                    jLabel1.setText("Hi, Good Evening!");
-                }
-
-                if (Main.lang == "sinhale") {
-                    setLang(jLabel1, "sinhale", 32);
-                    jLabel1.setText("iqn ikaoHdjla");
-                }
-
-            }
-        }
     }
 
     /**

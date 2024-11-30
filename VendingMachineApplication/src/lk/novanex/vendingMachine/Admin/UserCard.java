@@ -14,25 +14,14 @@ import javax.swing.JLabel;
  * @author ASUS
  */
 public class UserCard extends javax.swing.JPanel {
-    
-    String userId;
 
     /**
      * Creates new form UserCard
      */
-    public UserCard(String id, String name, String date, String spend) {
+    public UserCard() {
         initComponents();
         init();
-        userId = id;
-        setContent(name, date, spend);
         this.setVisible(true);
-    }
-    
-    public  void setContent(String name, String date, String spend) {
-        jLabel2.setText(name);
-        jLabel4.setText(date);
-        jLabel6.setText(spend);
-        
     }
 
     private void init() {
@@ -62,12 +51,6 @@ public class UserCard extends javax.swing.JPanel {
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-
-        addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                formMouseClicked(evt);
-            }
-        });
 
         jLabel2.setFont(new java.awt.Font("Poppins", 1, 22)); // NOI18N
         jLabel2.setText("Jhone Deo");
@@ -141,10 +124,6 @@ public class UserCard extends javax.swing.JPanel {
             .addComponent(roundPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
-
-    private void formMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formMouseClicked
-        System.out.println(userId);
-    }//GEN-LAST:event_formMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

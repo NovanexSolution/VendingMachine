@@ -27,9 +27,6 @@ public class Admin_Login extends javax.swing.JPanel {
     }
 
     private void init() {
-        jPanel1.setBackground(new Color(255,255,255,0));
-        jPanel2.setBackground(new Color(255,255,255,0));
-        
         this.setSize(1000, 750);
         this.setBackground(new Color(255, 255, 255, 0));
         adminLoginGradient1.setSize(1000, 750);
@@ -60,7 +57,6 @@ public class Admin_Login extends javax.swing.JPanel {
 
         adminLoginGradient1 = new lk.novanex.vendingMachine.component.AdminLoginGradient();
         jLabel1 = new javax.swing.JLabel();
-        jPanel1 = new javax.swing.JPanel();
         roundPanel1 = new Componnent.RoundPanel();
         jTextField1 = new javax.swing.JTextField();
         roundPanel2 = new Componnent.RoundPanel();
@@ -70,7 +66,6 @@ public class Admin_Login extends javax.swing.JPanel {
         roundPanel4 = new Componnent.RoundPanel();
         jTextField4 = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
-        jPanel2 = new javax.swing.JPanel();
         loginBtn1 = new lk.novanex.vendingMachine.component.LoginBtn();
         jLabel3 = new javax.swing.JLabel();
 
@@ -99,8 +94,6 @@ public class Admin_Login extends javax.swing.JPanel {
                 .addContainerGap())
         );
 
-        jPanel1.add(roundPanel1);
-
         jTextField2.setFont(new java.awt.Font("Poppins", 1, 44)); // NOI18N
         jTextField2.setForeground(new java.awt.Color(225, 113, 113));
 
@@ -120,8 +113,6 @@ public class Admin_Login extends javax.swing.JPanel {
                 .addComponent(jTextField2, javax.swing.GroupLayout.DEFAULT_SIZE, 88, Short.MAX_VALUE)
                 .addContainerGap())
         );
-
-        jPanel1.add(roundPanel2);
 
         jTextField3.setFont(new java.awt.Font("Poppins", 1, 44)); // NOI18N
         jTextField3.setForeground(new java.awt.Color(225, 113, 113));
@@ -143,8 +134,6 @@ public class Admin_Login extends javax.swing.JPanel {
                 .addContainerGap())
         );
 
-        jPanel1.add(roundPanel3);
-
         jTextField4.setFont(new java.awt.Font("Poppins", 1, 44)); // NOI18N
         jTextField4.setForeground(new java.awt.Color(225, 113, 113));
 
@@ -165,11 +154,8 @@ public class Admin_Login extends javax.swing.JPanel {
                 .addContainerGap())
         );
 
-        jPanel1.add(roundPanel4);
-
         jLabel2.setFont(new java.awt.Font("Poppins", 0, 20)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(245, 245, 245));
-        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel2.setText("You Have 3 Attempts ");
 
         jLabel3.setFont(new java.awt.Font("Poppins", 0, 36)); // NOI18N
@@ -187,30 +173,46 @@ public class Admin_Login extends javax.swing.JPanel {
             .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE)
         );
 
-        jPanel2.add(loginBtn1);
-
         javax.swing.GroupLayout adminLoginGradient1Layout = new javax.swing.GroupLayout(adminLoginGradient1);
         adminLoginGradient1.setLayout(adminLoginGradient1Layout);
         adminLoginGradient1Layout.setHorizontalGroup(
             adminLoginGradient1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 1128, Short.MAX_VALUE)
-            .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, adminLoginGradient1Layout.createSequentialGroup()
+                .addGap(114, 275, Short.MAX_VALUE)
+                .addGroup(adminLoginGradient1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel2)
+                    .addGroup(adminLoginGradient1Layout.createSequentialGroup()
+                        .addComponent(roundPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(adminLoginGradient1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(adminLoginGradient1Layout.createSequentialGroup()
+                                .addGap(18, 18, 18)
+                                .addComponent(roundPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(roundPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(roundPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(adminLoginGradient1Layout.createSequentialGroup()
+                                .addGap(9, 9, 9)
+                                .addComponent(loginBtn1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addGap(271, 271, 271))
+            .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         adminLoginGradient1Layout.setVerticalGroup(
             adminLoginGradient1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(adminLoginGradient1Layout.createSequentialGroup()
                 .addGap(148, 148, 148)
                 .addComponent(jLabel1)
-                .addGap(39, 39, 39)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(26, 26, 26)
+                .addGap(47, 47, 47)
+                .addGroup(adminLoginGradient1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(roundPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(roundPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(roundPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(roundPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
                 .addComponent(jLabel2)
-                .addGap(57, 57, 57)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(175, Short.MAX_VALUE))
+                .addGap(78, 78, 78)
+                .addComponent(loginBtn1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(174, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -231,8 +233,6 @@ public class Admin_Login extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;

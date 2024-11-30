@@ -18,22 +18,10 @@ public class StockCard extends javax.swing.JPanel {
     /**
      * Creates new form StockCard
      */
-    public StockCard(String title, String pDate, String expdate, String price, String qty, String img) {
+    public StockCard() {
         initComponents();
         init();
-        setupCard(title, pDate, expdate, price, qty, img);
         this.setVisible(true);
-    }
-    
-    private void setupCard(String title, String pDate, String expdate, String price, String qty, String img) {
-        jLabel2.setText(title);
-        jLabel5.setText(pDate);
-        jLabel6.setText(expdate);
-        jLabel7.setText(price + " LKR");
-        jLabel8.setText("QTY : " + qty);
-        
-        ImageIcon icon = new ImageIcon(img);
-        jLabel1.setIcon(icon);
     }
 
     private void init() {

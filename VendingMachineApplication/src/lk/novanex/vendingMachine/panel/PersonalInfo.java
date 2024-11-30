@@ -33,7 +33,6 @@ import lk.novanex.vendingMachine.model.MySQL;
  */
 public class PersonalInfo extends javax.swing.JPanel {
 
-    
     /**
      * Creates new form PersonalInfo
      */
