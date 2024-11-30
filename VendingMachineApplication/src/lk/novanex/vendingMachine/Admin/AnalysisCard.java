@@ -18,10 +18,21 @@ public class AnalysisCard extends javax.swing.JPanel {
     /**
      * Creates new form AnalysisCard
      */
-    public AnalysisCard() {
+    public AnalysisCard(String title, String price, String sellCount, String restCount, String img) {
         initComponents();
         init();
+        setupCard(title, price, sellCount, restCount, img);
         this.setVisible(true);
+    }
+    
+    private void setupCard(String title, String price, String sellCount, String restCount, String img) {
+        jLabel2.setText(title);
+        jLabel7.setText(price + " LKR   ");
+        jLabel3.setText("Sell: "+sellCount + " Items");
+        jLabel4.setText("Rest : "+ restCount +" Items   ");
+        
+        ImageIcon icon = new ImageIcon(img);
+        jLabel1.setIcon(icon);
     }
     
     private void init() {
@@ -58,7 +69,7 @@ public class AnalysisCard extends javax.swing.JPanel {
         jLabel2.setText("Potato Chips");
 
         jLabel7.setFont(new java.awt.Font("Poppins", 0, 24)); // NOI18N
-        jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         jLabel7.setText("320 LKR");
 
         jLabel3.setFont(new java.awt.Font("Poppins", 1, 26)); // NOI18N
@@ -66,6 +77,7 @@ public class AnalysisCard extends javax.swing.JPanel {
         jLabel3.setText("Sell : 15 Items");
 
         jLabel4.setFont(new java.awt.Font("Poppins", 1, 26)); // NOI18N
+        jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         jLabel4.setText("Rest : 10 Items");
 
         javax.swing.GroupLayout roundPanel1Layout = new javax.swing.GroupLayout(roundPanel1);
@@ -75,19 +87,15 @@ public class AnalysisCard extends javax.swing.JPanel {
             .addGroup(roundPanel1Layout.createSequentialGroup()
                 .addGap(23, 23, 23)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(36, 36, 36)
+                .addGroup(roundPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, 202, Short.MAX_VALUE)
+                    .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(roundPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(roundPanel1Layout.createSequentialGroup()
-                        .addGap(49, 49, 49)
-                        .addComponent(jLabel2)
-                        .addGap(179, 179, 179)
-                        .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, 90, Short.MAX_VALUE)
-                        .addGap(27, 27, 27))
-                    .addGroup(roundPanel1Layout.createSequentialGroup()
-                        .addGap(36, 36, 36)
-                        .addComponent(jLabel3)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel4)
-                        .addGap(45, 45, 45))))
+                    .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, 242, Short.MAX_VALUE))
+                .addContainerGap())
         );
         roundPanel1Layout.setVerticalGroup(
             roundPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

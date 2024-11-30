@@ -10,9 +10,10 @@ public class MySQL {
     private static Connection con;
     
     private static String dbName = "mydb";
-    private static String port = "3306";
+    private static String port = "3307";
     private static String user = "root";
-    private static String pswd = "Minu@123";
+    private static String pswd = "SuV@gmv0";
+
 
     public static void createConnection() throws Exception {
         if (con == null) {

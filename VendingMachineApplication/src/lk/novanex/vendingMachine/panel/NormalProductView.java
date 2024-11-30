@@ -85,7 +85,7 @@ public class NormalProductView extends javax.swing.JPanel {
 
     private void laodProducts(String type) {
         try {
-            String querry = "SELECT * FROM `product` INNER JOIN `stock` ON `product`.`stock_id` = `stock`.`id` INNER JOIN `category` ON `product`.`category_id` = `category`.`id` INNER JOIN `flavor` ON `product`.`flavor_id` = `flavor`.`id`  ";
+            String querry = "SELECT * FROM `product` INNER JOIN `stock` ON `product`.`id` = `stock`.`product_id` INNER JOIN `category` ON `product`.`category_id` = `category`.`id` INNER JOIN `flavor` ON `product`.`flavor_id` = `flavor`.`id` ";
 
             if (type != "All") {
                 querry += "WHERE `category`.`category` = '" + type + "'";
@@ -157,8 +157,8 @@ public class NormalProductView extends javax.swing.JPanel {
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(productBack1, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 1138, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 1144, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(productNext2, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
@@ -170,9 +170,9 @@ public class NormalProductView extends javax.swing.JPanel {
                 .addComponent(productFilter1, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(productNext2, javax.swing.GroupLayout.DEFAULT_SIZE, 680, Short.MAX_VALUE)
-                    .addComponent(productBack1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addComponent(productBack1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
     }// </editor-fold>//GEN-END:initComponents
 
