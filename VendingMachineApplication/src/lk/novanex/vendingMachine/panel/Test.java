@@ -1,104 +1,95 @@
-import javax.swing.*;
-import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.util.ArrayList;
-import java.util.List;
+package lk.novanex.vendingMachine.panel;
 
-public class Test {
-    private static final int PANELS_PER_PAGE = 1; // Number of panels per page
-    private int currentPage = 0; // Track the current page index
-    private final List<JPanel> panelList = new ArrayList<>(); // Store all panels
-    private final JPanel gridPanel = new JPanel(new GridLayout(4, 1)); // Grid panel to display panels
-    private final JButton leftButton = new JButton("Left");
-    private final JButton rightButton = new JButton("Right");
+import java.awt.Color;
+import java.awt.Component;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.util.HashSet;
+import java.util.Set;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import lk.novanex.vendingMachine.component.RoundPanel;
+
+public class Test extends javax.swing.JPanel {
+
+    Set<String> categorySet = new HashSet<>();
+
+    private void getCategory() {
+        categorySet.add("Chips");
+        categorySet.add("Choco");
+    }
 
     public Test() {
-        // Create the main frame
-        JFrame frame = new JFrame("Grid Panel Navigation");
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setSize(400, 600);
-        frame.setLayout(new BorderLayout());
+        initComponents();
+        categorySet.add("All");
+        getCategory();
+        init();
+    }
 
-        // Populate the panel list with sample panels
-        for (int i = 1; i <= 10; i++) {
-            JPanel panel = new JPanel();
-            panel.setBackground(new Color(100 + i * 10, 100 + i * 15, 200)); // Random color
-            panel.add(new JLabel("Panel " + i)); // Label for identification
-            panelList.add(panel);
+    private void init() {
+        for (String category : categorySet) {
+            createElement(category);
+        }
+    }
+
+    private void createElement(String text) {
+        // Creating a new RoundPanel and JLabel for each category
+        RoundPanel roundPanel2 = new RoundPanel();
+        JLabel jLabel1 = new JLabel();
+
+        // Initial background and text color based on category
+        if (text.equals("All")) {
+            roundPanel2.setBackground(new Color(255, 165, 0)); // Orange for "All"
+            jLabel1.setForeground(Color.WHITE);
+        } else {
+            roundPanel2.setBackground(new Color(245, 245, 245)); // Light gray for others
+            jLabel1.setForeground(new Color(29, 29, 29));
         }
 
-        // Add navigation buttons
-        JPanel navigationPanel = new JPanel();
-        navigationPanel.setLayout(new FlowLayout(FlowLayout.CENTER));
-        navigationPanel.add(leftButton);
-        navigationPanel.add(rightButton);
+        // Setting dimensions and text properties for jLabel1
+        roundPanel2.setPreferredSize(new java.awt.Dimension(100, 46));
+        jLabel1.setFont(new java.awt.Font("Poppins", 1, 20));
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setText(text);
 
-        // Add action listeners to buttons
-        leftButton.addActionListener(new ActionListener() {
+        // Adding MouseListener to both label and panel
+        MouseAdapter colorChangeListener = new MouseAdapter() {
             @Override
-            public void actionPerformed(ActionEvent e) {
-                navigatePanels(-1); // Go to the previous set of panels
+            public void mouseClicked(MouseEvent e) {
+                // Reset all panels to deselected color (Gray background, Black text)
+                for (Component comp : getComponents()) {
+                    if (comp instanceof RoundPanel) {
+                        comp.setBackground(Color.GRAY); // Deselected background color
+                        Component[] innerComponents = ((JPanel) comp).getComponents();
+                        if (innerComponents.length > 0 && innerComponents[0] instanceof JLabel) {
+                            innerComponents[0].setForeground(Color.BLACK); // Deselected text color
+                        }
+                    }
+                }
+
+                // Set clicked panel to selected color (Orange background, White text)
+                roundPanel2.setBackground(new Color(255, 165, 0)); // Selected background color
+                jLabel1.setForeground(Color.WHITE); // Selected text color
             }
-        });
+        };
+        
+        // Attach the listener to both the label and the panel
+        roundPanel2.addMouseListener(colorChangeListener);
+        jLabel1.addMouseListener(colorChangeListener);
 
-        rightButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                navigatePanels(1); // Go to the next set of panels
-            }
-        });
+        // Setting layout and adding label to roundPanel2
+        roundPanel2.setLayout(new javax.swing.BoxLayout(roundPanel2, javax.swing.BoxLayout.Y_AXIS));
+        roundPanel2.add(jLabel1);
 
-        // Add components to the frame
-        frame.add(gridPanel, BorderLayout.CENTER);
-        frame.add(navigationPanel, BorderLayout.SOUTH);
-
-        // Load the first set of panels
-        updateGrid();
-
-        frame.setVisible(true);
+        // Adding the dynamically created RoundPanel to the main panel
+        add(roundPanel2);
     }
 
-    /**
-     * Navigate through the panel list and update the grid.
-     *
-     * @param direction Direction of navigation: -1 for left, 1 for right
-     */
-    private void navigatePanels(int direction) {
-        int totalPages = (int) Math.ceil((double) panelList.size() / PANELS_PER_PAGE);
-
-        // Update the current page index
-        currentPage += direction;
-        if (currentPage < 0) {
-            currentPage = 0; // Prevent going below the first page
-        } else if (currentPage >= totalPages) {
-            currentPage = totalPages - 1; // Prevent going beyond the last page
-        }
-
-        // Update the grid
-        updateGrid();
+    private void initComponents() {
+        // Initialize roundPanel1
+        roundPanel1 = new lk.novanex.vendingMachine.component.RoundPanel();
+        setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 20, 5));
     }
 
-    /**
-     * Update the grid panel with the current set of panels based on the current page.
-     */
-    private void updateGrid() {
-        gridPanel.removeAll(); // Clear the grid panel
-
-        // Calculate the start and end indices for the current page
-        int startIndex = currentPage * PANELS_PER_PAGE;
-        int endIndex = Math.min(startIndex + PANELS_PER_PAGE, panelList.size());
-
-        // Add panels for the current page
-        for (int i = startIndex; i < endIndex; i++) {
-            gridPanel.add(panelList.get(i));
-        }
-
-        gridPanel.revalidate(); // Revalidate to refresh the layout
-        gridPanel.repaint(); // Repaint to display changes
-    }
-
-    public static void main(String[] args) {
-        SwingUtilities.invokeLater(Test::new);
-    }
+    private lk.novanex.vendingMachine.component.RoundPanel roundPanel1;
 }
